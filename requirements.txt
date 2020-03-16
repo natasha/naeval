@@ -2,6 +2,8 @@
 requests
 docker
 intervaltree
+pandas
+
 pullenti_client
 razdel
 corus

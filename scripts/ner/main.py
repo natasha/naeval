@@ -16,7 +16,7 @@ from naeval.const import (
     MITIE, NATASHA, PULLENTI,
     TEXTERRA, TOMITA,
 
-    ETALON, JL, GZ
+    SOURCE, JL, GZ
 )
 from naeval.io import (
     format_jl,
@@ -46,6 +46,12 @@ from naeval.ner.markup import (
     Markup,
     show_markup
 )
+from naeval.ner.score import score_markups
+from naeval.ner.report import (
+    report_table,
+    format_report,
+    format_github_report
+)
 
 
 CORUS_DATA_DIR = expanduser('~/proj/corus-data')
@@ -57,21 +63,20 @@ CORUS_FILES = {
     WIKINER: 'aij-wikiner-ru-wp3.bz2',
 }
 
-LOADS = {
+SOURCES = {
     FACTRU: load_factru,
-    BSNLP: load_bsnlp,
-    NE5: load_ne5,
     GAREEV: load_gareev,
-    WIKINER: load_wikiner,
+    NE5: load_ne5,
+    BSNLP: load_bsnlp,
 }
 ANNS = {
     DEEPPAVLOV: DeeppavlovAnnotator,
     DEEPPAVLOV_BERT: DeeppavlovBERTAnnotator,
-    MITIE: MitieAnnotator,
-    NATASHA: NatashaAnnotator,
     PULLENTI: PullentiAnnotator,
     TEXTERRA: TexterraAnnotator,
     TOMITA: TomitaAnnotator,
+    NATASHA: NatashaAnnotator,
+    MITIE: MitieAnnotator,
 }
 
 DATA_DIR = expanduser('~/proj/naeval/data/ner')

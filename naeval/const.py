@@ -1,7 +1,7 @@
 
 JL = '.jl'
 GZ = '.gz'
-ETALON = 'etalon'
+SOURCE = 'source'
 
 FACTRU = 'factru'
 NE5 = 'ne5'
