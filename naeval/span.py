@@ -55,19 +55,11 @@ def envelop_spans(envelope, spans):
 ############
 
 
-def select_misaligned(envelopes, spans):
+def filter_misaligned_spans(envelopes, spans):
     starts = {_.start for _ in spans}
     stops = {_.stop for _ in spans}
     for span in envelopes:
-        if span.start not in starts or span.stop not in stops:
-            yield span
-
-
-def filter_misaligned_spans(envelopes, spans):
-    selected = select_misaligned(envelopes, spans)
-    ids = {id(_) for _ in selected}
-    for span in envelopes:
-        if id(span) not in ids:
+        if span.start in starts and span.stop in stops:
             yield span
 
 
@@ -78,23 +70,14 @@ def filter_misaligned_spans(envelopes, spans):
 ##########
 
 
-def select_overlapping(spans):
+def filter_overlapping_spans(spans):
     previous = None
     spans = sorted(spans, key=lambda _: (_.start, -_.stop))
     for span in spans:
         if previous and previous.stop > span.start:
-            yield previous, span
             continue
+        yield span
         previous = span
-
-
-def filter_overlapping(spans):
-    ids = set()
-    for previous, span in select_overlapping(spans):
-        ids.add(id(span))
-    for span in spans:
-        if id(span) not in ids:
-            yield span
 
 
 def split_overlapping_spans(spans):

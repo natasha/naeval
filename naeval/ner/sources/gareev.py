@@ -1,28 +1,39 @@
 
 from corus import load_gareev as load_gareev_
 
-from naeval.const import GAREEV
-from naeval.span import Span
+from naeval.tokenizer import Token
 
+from ..bio import bio_spans
 from ..markup import Markup
 from ..adapt import adapt_gareev
 
 
 class GareevMarkup(Markup):
-    label = GAREEV
-
     @property
     def adapted(self):
         return adapt_gareev(self)
 
-    @classmethod
-    def from_corus(self, record):
-        return GareevMarkup(
-            record.text,
-            [Span(*_) for _ in record.spans]
-        )
+
+def chunk_tokens(chunks, sep=1):
+    start = 0
+    for chunk in chunks:
+        stop = start + len(chunk)
+        yield Token(start, stop, chunk)
+        start = stop + sep
+
+
+def parse_gareev(record):
+    chunks, tags = [], []
+    for chunk, tag in record.tokens:
+        chunks.append(chunk)
+        tags.append(tag)
+
+    text = ' '.join(chunks)
+    tokens = chunk_tokens(chunks)
+    spans = list(bio_spans(tokens, tags))
+    return GareevMarkup(text, spans)
 
 
 def load_gareev(dir):
     for record in load_gareev_(dir):
-        yield GareevMarkup.from_corus(record)
+        yield parse_gareev(record)

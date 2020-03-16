@@ -1,4 +1,7 @@
 
+JL = '.jl'
+GZ = '.gz'
+ETALON = 'etalon'
 
 FACTRU = 'factru'
 NE5 = 'ne5'
@@ -15,6 +18,7 @@ TEXTERRA = 'texterra'
 TOMITA = 'tomita'
 
 LOCALHOST = 'localhost'
+PORT = 8090
 
 PER = 'PER'
 ORG = 'ORG'

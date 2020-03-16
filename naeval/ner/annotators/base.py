@@ -2,9 +2,15 @@
 from time import sleep
 
 import requests
+from requests import ConnectionError, RequestException
 
-from naeval.const import LOCALHOST
+from naeval.const import LOCALHOST, PORT
 from naeval.record import Record
+from naeval.log import dot
+from naeval.docker import (
+    docker_run,
+    docker_rm
+)
 
 
 class AnnotatorError(Exception):
@@ -16,7 +22,7 @@ def post(url, **kwargs):
         response = requests.post(url, **kwargs)
         response.raise_for_status()
         return response
-    except requests.RequestException as error:
+    except (ConnectionError, RequestException) as error:
         message = str(error)
         raise AnnotatorError(message)
 
@@ -32,7 +38,7 @@ class Annotator(Record):
     retries = 30
     delay = 2
 
-    def __init__(self, host=LOCALHOST, port=8090):
+    def __init__(self, host=LOCALHOST, port=PORT):
         self.host = host
         self.port = port
 
@@ -51,16 +57,27 @@ class Annotator(Record):
         except AnnotatorError:
             return False
 
-    def wait(self, callback=None):
+    def wait(self):
         for _ in range(self.retries):
             if self.ready:
                 break
             else:
-                if callback:
-                    callback()
+                dot()
                 sleep(self.delay)
         else:
             raise AnnotatorError('failed to start')
+
+    def start(self, client):
+        docker_run(
+            client,
+            self.image,
+            self.name,
+            self.container_port,
+            self.port
+        )
+
+    def stop(self, client):
+        docker_rm(client, self.name)
 
 
 class ChunkAnnotator(Annotator):

@@ -5,7 +5,7 @@ from naeval.span import (
     convert_span_types,
     filter_empty_spans,
     filter_misaligned_spans,
-    filter_overlapping,
+    filter_overlapping_spans,
     select_type_spans,
     sort_spans,
     split_overlapping_spans,
@@ -82,9 +82,8 @@ BRACKETS = '()'
 DASHES = '-'
 
 
-def pullenti_adapt(markup):
-    spans = list(markup.spans)
-    spans = list(split_overlapping_spans(spans))
+def adapt_pullenti(markup):
+    spans = list(split_overlapping_spans(markup.spans))
     spans = list(strip_spans(spans, markup.text, QUOTES + BRACKETS + DASHES + SPACES))
     spans = list(filter_empty_spans(spans))
     spans = list(adapt_spans(spans, markup.text, PULLENTI_TYPES))
@@ -202,8 +201,7 @@ NATASHA_TYPES = {
 
 
 def adapt_natasha(markup):
-    spans = list(markup.spans)
-    spans = list(filter_overlapping(spans))
+    spans = list(filter_overlapping_spans(markup.spans))
     spans = list(adapt_spans(spans, markup.text, NATASHA_TYPES))
     return Markup(markup.text, spans)
 
@@ -264,11 +262,11 @@ def select_spans(markup):
             yield Span(object.start, object.stop, object.type)
         elif type == 'Org':
             spans = [_ for _ in object.spans if _.type == 'org_name']
-            for span in filter_overlapping(spans):
+            for span in filter_overlapping_spans(spans):
                 yield Span(span.start, span.stop, type)
         elif type in ('LocOrg', 'Location'):
             spans = [_ for _ in object.spans if _.type == 'loc_name']
-            for span in filter_overlapping(spans):
+            for span in filter_overlapping_spans(spans):
                 yield Span(span.start, span.stop, type)
 
 
@@ -278,7 +276,7 @@ def adapt_factru(markup):
     # мид Грузии
     # ORG-------
     #     LOC---
-    spans = list(filter_overlapping(spans))
+    spans = list(filter_overlapping_spans(spans))
 
     spans = list(adapt_spans(spans, markup.text, FACTRU_TYPES))
     return Markup(markup.text, spans)
@@ -318,7 +316,7 @@ NE5_TYPES = {
 }
 
 
-def ne5_adapt(markup):
+def adapt_ne5(markup):
     # ne5 bug
     #   Бражский район Подмосковья
     #   --------------
@@ -327,7 +325,7 @@ def ne5_adapt(markup):
     # компания "Союзкалий"
     #          -----------
 
-    spans = list(filter_overlapping(markup.spans))
+    spans = list(filter_overlapping_spans(markup.spans))
     spans = strip_spans_bounds(spans, markup.text, QUOTES)
     spans = adapt_spans(spans, markup.text, NE5_TYPES)
     return Markup(markup.text, list(spans))

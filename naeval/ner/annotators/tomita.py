@@ -1,5 +1,5 @@
 
-from naeval.const import PER, TOMITA
+from naeval.const import TOMITA, PER
 from naeval.record import Record
 from naeval.io import parse_xml
 from naeval.span import Span
@@ -30,34 +30,8 @@ class TomitaFact(Record):
         self.middle = middle
         self.known_surname = known_surname
 
-    def offset(self, delta):
-        return TomitaFact(
-            self.start + delta,
-            self.stop + delta,
-            self.first,
-            self.last,
-            self.middle,
-            self.known_surname
-        )
-
 
 class TomitaMarkup(Markup):
-    __attributes__ = ['text', 'facts']
-    __annotations__ = {
-        'facts': [TomitaFact]
-    }
-
-    label = TOMITA
-
-    def __init__(self, text, facts):
-        self.text = text
-        self.facts = facts
-
-    @property
-    def spans(self):
-        for fact in self.facts:
-            yield Span(fact.start, fact.stop, PER)
-
     @property
     def adapted(self):
         return adapt_tomita(self)
@@ -90,19 +64,28 @@ def parse_facts(xml):
         )
 
 
-def parse(text, xml):
+def fact_spans(facts):
+    for fact in facts:
+        yield Span(fact.start, fact.stop, PER)
+
+
+def parse_tomita(text, xml):
     assert xml.tag == 'document', xml.tag
     facts = xml.find('facts')
-    facts = list(parse_facts(facts))
-    return TomitaMarkup(text, facts)
+    facts = parse_facts(facts)
+    spans = list(fact_spans(facts))
+    return TomitaMarkup(text, spans)
 
 
-def call(text, host, port):
-    url = TOMITA_URL.format(host=host, port=port)
+def call_tomita(text, host, port):
+    url = TOMITA_URL.format(
+        host=host,
+        port=port
+    )
     payload = text.encode('utf8')
     response = post(url, data=payload)
     xml = parse_xml(response.text)
-    return parse(text, xml)
+    return parse_tomita(text, xml)
 
 
 class TomitaAnnotator(Annotator):
@@ -111,4 +94,4 @@ class TomitaAnnotator(Annotator):
     container_port = TOMITA_CONTAINER_PORT
 
     def __call__(self, text):
-        return call(text, self.host, self.port)
+        return call_tomita(text, self.host, self.port)

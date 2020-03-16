@@ -49,3 +49,9 @@ def sent_spans(sent, spans):
     # sent has start, stop
     spans = envelop_spans(sent, spans)
     return offset_spans(spans, -sent.start)
+
+
+def iter_sents(records):
+    for record in records:
+        for sent in record.sents:
+            yield sent

@@ -16,22 +16,15 @@ class Markup(Record):
         'spans': [Span]
     }
 
-    label = None
-
     def __init__(self, text, spans):
         self.text = text
         self.spans = spans
 
     @property
     def sents(self):
-        cls = self.__class__
         for sent in sentenize(self.text):
             spans = sent_spans(sent, self.spans)
-            yield cls(sent.text, list(spans))
-
-    @property
-    def adapted(self):
-        raise NotImplementedError
+            yield Markup(sent.text, list(spans))
 
 
 def show_markup(text, spans):

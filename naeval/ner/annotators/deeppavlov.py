@@ -6,8 +6,8 @@ from naeval.const import (
     DEEPPAVLOV_BERT
 )
 from naeval.record import Record
-from nerus.tokenizer import space_tokenize
-from nerus.span import offset_spans
+from naeval.tokenizer import tokenize
+from naeval.span import offset_spans
 
 from ..bio import bio_spans
 from ..markup import Markup
@@ -20,54 +20,41 @@ from .base import post, ChunkAnnotator
 DEEPPAVLOV_IMAGE = 'natasha/deeppavlov-ner-ru'
 DEEPPAVLOV_CONTAINER_PORT = 5000
 
-DEEPPAVLOV_SECTION = 1000
-DEEPPAVLOV_BATCH = 100
+# requires ~10Gb GPU RAM
+DEEPPAVLOV_SECTION = 256
+DEEPPAVLOV_BATCH = 64
 
 DEEPPAVLOV_URL = 'http://{host}:{port}/ner'
 
 DEEPPAVLOV_BERT_IMAGE = 'natasha/deeppavlov-ner-ru-bert'
 DEEPPAVLOV_BERT_CONTAINER_PORT = 5000
 
-# assume 200 tokens split by whitespace < 512 bert tokens
-DEEPPAVLOV_BERT_SECTION = 200
-DEEPPAVLOV_BERT_BATCH = 100
-
-DEEPPAVLOV_BERT_URL = 'http://{host}:{port}/ner'
+# ~9Gb
+DEEPPAVLOV_BERT_SECTION = 256
+DEEPPAVLOV_BERT_BATCH = 64
 
 
 class DeeppavlovMarkup(Markup):
-    label = DEEPPAVLOV
-
     @property
     def adapted(self):
         return adapt_deeppavlov(self)
 
 
-class DeeppavlovBERTMarkup(DeeppavlovMarkup):
-    label = DEEPPAVLOV_BERT
+########
+#
+#   SECTION
+#
+######
 
 
 class Section(Record):
-    __attributes__ = ['source', 'start', 'stop', 'text']
+    __attributes__ = ['source', 'start', 'stop', 'text', 'spans']
 
-    def __init__(self, source, start, stop, text, markup=None):
+    def __init__(self, source, start, stop, text, spans=None):
         self.source = source
         self.start = start
         self.stop = stop
         self.text = text
-
-    def annotated(self, spans):
-        return AnnotatedSection(
-            self.source, self.start, self.stop,
-            self.text, spans
-        )
-
-
-class AnnotatedSection(Section):
-    __attributes__ = ['source', 'start', 'stop', 'text', 'spans']
-
-    def __init__(self, source, start, stop, text, spans):
-        Section.__init__(self, source, start, stop, text)
         self.spans = spans
 
 
@@ -82,9 +69,9 @@ def group_chunks(items, size):
         yield buffer
 
 
-def section_texts(texts, size):
+def split_sections(texts, size):
     for source, text in enumerate(texts):
-        tokens = space_tokenize(text)
+        tokens = tokenize(text)
         chunks = group_chunks(tokens, size)
         for chunk in chunks:
             start, stop = chunk[0].start, chunk[-1].stop
@@ -99,9 +86,8 @@ def group_sections(sections):
         yield group
 
 
-def merge_markups(cls, sections):
-    chunks = []
-    spans = []
+def sections_markup(sections):
+    chunks, spans = [], []
     stop = 0
     for section in sections:
         chunks.append(' ' * (section.start - stop))
@@ -109,26 +95,37 @@ def merge_markups(cls, sections):
         spans.extend(offset_spans(section.spans, section.start))
         stop = section.stop
     text = ''.join(chunks)
-    return cls.Markup(text, spans)
+    return DeeppavlovMarkup(text, spans)
+
+
+########
+#
+#  MAP
+#
+#####
 
 
 DEEPPAVLOV_STRIP = r'\s'
 DEEPPAVLOV_BERT_STRIP = r' '
 
 
-def parse(cls, texts, data):
+def parse_deeppavlov(texts, data, mode=DEEPPAVLOV):
+    strip = DEEPPAVLOV_STRIP
+    if mode == DEEPPAVLOV_BERT:
+        strip = DEEPPAVLOV_BERT_STRIP
+
     for text, (chunks, tags) in zip(texts, data):
         # see patch_texts
         if not text.strip():
             spans = []
         else:
-            tokens = list(find_tokens(chunks, text, strip=cls.strip))
+            tokens = find_tokens(chunks, text, strip=strip)
             spans = list(bio_spans(tokens, tags))
-        yield cls.Markup(text, spans)
+        yield DeeppavlovMarkup(text, spans)
 
 
-def call(cls, texts, host, port):
-    url = cls.url.format(
+def call_deeppavlov(texts, host, port, mode=DEEPPAVLOV):
+    url = DEEPPAVLOV_URL.format(
         host=host,
         port=port
     )
@@ -138,7 +135,7 @@ def call(cls, texts, host, port):
         json=payload
     )
     data = response.json()
-    return parse(cls, texts, data)
+    return parse_deeppavlov(texts, data, mode)
 
 
 def patch_texts(texts):
@@ -150,41 +147,52 @@ def patch_texts(texts):
         yield text
 
 
-def map_(cls, batches, host, port):
-    for sections in batches:
-        texts = [_.text for _ in sections]
-        data = call(cls, texts, host, port)
-        markups = list(parse(cls, texts, data))
-        for section, markup in zip(sections, markups):
-            yield section.annotated(markup.spans)
+def map_batches(batches, host, port, mode=DEEPPAVLOV):
+    for batch in batches:
+        texts = [_.text for _ in batch]
+        markups = call_deeppavlov(texts, host, port, mode)
+        for section, markup in zip(batch, markups):
+            section.spans = markup.spans
+            yield section
 
 
-def map(cls, texts, host, port,
-        section_size=DEEPPAVLOV_SECTION, batch_size=DEEPPAVLOV_BATCH):
+def map_deepavlov(texts, host, port,
+                  section_size=DEEPPAVLOV_SECTION, batch_size=DEEPPAVLOV_BATCH,
+                  mode=DEEPPAVLOV):
     texts = patch_texts(texts)
-    sections = section_texts(texts, section_size)
-    batches = group_chunks(sections, batch_size)
-    sections = map_(cls, batches, host, port)
-    groups = group_sections(sections)
+    sections = split_sections(texts, section_size)
+    batches = group_chunks(sections, batch_size)  # group sections for speed
+    sections = map_batches(batches, host, port, mode)  # same sections with annotation
+    groups = group_sections(sections)  # group by text
     for group in groups:
-        yield merge_markups(cls, group)
+        yield sections_markup(group)
 
 
 class DeeppavlovAnnotator(ChunkAnnotator):
     name = DEEPPAVLOV
-
-    Markup = DeeppavlovMarkup
+    image = DEEPPAVLOV_IMAGE
+    container_port = DEEPPAVLOV_CONTAINER_PORT
 
     def map(self, texts):
-        return map(
-            self, texts, self.host, self.port,
-            self.section_size, self.batch_size
+        return map_deepavlov(
+            texts, self.host, self.port,
+            DEEPPAVLOV_SECTION, DEEPPAVLOV_BATCH,
+            mode=DEEPPAVLOV
         )
 
 
 class DeeppavlovBERTAnnotator(DeeppavlovAnnotator):
     name = DEEPPAVLOV_BERT
+    image = DEEPPAVLOV_BERT_IMAGE
+    container_port = DEEPPAVLOV_BERT_CONTAINER_PORT
 
-    # BERT version starts >2min, requires >3GB
+    # BERT version starts >2min
     retries = 100
     delay = 5
+
+    def map(self, texts):
+        return map_deepavlov(
+            texts, self.host, self.port,
+            DEEPPAVLOV_BERT_SECTION, DEEPPAVLOV_BERT_BATCH,
+            mode=DEEPPAVLOV_BERT
+        )

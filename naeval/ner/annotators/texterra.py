@@ -11,8 +11,8 @@ from .base import post, ChunkAnnotator
 TEXTERRA_IMAGE = 'natasha/texterra-russian'
 TEXTERRA_CONTAINER_PORT = 8080
 
-TEXTERRA_CHUNK = 30000
-TEXTERRA_TIMEOUT = 120
+TEXTERRA_CHUNK = 10000  # ~2x faster then without chunking, ~1.7Gb RAM
+TEXTERRA_TIMEOUT = 120  # wait on startup
 # if lang is undefined may try to load eng model and fail
 TEXTERRA_URL = 'http://{host}:{port}/texterra/nlp?targetType=named-entity&language=ru'
 
@@ -36,7 +36,7 @@ def parse_annotations(data):
         yield Span(start, stop, type)
 
 
-def parse(data):
+def parse_texterra(data):
     for item in data:
         text = item['text']
         annotations = item['annotations']
@@ -44,7 +44,7 @@ def parse(data):
         yield TexterraMarkup(text, spans)
 
 
-def call(texts, host, port, timeout):
+def call_texterra(texts, host, port, timeout):
     url = TEXTERRA_URL.format(
         host=host,
         port=port
@@ -55,11 +55,11 @@ def call(texts, host, port, timeout):
         json=payload,
         timeout=timeout
     )
-    return response.json()
+    data = response.json()
+    return parse_texterra(data)
 
 
 def group_chunks(items, cap):
-    items = iter(items)
     chunk = []
     accumulator = 0
     for item in items:
@@ -67,18 +67,20 @@ def group_chunks(items, cap):
         accumulator += size
         if accumulator >= cap and chunk:
             yield chunk
-            chunk = []
+            chunk = [item]
             accumulator = size
-        chunk.append(item)
+        else:
+            chunk.append(item)
     if chunk:
         yield chunk
 
 
-def map(texts, host, port, chunk_size=TEXTERRA_CHUNK, timeout=TEXTERRA_TIMEOUT):
+def map_texterra(texts, host, port,
+                 chunk_size=TEXTERRA_CHUNK, timeout=TEXTERRA_TIMEOUT):
     chunks = group_chunks(texts, chunk_size)
     for chunk in chunks:
-        data = call(chunk, host, port, timeout)
-        for markup in parse(data):
+        markups = call_texterra(chunk, host, port, timeout)
+        for markup in markups:
             yield markup
 
 
@@ -88,4 +90,4 @@ class TexterraAnnotator(ChunkAnnotator):
     container_port = TEXTERRA_CONTAINER_PORT
 
     def map(self, texts):
-        return map(texts, self.host, self.port)
+        return map_texterra(texts, self.host, self.port)

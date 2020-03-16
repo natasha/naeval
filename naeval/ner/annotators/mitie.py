@@ -33,14 +33,14 @@ def parse_spans(tokens, spans):
 MITIE_STRIP = '\xa0\t\r\n '
 
 
-def parse(text, data):
+def parse_mitie(text, data):
     chunks, spans = data
     tokens = list(find_tokens(chunks, text, strip=MITIE_STRIP))
     spans = list(parse_spans(tokens, spans))
     return MitieMarkup(text, spans)
 
 
-def call(text, host, port):
+def call_mitie(text, host, port):
     url = MITIE_URL.format(
         host=host,
         port=port
@@ -48,11 +48,13 @@ def call(text, host, port):
     payload = text.encode('utf8')
     response = post(url, data=payload)
     data = response.json()
-    return parse(text, data)
+    return parse_mitie(text, data)
 
 
 class MitieAnnotator(Annotator):
     name = MITIE
+    image = MITIE_IMAGE
+    container_port = MITIE_CONTAINER_PORT
 
     def __call__(self, text):
-        return call(text, self.host, self.port)
+        return call_mitie(text, self.host, self.port)
