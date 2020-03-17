@@ -5,6 +5,7 @@ from os.path import (
 )
 from random import seed, sample
 
+from IPython.display import HTML
 from tqdm.notebook import tqdm as log_progress
 
 from naeval.log import log
@@ -16,7 +17,9 @@ from naeval.const import (
     MITIE, NATASHA, PULLENTI,
     TEXTERRA, TOMITA,
 
-    SOURCE, JL, GZ
+    SOURCE, JL, GZ,
+
+    GPU, KB, MB, GB
 )
 from naeval.io import (
     format_jl,
@@ -48,9 +51,12 @@ from naeval.ner.markup import (
 )
 from naeval.ner.score import score_markups
 from naeval.ner.report import (
-    report_table,
-    format_report,
-    format_github_report
+    scores_report_table,
+    format_scores_report,
+    format_github_scores_report,
+
+    Bench,
+    format_bench_report
 )
 
 

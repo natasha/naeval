@@ -1,13 +1,15 @@
 
 import pandas as pd
 
+from naeval.record import Record
 from naeval.const import (
     PER, LOC, ORG,
-    WIKINER, GAREEV
+    GAREEV,
+    CPU, GPU, MB
 )
 
 
-def report_table(scores, sources, annotators, types=[PER, LOC, ORG]):
+def scores_report_table(scores, sources, annotators, types=[PER, LOC, ORG]):
     data = []
     for source in sources:
         for annotator in annotators:
@@ -44,7 +46,7 @@ def format_scores(scores):
     )
 
 
-def format_report(table):
+def format_scores_report(table):
     output = pd.DataFrame()
     for column in table.columns:
         output[column] = table[column].map(format_scores)
@@ -55,7 +57,7 @@ def format_report(table):
     return output
 
 
-def format_github_column(column):
+def format_github_scores_column(column, top=3):
     column = [
         (_.value if _ else None)
         for _ in column
@@ -63,28 +65,125 @@ def format_github_column(column):
 
     selection = None
     values = list(filter(None, column))
-    if values:
-        selection = max(values)
+    selection = sorted(values)[-top:]
 
     for value in column:
         cell = ''
         if value:
             cell = '%.3f' % value
-        if selection and value == selection:
+        if value in selection:
             cell = '<b>%s</b>' % cell
         yield cell
 
 
-def format_github_report(table):
+def format_github_scores_report(table):
     output = pd.DataFrame()
     for column in table.columns:
-        source, type = column
-        if source == WIKINER or (source == GAREEV and type == LOC):
+        dataset, type = column
+        if dataset == GAREEV and type == LOC:
             continue
-        output[column] = list(format_github_column(table[column]))
+        output[column] = list(format_github_scores_column(table[column]))
 
     output.index = table.index
     output.columns = pd.MultiIndex.from_tuples(output.columns)
     output.columns.names = [None, 'f1']
 
     return output
+
+
+#########
+#
+#   BENCH
+#
+##########
+
+
+class Bench(Record):
+    __attributes__ = ['annotator', 'init', 'disk', 'ram', 'speed', 'device']
+
+    def __init__(self, annotator, init=None, disk=None, ram=None,
+                 speed=None, device=CPU):
+        self.annotator = annotator
+        self.init = init
+        self.disk = disk
+        self.ram = ram
+        self.speed = speed
+        self.device = device
+
+
+def select_max(values, count=3):
+    return sorted(values)[-count:]
+
+
+def select_min(values, count=3):
+    return sorted(values)[:count]
+
+
+def slice_attr(records, attr):
+    for record in records:
+        yield getattr(record, attr)
+
+
+def slice_init(records):
+    return slice_attr(records, 'init')
+
+
+def slice_disk(records):
+    return slice_attr(records, 'disk')
+
+
+def slice_ram(records):
+    return slice_attr(records, 'ram')
+
+
+def slice_speed(records):
+    for record in records:
+        yield record.speed, record.device == GPU
+
+
+def highlight(column, selection, format):
+    for value in column:
+        select = value in selection
+        value = format(value)
+        if select:
+            value = '<b>%s</b>' % value
+        yield value
+
+
+def format_mb(bytes):
+    mb = bytes / MB
+    return '%0.0f' % mb
+
+
+def format_sec(secs):
+    return '%0.1f' % secs
+
+
+def format_speed(value):
+    its, gpu = value
+    value = '%0.1f' % its
+    if gpu:
+        value += ' (gpu)'
+    return value
+
+
+def format_bench_report(records, annotators):
+    table = pd.DataFrame()
+
+    mapping = {_.annotator: _ for _ in records}
+    records = [mapping[_] for _ in annotators]
+
+    columns = [
+        [slice_init, format_sec, select_min, 'init, s'],
+        [slice_disk, format_mb, select_min, 'disk, mb'],
+        [slice_ram, format_mb, select_min, 'ram, mb'],
+        [slice_speed, format_speed, select_max, 'speed, articles/s']
+    ]
+    for slice, format, select, name in columns:
+        values = list(slice(records))
+        selection = select(values)
+        table[name] = list(highlight(values, selection, format))
+
+    table.index = annotators
+    table.index.name = None
+    return table
