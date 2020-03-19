@@ -1,13 +1,24 @@
 
 JL = '.jl'
 GZ = '.gz'
+TXT = '.txt'
+
 SOURCE = 'source'
+TEXT = 'text'
+SENT = 'sent'
+TOKEN = 'token'
+STATS = 'stats'
 
 FACTRU = 'factru'
 NE5 = 'ne5'
 GAREEV = 'gareev'
 WIKINER = 'wikiner'
 BSNLP = 'bsnlp'
+
+CORPORA = 'corpora'
+SYNTAG = 'syntag'
+GICRYA = 'gicrya'
+RNC = 'rnc'
 
 DEEPPAVLOV = 'deeppavlov'
 DEEPPAVLOV_BERT = 'deeppavlov_bert'
@@ -16,6 +27,16 @@ NATASHA = 'natasha'
 PULLENTI = 'pullenti'
 TEXTERRA = 'texterra'
 TOMITA = 'tomita'
+
+RE = 're'
+NLTK = 'nltk'
+SEGTOK = 'segtok'
+MOSES = 'moses'
+KOZIEV = 'koziev'
+RAZDEL = 'razdel'
+SPACY = 'spacy'
+MYSTEM = 'mystem'
+TIMOFEEV = 'timofeev'
 
 LOCALHOST = 'localhost'
 PORT = 8090

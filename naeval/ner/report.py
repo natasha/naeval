@@ -2,6 +2,7 @@
 import pandas as pd
 
 from naeval.record import Record
+from naeval.report import table_html
 from naeval.const import (
     PER, LOC, ORG,
     GAREEV,
@@ -54,7 +55,7 @@ def format_scores_report(table):
     output.columns = pd.MultiIndex.from_tuples(output.columns)
     output.columns.names = [None, 'prec/recall/f1,%']
 
-    return output
+    return table_html(output)
 
 
 def format_github_scores_column(column, top=3):
@@ -88,7 +89,7 @@ def format_github_scores_report(table):
     output.columns = pd.MultiIndex.from_tuples(output.columns)
     output.columns.names = [None, 'f1']
 
-    return output
+    return table_html(output)
 
 
 #########
@@ -186,4 +187,4 @@ def format_bench_report(records, annotators):
 
     table.index = annotators
     table.index.name = None
-    return table
+    return table_html(table)

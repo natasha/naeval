@@ -26,6 +26,12 @@ def dump_lines(lines, path):
             file.write(line + '\n')
 
 
+def append_lines(lines, path):
+    with open(path, 'a') as file:
+        for line in lines:
+            file.write(line + '\n')
+
+
 def parse_xml(content):
     return ET.fromstring(content)
 
