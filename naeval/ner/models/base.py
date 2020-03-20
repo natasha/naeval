@@ -13,7 +13,7 @@ from naeval.docker import (
 )
 
 
-class AnnotatorError(Exception):
+class ModelError(Exception):
     pass
 
 
@@ -24,10 +24,10 @@ def post(url, **kwargs):
         return response
     except (ConnectionError, RequestException) as error:
         message = str(error)
-        raise AnnotatorError(message)
+        raise ModelError(message)
 
 
-class Annotator(Record):
+class Model(Record):
     __attributes__ = ['host', 'port']
 
     name = None
@@ -54,7 +54,7 @@ class Annotator(Record):
         try:
             self(self.payload)
             return True
-        except AnnotatorError:
+        except ModelError:
             return False
 
     def wait(self):
@@ -65,7 +65,7 @@ class Annotator(Record):
                 dot()
                 sleep(self.delay)
         else:
-            raise AnnotatorError('failed to start')
+            raise ModelError('failed to start')
 
     def start(self, client):
         docker_run(
@@ -80,7 +80,7 @@ class Annotator(Record):
         docker_rm(client, self.name)
 
 
-class ChunkAnnotator(Annotator):
+class ChunkModel(Model):
     def map(self, texts):
         raise NotImplementedError
 

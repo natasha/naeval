@@ -10,15 +10,15 @@ from naeval.const import (
 )
 
 
-def scores_report_table(scores, sources, annotators, types=[PER, LOC, ORG]):
+def scores_report_table(scores, sources, models, types=[PER, LOC, ORG]):
     data = []
     for source in sources:
-        for annotator in annotators:
+        for model in models:
             for type in types:
-                score = scores[source, annotator][type]
-                data.append([source, annotator, type, score])
-    table = pd.DataFrame(data, columns=['source', 'annotator', 'type', 'score'])
-    table = table.set_index(['source', 'annotator', 'type']).unstack(['source', 'type'])
+                score = scores[source, model][type]
+                data.append([source, model, type, score])
+    table = pd.DataFrame(data, columns=['source', 'model', 'type', 'score'])
+    table = table.set_index(['source', 'model', 'type']).unstack(['source', 'type'])
 
     table.columns = table.columns.droplevel()
     table.index.name = None
@@ -28,7 +28,7 @@ def scores_report_table(scores, sources, annotators, types=[PER, LOC, ORG]):
         for source in sources
         for type in types
     ]
-    table = table.reindex(index=annotators, columns=columns)
+    table = table.reindex(index=models, columns=columns)
 
     return table
 
@@ -100,11 +100,11 @@ def format_github_scores_report(table):
 
 
 class Bench(Record):
-    __attributes__ = ['annotator', 'init', 'disk', 'ram', 'speed', 'device']
+    __attributes__ = ['model', 'init', 'disk', 'ram', 'speed', 'device']
 
-    def __init__(self, annotator, init=None, disk=None, ram=None,
+    def __init__(self, model, init=None, disk=None, ram=None,
                  speed=None, device=CPU):
-        self.annotator = annotator
+        self.model = model
         self.init = init
         self.disk = disk
         self.ram = ram
@@ -168,11 +168,11 @@ def format_speed(value):
     return value
 
 
-def format_bench_report(records, annotators):
+def format_bench_report(records, models):
     table = pd.DataFrame()
 
-    mapping = {_.annotator: _ for _ in records}
-    records = [mapping[_] for _ in annotators]
+    mapping = {_.model: _ for _ in records}
+    records = [mapping[_] for _ in models]
 
     columns = [
         [slice_init, format_sec, select_min, 'init, s'],
@@ -185,6 +185,6 @@ def format_bench_report(records, annotators):
         selection = select(values)
         table[name] = list(highlight(values, selection, format))
 
-    table.index = annotators
+    table.index = models
     table.index.name = None
     return table_html(table)

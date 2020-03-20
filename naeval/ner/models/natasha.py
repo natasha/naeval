@@ -5,7 +5,7 @@ from naeval.span import Span
 from ..adapt import adapt_natasha
 from ..markup import Markup
 
-from .base import post, Annotator
+from .base import post, Model
 
 
 NATASHA_IMAGE = 'natasha/natasha:0.10.0'
@@ -62,7 +62,7 @@ def call_natasha(text, host, port):
     return parse_natasha(text, data)
 
 
-class NatashaAnnotator(Annotator):
+class NatashaModel(Model):
     name = NATASHA
     image = NATASHA_IMAGE
     container_port = NATASHA_CONTAINER_PORT

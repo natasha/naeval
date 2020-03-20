@@ -14,7 +14,7 @@ from ..markup import Markup
 from ..adapt import adapt_deeppavlov
 
 from .token import find_tokens
-from .base import post, ChunkAnnotator
+from .base import post, ChunkModel
 
 
 DEEPPAVLOV_IMAGE = 'natasha/deeppavlov-ner-ru'
@@ -168,7 +168,7 @@ def map_deepavlov(texts, host, port,
         yield sections_markup(group)
 
 
-class DeeppavlovAnnotator(ChunkAnnotator):
+class DeeppavlovModel(ChunkModel):
     name = DEEPPAVLOV
     image = DEEPPAVLOV_IMAGE
     container_port = DEEPPAVLOV_CONTAINER_PORT
@@ -181,7 +181,7 @@ class DeeppavlovAnnotator(ChunkAnnotator):
         )
 
 
-class DeeppavlovBERTAnnotator(DeeppavlovAnnotator):
+class DeeppavlovBERTModel(DeeppavlovModel):
     name = DEEPPAVLOV_BERT
     image = DEEPPAVLOV_BERT_IMAGE
     container_port = DEEPPAVLOV_BERT_CONTAINER_PORT

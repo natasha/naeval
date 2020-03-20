@@ -5,7 +5,7 @@ from naeval.span import Span
 from ..adapt import adapt_texterra
 from ..markup import Markup
 
-from .base import post, ChunkAnnotator
+from .base import post, ChunkModel
 
 
 TEXTERRA_IMAGE = 'natasha/texterra-russian'
@@ -84,7 +84,7 @@ def map_texterra(texts, host, port,
             yield markup
 
 
-class TexterraAnnotator(ChunkAnnotator):
+class TexterraModel(ChunkModel):
     name = TEXTERRA
     image = TEXTERRA_IMAGE
     container_port = TEXTERRA_CONTAINER_PORT

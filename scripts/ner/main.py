@@ -36,14 +36,14 @@ from naeval.ner.sources import (
     load_gareev,
     load_wikiner
 )
-from naeval.ner.annotators import (
-    TomitaAnnotator,
-    PullentiAnnotator,
-    MitieAnnotator,
-    NatashaAnnotator,
-    TexterraAnnotator,
-    DeeppavlovAnnotator,
-    DeeppavlovBERTAnnotator,
+from naeval.ner.models import (
+    TomitaModel,
+    PullentiModel,
+    MitieModel,
+    NatashaModel,
+    TexterraModel,
+    DeeppavlovModel,
+    DeeppavlovBERTModel,
 )
 from naeval.ner.markup import (
     Markup,
@@ -75,14 +75,14 @@ SOURCES = {
     NE5: load_ne5,
     BSNLP: load_bsnlp,
 }
-ANNS = {
-    DEEPPAVLOV: DeeppavlovAnnotator,
-    DEEPPAVLOV_BERT: DeeppavlovBERTAnnotator,
-    PULLENTI: PullentiAnnotator,
-    TEXTERRA: TexterraAnnotator,
-    TOMITA: TomitaAnnotator,
-    NATASHA: NatashaAnnotator,
-    MITIE: MitieAnnotator,
+MODELS = {
+    DEEPPAVLOV: DeeppavlovModel,
+    DEEPPAVLOV_BERT: DeeppavlovBERTModel,
+    PULLENTI: PullentiModel,
+    TEXTERRA: TexterraModel,
+    TOMITA: TomitaModel,
+    NATASHA: NatashaModel,
+    MITIE: MitieModel,
 }
 
 DATA_DIR = expanduser('~/proj/naeval/data/ner')

@@ -6,7 +6,7 @@ from ..adapt import adapt_mitie
 from ..markup import Markup
 
 from .token import find_tokens
-from .base import post, Annotator
+from .base import post, Model
 
 
 MITIE_IMAGE = 'natasha/mitie-ner-ru'
@@ -51,7 +51,7 @@ def call_mitie(text, host, port):
     return parse_mitie(text, data)
 
 
-class MitieAnnotator(Annotator):
+class MitieModel(Model):
     name = MITIE
     image = MITIE_IMAGE
     container_port = MITIE_CONTAINER_PORT

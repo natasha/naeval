@@ -12,8 +12,8 @@ from ..markup import Markup
 
 from .base import (
     LOCALHOST, PORT,
-    AnnotatorError, ConnectionError,
-    Annotator
+    ModelError, ConnectionError,
+    Model
 )
 
 
@@ -38,19 +38,19 @@ def call_pullenti(client, text):
         result = client(text)
     except (PullentiError, ConnectionError) as error:
         message = str(error)
-        raise AnnotatorError(message)
+        raise ModelError(message)
 
     spans = list(result_spans(result))
     return PullentiMarkup(result.text, spans)
 
 
-class PullentiAnnotator(Annotator):
+class PullentiModel(Model):
     name = PULLENTI
     image = PULLENTI_IMAGE
     container_port = PULLENTI_CONTAINER_PORT
 
     def __init__(self, host=LOCALHOST, port=PORT):
-        super(PullentiAnnotator, self).__init__(host, port)
+        super(PullentiModel, self).__init__(host, port)
         self.client = PullentiClient(host, port)
 
     def __call__(self, text):

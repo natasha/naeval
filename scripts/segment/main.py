@@ -54,7 +54,7 @@ from naeval.segment.sources import (
     parse_rnc_sents,
     parse_rnc_tokens,
 )
-from naeval.segment.segmenters import (
+from naeval.segment.models import (
     Timing,
 
     re_sentenize,
@@ -113,7 +113,7 @@ PARSES = {
         RNC: parse_rnc_tokens
     },
 }
-SEGS = {
+MODELS = {
     SENT: {
         RE: re_sentenize,
         SEGTOK: segtok_sentenize,

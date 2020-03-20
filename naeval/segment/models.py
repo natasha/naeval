@@ -20,15 +20,15 @@ def labeled(label):
 
 
 class Timing(Record):
-    __attributes__ = ['segmenter']
+    __attributes__ = ['model']
 
-    def __init__(self, segmenter):
-        self.segmenter = segmenter
+    def __init__(self, model):
+        self.model = model
         self.time = 0
 
     def __call__(self, *args):
         start = time()
-        result = list(self.segmenter(*args))
+        result = list(self.model(*args))
         self.time += (time() - start)
         return result
 
@@ -95,7 +95,7 @@ def nltk_sentenize(text):
 @labeled('segtok.split_single')
 def segtok_sentenize(text):
     # pip install segtok
-    from segtok.segmenter import split_single
+    from segtok.model import split_single
 
     chunks = split_single(text)
     return find_substrings(chunks, text)

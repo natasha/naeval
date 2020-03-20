@@ -7,7 +7,7 @@ from naeval.span import Span
 from ..adapt import adapt_tomita
 from ..markup import Markup
 
-from .base import Annotator, post
+from .base import Model, post
 
 
 TOMITA_IMAGE = 'natasha/tomita-algfio'
@@ -88,7 +88,7 @@ def call_tomita(text, host, port):
     return parse_tomita(text, xml)
 
 
-class TomitaAnnotator(Annotator):
+class TomitaModel(Model):
     name = TOMITA
     image = TOMITA_IMAGE
     container_port = TOMITA_CONTAINER_PORT
