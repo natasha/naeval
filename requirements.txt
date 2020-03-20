@@ -8,3 +8,15 @@ pullenti_client
 razdel
 corus
 ipymarkup
+
+# emb scores: spearman, avg precision
+scipy
+sklean
+
+# emb size
+numpy
+
+# emb
+pymorphy2
+gensim
+navec

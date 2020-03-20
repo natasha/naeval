@@ -2,6 +2,26 @@
 from naeval.record import Record
 
 
+class Mean(Record):
+    __attributes__ = ['sum', 'count']
+
+    def __init__(self, sum=0, count=0):
+        self.sum = sum
+        self.count = count
+
+    def add(self, value):
+        self.sum += value
+        self.count += 1
+
+    @property
+    def value(self):
+        return self.sum / self.count
+
+    def reset(self):
+        self.sum = 0
+        self.count = 0
+
+
 class Share(Record):
     __attributes__ = ['correct', 'total']
 

@@ -2,6 +2,7 @@
 JL = '.jl'
 GZ = '.gz'
 TXT = '.txt'
+JSON = '.json'
 
 SOURCE = 'source'
 TEXT = 'text'
@@ -20,6 +21,13 @@ SYNTAG = 'syntag'
 GICRYA = 'gicrya'
 RNC = 'rnc'
 
+SIMLEX = 'simlex'
+HJ = 'hj'
+RT = 'rt'
+AE = 'ae'
+AE2 = 'ae2'
+LRWC = 'lrwc'
+
 DEEPPAVLOV = 'deeppavlov'
 DEEPPAVLOV_BERT = 'deeppavlov_bert'
 MITIE = 'mitie'
@@ -37,6 +45,14 @@ RAZDEL = 'razdel'
 SPACY = 'spacy'
 MYSTEM = 'mystem'
 TIMOFEEV = 'timofeev'
+
+W2V = 'w2v'
+FASTTEXT = 'fasttext'
+NAVEC = 'navec'
+
+NOUN = 'NOUN'
+ADJ = 'ADJ'
+VERB = 'VERB'
 
 LOCALHOST = 'localhost'
 PORT = 8090

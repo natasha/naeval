@@ -3,7 +3,6 @@ from os.path import (
     expanduser,
     join as join_path
 )
-from random import seed, sample
 
 from IPython.display import HTML
 from tqdm.notebook import tqdm as log_progress
@@ -20,6 +19,10 @@ from naeval.const import (
     SOURCE, JL, GZ,
 
     GPU, KB, MB, GB
+)
+from naeval.record import (
+    from_jsons,
+    as_jsons
 )
 from naeval.io import (
     format_jl,

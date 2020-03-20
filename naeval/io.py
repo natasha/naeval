@@ -56,3 +56,7 @@ def format_jl(items):
 def parse_jl(lines):
     for line in lines:
         yield json.loads(line)
+
+
+parse_json = json.loads
+format_json = json.dumps

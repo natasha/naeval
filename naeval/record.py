@@ -107,3 +107,13 @@ class Record(object):
                     value = type.from_json(value)
             args.append(value)
         return cls(*args)
+
+
+def as_jsons(records):
+    for record in records:
+        yield record.as_json
+
+
+def from_jsons(items, Record):
+    for item in items:
+        yield Record.from_json(item)
