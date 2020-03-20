@@ -15,7 +15,7 @@ from naeval.const import (
     CORPORA, SYNTAG, GICRYA, RNC,
 
     RE, DEEPPAVLOV, NLTK, SEGTOK, MOSES, RAZDEL,
-    SPACY, TIMOFEEV, MYSTEM, SEGTOK,
+    SPACY, TIMOFEEV, MYSTEM, SEGTOK, KOZIEV,
 
     SOURCE, SENT, TOKEN, STATS, JL, GZ,
 )
@@ -72,6 +72,7 @@ from naeval.segment.models import (
     MosesTokenizer,
     segtok_tokenize,
     razdel_tokenize,
+    KozievTokenizer,
 )
 from naeval.segment.score import score_partitions
 from naeval.segment.report import (
@@ -130,6 +131,7 @@ MODELS = {
         MOSES: MosesTokenizer,
         SEGTOK: segtok_tokenize,
         TIMOFEEV: TimofeevTokenizer,
+        KOZIEV: KozievTokenizer,
         RAZDEL: razdel_tokenize,
     }
 }

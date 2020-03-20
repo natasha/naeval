@@ -45,6 +45,7 @@ RAZDEL = 'razdel'
 SPACY = 'spacy'
 MYSTEM = 'mystem'
 TIMOFEEV = 'timofeev'
+KOZIEV = 'koziev'
 
 W2V = 'w2v'
 FASTTEXT = 'fasttext'

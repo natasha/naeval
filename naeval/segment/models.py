@@ -75,7 +75,7 @@ def no_logger(logger):
 LOGGER = logging.getLogger()
 
 
-@labeled('deeppavlov')
+@labeled('deeppavlov/rusenttokenize')
 def deeppavlov_sentenize(text):
     from rusenttokenize import ru_sent_tokenize
 
@@ -102,7 +102,7 @@ def segtok_sentenize(text):
 
 
 class MosesSentenizer:
-    label = 'moses'
+    label = 'mosestokenizer'
 
     def __init__(self):
         from mosestokenizer import MosesSentenceSplitter
@@ -156,7 +156,7 @@ def nltk_tokenize(text):
 
 
 class SpacyTokenizer:
-    label = 'spacy_tokenize'
+    label = 'spacy'
 
     def __init__(self):
         from spacy.lang.ru import Russian
@@ -170,7 +170,7 @@ class SpacyTokenizer:
 
 
 class TimofeevTokenizer:
-    label = 'aatimofeev'
+    label = 'aatimofeev/spacy_russian_tokenizer'
 
     def __init__(self):
         from spacy.lang.ru import Russian
@@ -226,7 +226,7 @@ class MystemTokenizer:
 
 
 class MosesTokenizer:
-    label = 'moses'
+    label = 'mosestokenizer'
 
     def __init__(self):
         from mosestokenizer import MosesTokenizer
@@ -256,3 +256,17 @@ def razdel_tokenize(text):
 
     sents = tokenize(text)
     return adapt_razdel(sents)
+
+
+class KozievTokenizer:
+    label = 'koziev/rutokenizer'
+
+    def __init__(self):
+        import rutokenizer
+
+        self.tokenizer = rutokenizer.Tokenizer()
+        self.tokenizer.load()
+
+    def __call__(self, text):
+        chunks = self.tokenizer.tokenize(text)
+        return find_substrings(chunks, text)
