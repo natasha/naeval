@@ -4,7 +4,7 @@ GZ = '.gz'
 TXT = '.txt'
 JSON = '.json'
 
-SOURCE = 'source'
+DATASET = 'dataset'
 TEXT = 'text'
 SENT = 'sent'
 TOKEN = 'token'

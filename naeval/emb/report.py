@@ -24,7 +24,7 @@ def format_vocab(value):
     return '%dK' % int(value / 1000)
 
 
-def report_table(scores, stats, sources, schemes):
+def report_table(scores, stats, datasets, schemes):
     data = []
     for scheme in schemes:
         bench = stats[scheme.name]
@@ -37,15 +37,15 @@ def report_table(scores, stats, sources, schemes):
             bench.ram,
             bench.vocab
         ]
-        for source in sources:
-            score = scores[scheme.name, source]
+        for dataset in datasets:
+            score = scores[scheme.name, dataset]
             cover = score.count / score.total
             row.append([score.value, cover])
         data.append(row)
 
     columns = (
         ['model', 'type', 'init', 'get', 'disk', 'ram', 'vocab']
-        + list(sources)
+        + list(datasets)
     )
     table = pd.DataFrame(data, columns=columns)
 
@@ -86,7 +86,7 @@ def first(pair):
     return pair[0]
 
 
-def format_report(table, sources):
+def format_report(table, datasets):
     output = pd.DataFrame()
     output['type'] = table['type']
 
@@ -99,8 +99,8 @@ def format_report(table, sources):
     for column, format, name in columns:
         output[name] = table[column].map(format)
 
-    for source in sources:
-        output[source] = table[source].map(format_cell)
+    for dataset in datasets:
+        output[dataset] = table[dataset].map(format_cell)
 
     return table_html(output)
 
@@ -125,15 +125,15 @@ def format_github_report1(table):
     return table_html(output)
 
 
-def format_github_report2(table, sources):
+def format_github_report2(table, datasets):
     output = pd.DataFrame()
     output['type'] = table['type']
 
-    for source in sources:
-        values = table[source].values
+    for dataset in datasets:
+        values = table[dataset].values
         selection = select_max(values, key=first)
         values = highlight(values, selection, format_github_cell)
-        output[source] = list(values)
+        output[dataset] = list(values)
 
     output = output.rename(columns={'simlex965': 'simlex'})
     return table_html(output)

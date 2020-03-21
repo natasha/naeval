@@ -10,7 +10,7 @@ from tqdm.notebook import tqdm as log_progress
 from naeval.log import log
 from naeval.const import (
     SIMLEX, HJ, RT, AE, AE2, LRWC,
-    SOURCE, STATS, JL, JSON, GZ,
+    DATASET, STATS, JL, JSON, GZ,
 )
 from naeval.record import (
     from_jsons,
@@ -27,7 +27,7 @@ from naeval.io import (
     load_gz_lines
 )
 
-from naeval.emb.sources import (
+from naeval.emb.datasets import (
     Sim,
     map_model,
 
@@ -69,7 +69,7 @@ RUSVEC_DATA_DIR = expanduser('~/proj/rusvectores-data')
 NAVEC_DATA_DIR = expanduser('~/proj/navec/data/models/navec/')
 DATA_DIR = expanduser('~/proj/naeval/data/emb')
 
-SOURCES = {
+DATASETS = {
     SIMLEX: load_simlex,
     HJ: load_hj,
     RT: load_rt,

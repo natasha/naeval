@@ -16,7 +16,7 @@ from naeval.const import (
     MITIE, NATASHA, PULLENTI,
     TEXTERRA, TOMITA,
 
-    SOURCE, JL, GZ,
+    DATASET, JL, GZ,
 
     GPU, KB, MB, GB
 )
@@ -32,7 +32,7 @@ from naeval.io import (
 )
 from naeval.sent import iter_sents
 from naeval.docker import docker_client
-from naeval.ner.sources import (
+from naeval.ner.datasets import (
     load_factru,
     load_bsnlp,
     load_ne5,
@@ -72,7 +72,7 @@ CORUS_FILES = {
     WIKINER: 'aij-wikiner-ru-wp3.bz2',
 }
 
-SOURCES = {
+DATASETS = {
     FACTRU: load_factru,
     GAREEV: load_gareev,
     NE5: load_ne5,

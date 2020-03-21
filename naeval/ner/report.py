@@ -10,22 +10,22 @@ from naeval.const import (
 )
 
 
-def scores_report_table(scores, sources, models, types=[PER, LOC, ORG]):
+def scores_report_table(scores, datasets, models, types=[PER, LOC, ORG]):
     data = []
-    for source in sources:
+    for dataset in datasets:
         for model in models:
             for type in types:
-                score = scores[source, model][type]
-                data.append([source, model, type, score])
-    table = pd.DataFrame(data, columns=['source', 'model', 'type', 'score'])
-    table = table.set_index(['source', 'model', 'type']).unstack(['source', 'type'])
+                score = scores[dataset, model][type]
+                data.append([dataset, model, type, score])
+    table = pd.DataFrame(data, columns=['dataset', 'model', 'type', 'score'])
+    table = table.set_index(['dataset', 'model', 'type']).unstack(['dataset', 'type'])
 
     table.columns = table.columns.droplevel()
     table.index.name = None
 
     columns = [
-        (source, type)
-        for source in sources
+        (dataset, type)
+        for dataset in datasets
         for type in types
     ]
     table = table.reindex(index=models, columns=columns)

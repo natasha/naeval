@@ -17,7 +17,7 @@ from naeval.const import (
     RE, DEEPPAVLOV, NLTK, SEGTOK, MOSES, RAZDEL,
     SPACY, TIMOFEEV, MYSTEM, SEGTOK, KOZIEV,
 
-    SOURCE, SENT, TOKEN, STATS, JL, GZ,
+    DATASET, SENT, TOKEN, STATS, JL, GZ,
 )
 from naeval.io import (
     format_jl,
@@ -36,7 +36,7 @@ from naeval.segment.partition import (
     format_partitions,
     show_partition
 )
-from naeval.segment.sources import (
+from naeval.segment.datasets import (
     load_corpora,
     load_syntag,
     load_gicrya,
@@ -94,7 +94,7 @@ CORUS_FILES = {
 }
 DATA_DIR = expanduser('~/proj/naeval/data/segment')
 
-SOURCES = {
+DATASETS = {
     CORPORA: load_corpora,
     SYNTAG: load_syntag,
     GICRYA: load_gicrya,

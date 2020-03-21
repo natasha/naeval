@@ -4,20 +4,20 @@ import pandas as pd
 from naeval.report import table_html
 
 
-def report_table(scores, times, sources, models, type):
+def report_table(scores, times, datasets, models, type):
     data = []
     models = models[type]
     for model in models:
         label = models[model].label
-        for source in sources:
-            time = times[type, model, source]
-            score = scores[type, model, source]
+        for dataset in datasets:
+            time = times[type, model, dataset]
+            score = scores[type, model, dataset]
             prec = score.prec.total - score.prec.correct
             recall = score.recall.total - score.recall.correct
-            data.append([label, source, prec, recall, time])
+            data.append([label, dataset, prec, recall, time])
     return pd.DataFrame(
         data,
-        columns=['model', 'source', 'prec', 'recall', 'time']
+        columns=['model', 'dataset', 'prec', 'recall', 'time']
     )
 
 
@@ -40,11 +40,11 @@ def format_column(column, name, github, top=3):
 
 def format_report(table, github=False):
     models = table.model.unique()
-    sources = table.source.unique()
+    datasets = table.dataset.unique()
     metrics = ['errors', 'prec', 'recall', 'time']
 
     table['errors'] = table.prec + table.recall
-    table = table.pivot('model', 'source', metrics)
+    table = table.pivot('model', 'dataset', metrics)
     table = table.swaplevel(axis=1)
     if github:
         metrics = ['errors', 'time']
@@ -52,16 +52,16 @@ def format_report(table, github=False):
     table = table.reindex(
         index=models,
         columns=[
-            (source, metric)
-            for source in sources
+            (dataset, metric)
+            for dataset in datasets
             for metric in metrics
         ]
     )
 
-    for source in sources:
+    for dataset in datasets:
         for metric in metrics:
-            column = table[source, metric]
-            table[source, metric] = list(format_column(column, metric, github))
+            column = table[dataset, metric]
+            table[dataset, metric] = list(format_column(column, metric, github))
 
     table.index.name = None
     table.columns.names = None, None
