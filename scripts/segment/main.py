@@ -29,6 +29,7 @@ from naeval.io import (
     load_gz_lines,
     dump_gz_lines,
 )
+from naeval.readme import patch_readme
 
 from naeval.segment.partition import (
     Partition,
@@ -93,6 +94,8 @@ CORUS_FILES = {
     RNC: ['morphoru/RNCgoldInUD_Morpho.conll']
 }
 DATA_DIR = expanduser('~/proj/naeval/data/segment')
+README = expanduser('~/proj/naeval/README.md')
+RAZDEL_README = expanduser('~/proj/razdel/README.md')
 
 DATASETS = {
     CORPORA: load_corpora,

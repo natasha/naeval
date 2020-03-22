@@ -26,6 +26,7 @@ from naeval.io import (
     dump_gz_lines,
     load_gz_lines
 )
+from naeval.readme import patch_readme
 
 from naeval.emb.datasets import (
     Sim,
@@ -68,6 +69,10 @@ CORUS_FILES = {
 RUSVEC_DATA_DIR = expanduser('~/proj/rusvectores-data')
 NAVEC_DATA_DIR = expanduser('~/proj/navec/data/models/navec/')
 DATA_DIR = expanduser('~/proj/naeval/data/emb')
+
+EMB1, EMB2 = 'emb1', 'emb2'
+README = expanduser('~/proj/naeval/README.md')
+NAVEC_README = expanduser('~/proj/navec/README.md')
 
 DATASETS = {
     SIMLEX: load_simlex,

@@ -30,8 +30,10 @@ from naeval.io import (
     dump_gz_lines,
     load_gz_lines
 )
+from naeval.readme import patch_readme
 from naeval.sent import iter_sents
 from naeval.docker import docker_client
+
 from naeval.ner.datasets import (
     load_factru,
     load_bsnlp,
@@ -71,6 +73,9 @@ CORUS_FILES = {
     GAREEV: 'rus-ner-news-corpus.iob',
     WIKINER: 'aij-wikiner-ru-wp3.bz2',
 }
+NER1, NER2 = 'ner1', 'ner2'
+README = expanduser('~/proj/naeval/README.md')
+SLOVNET_README = expanduser('~/proj/slovnet/README.md')
 
 DATASETS = {
     FACTRU: load_factru,
