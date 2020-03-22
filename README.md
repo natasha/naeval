@@ -1,6 +1,6 @@
-<img src="https://github.com/natasha/natasha-logos/blob/master/razdel.svg">
+<img src="https://github.com/natasha/natasha-logos/blob/master/naeval.svg">
 
-Naeval — comparing quality and preformance of NLP systems for Russian language. Naeval is used to evaluate <a href="https://github.com/natasha">project Natasha</a> components: <a href="https://github.com/natasha/razdel">Razdel</a>, <a href="https://github.com/natasha/navec">Navec</a>, <a href="https://github.com/natasha/slovnet">Slovnet</a>:
+Naeval — comparing quality and performance of NLP systems for Russian language. Naeval is used to evaluate <a href="https://github.com/natasha">project Natasha</a> components: <a href="https://github.com/natasha/razdel">Razdel</a>, <a href="https://github.com/natasha/navec">Navec</a>, <a href="https://github.com/natasha/slovnet">Slovnet</a>:
 
 ## Tokenization
 
