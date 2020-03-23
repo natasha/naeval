@@ -3,8 +3,6 @@ from os.path import (
     expanduser,
     join as join_path
 )
-from itertools import islice as head
-from random import seed, sample
 from inspect import isclass as is_class
 
 from IPython.display import HTML
@@ -30,6 +28,7 @@ from naeval.io import (
     dump_gz_lines,
 )
 from naeval.readme import patch_readme
+from naeval.dataset import sample
 
 from naeval.segment.partition import (
     Partition,

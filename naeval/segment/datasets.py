@@ -6,8 +6,6 @@ from corus import load_ud_syntag as load_syntag  # noqa
 from corus import load_morphoru_gicrya as load_gicrya  # noqa
 from corus import load_morphoru_rnc as load_rnc  # noqa
 
-from naeval.record import Record
-
 from .substring import find_substrings
 from .partition import Partition
 
@@ -37,15 +35,20 @@ def is_sent(text):
     return has_sent_ending(text) and not is_bib(text)
 
 
-class Buffer(Record):
-    __attributes__ = ['id', 'text', 'chunks']
+def doc_sents(sents, size=10):
+    buffer = []
+    for sent in sents:
+        buffer.append(sent)
+        if len(buffer) % size == 0:
+            yield buffer
+            buffer = [sent]
+    if buffer:
+        yield buffer
 
-    def __init__(self, id=None, text=None, chunks=None):
-        self.id = id
-        self.text = text
-        if not chunks:
-            chunks = []
-        self.chunks = chunks
+
+def parse_sents(sents):
+    for buffer in doc_sents(sents):
+        yield Partition.from_chunks(buffer)
 
 
 ###########
@@ -55,24 +58,25 @@ class Buffer(Record):
 #######
 
 
-def parse_corpora_sents(records):
+def corpora_sents(records):
     for record in records:
-        buffer = []
         for par in record.pars:
             for sent in par.sents:
                 if is_sent(sent.text):
-                    buffer.append(sent.text)
-        yield Partition.from_chunks(buffer)
+                    yield sent.text
+
+
+def parse_corpora_sents(records):
+    sents = corpora_sents(records)
+    return parse_sents(sents)
 
 
 def parse_corpora_tokens(records):
     for record in records:
         for par in record.pars:
             for sent in par.sents:
-                buffer = Buffer(text=sent.text)
-                for token in sent.tokens:
-                    buffer.chunks.append(token.text)
-                substrings = find_substrings(buffer.chunks, buffer.text)
+                chunks = [_.text for _ in sent.tokens]
+                substrings = find_substrings(chunks, sent.text)
                 yield Partition.from_substrings(substrings)
 
 
@@ -83,35 +87,21 @@ def parse_corpora_tokens(records):
 #######
 
 
-def syntag_doc(id):
-    # sent_id = 2013Algoritm.xml_5
-    match = re.match(r'^([^.]+).xml_\d+$', id)
-    return match.group(1)
+def syntag_sents(records):
+    for record in records:
+        if is_sent(record.text):
+            yield record.text
 
 
 def parse_syntag_sents(records):
-    buffer = Buffer()
-    for record in records:
-        id = syntag_doc(record.id)
-        if buffer.chunks and buffer.id != id:
-            yield Partition.from_chunks(buffer.chunks)
-            buffer.chunks = []
-
-        buffer.id = id
-        if is_sent(record.text):
-            buffer.chunks.append(record.text)
-
-    if buffer.chunks:
-        yield Partition.from_chunks(buffer.chunks)
+    sents = syntag_sents(records)
+    return parse_sents(sents)
 
 
 def parse_syntag_tokens(records):
     for record in records:
-        buffer = Buffer(text=record.text)
-        for token in record.tokens:
-            if token.text:
-                buffer.chunks.append(token.text)
-        substrings = find_substrings(buffer.chunks, buffer.text)
+        chunks = [_.text for _ in record.tokens if _.text]
+        substrings = find_substrings(chunks, record.text)
         yield Partition.from_substrings(substrings)
 
 
@@ -131,19 +121,16 @@ def tokens_sent(tokens):
     )
 
 
-def parse_gicrya_sents(records):
-    buffer = []
+def gicrya_sents(records):
     for record in records:
-        if buffer and len(buffer) % 191 == 0:
-            yield Partition.from_chunks(buffer)
-            buffer = []
-
         sent = tokens_sent(record.tokens)
         if is_sent(sent):
-            buffer.append(sent)
+            yield sent
 
-    if buffer:
-        yield Partition.from_chunks(buffer)
+
+def parse_gicrya_sents(records):
+    sents = gicrya_sents(records)
+    return parse_sents(sents)
 
 
 def parse_gicrya_tokens(records):
@@ -162,21 +149,16 @@ def parse_gicrya_tokens(records):
 ######
 
 
-def parse_rnc_sents(records):
-    buffer = []
+def rnc_sents(records):
     for record in records:
-        if buffer and record.attrs:
-            # ==> blogs.xhtml <==
-            # ==newfile==
-            yield Partition.from_chunks(buffer)
-            buffer = []
-
         sent = tokens_sent(record.tokens)
         if is_sent(sent):
-            buffer.append(sent)
+            yield sent
 
-    if buffer:
-        yield Partition.from_chunks(buffer)
+
+def parse_rnc_sents(records):
+    sents = rnc_sents(records)
+    return parse_sents(sents)
 
 
 def parse_rnc_tokens(records):

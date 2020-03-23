@@ -95,7 +95,7 @@ def nltk_sentenize(text):
 @labeled('segtok.split_single')
 def segtok_sentenize(text):
     # pip install segtok
-    from segtok.model import split_single
+    from segtok.segmenter import split_single
 
     chunks = split_single(text)
     return find_substrings(chunks, text)
