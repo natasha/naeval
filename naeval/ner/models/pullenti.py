@@ -4,14 +4,16 @@ from pullenti_client.client import (
     ClientError as PullentiError
 )
 
-from naeval.const import PULLENTI
+from naeval.const import (
+    PULLENTI,
+    LOCALHOST, PORT,
+)
 from naeval.span import Span
 
 from ..adapt import adapt_pullenti
 from ..markup import Markup
 
 from .base import (
-    LOCALHOST, PORT,
     ModelError, ConnectionError,
     Model
 )
