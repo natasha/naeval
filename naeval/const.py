@@ -28,6 +28,12 @@ AE = 'ae'
 AE2 = 'ae2'
 LRWC = 'lrwc'
 
+NEWS = 'news'
+WIKI = 'wiki'
+FICTION = 'fiction'
+SOCIAL = 'social'
+POETRY = 'poetry'
+
 DEEPPAVLOV = 'deeppavlov'
 DEEPPAVLOV_BERT = 'deeppavlov_bert'
 MITIE = 'mitie'
@@ -50,6 +56,10 @@ KOZIEV = 'koziev'
 W2V = 'w2v'
 FASTTEXT = 'fasttext'
 NAVEC = 'navec'
+
+MARU = 'maru'
+RNNMORPH = 'rnnmorph'
+UDPIPE = 'udpipe'
 
 NOUN = 'NOUN'
 ADJ = 'ADJ'
