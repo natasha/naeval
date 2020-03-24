@@ -63,7 +63,6 @@ def format_github_scores_column(column, top=3):
         for _ in column
     ]
 
-    selection = None
     values = list(filter(None, column))
     selection = sorted(values)[-top:]
 
