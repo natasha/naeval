@@ -93,6 +93,6 @@ MODELS = {
     DEEPPAVLOV_BERT: DeeppavlovBERTModel,
 }
 DATA_DIR = expanduser('~/proj/naeval/data/morph')
-MORPH1 = 'moprh1'
-MORPH2 = 'moprh2'
+MORPH1 = 'morph1'
+MORPH2 = 'morph2'
 README = expanduser('~/proj/naeval/README.md')

@@ -404,9 +404,141 @@ See <a href="https://github.com/natasha/navec#evaluation">Navec evalualtion sect
 ## Morphology taggers
 
 <!--- morph1 --->
+<table border="0" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>news</th>
+      <th>wiki</th>
+      <th>fiction</th>
+      <th>social</th>
+      <th>poetry</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>rupostagger</th>
+      <td>0.673</td>
+      <td>0.645</td>
+      <td>0.661</td>
+      <td>0.641</td>
+      <td>0.636</td>
+    </tr>
+    <tr>
+      <th>rnnmorph</th>
+      <td>0.896</td>
+      <td>0.812</td>
+      <td>0.890</td>
+      <td>0.860</td>
+      <td>0.838</td>
+    </tr>
+    <tr>
+      <th>maru</th>
+      <td>0.894</td>
+      <td>0.808</td>
+      <td>0.887</td>
+      <td>0.861</td>
+      <td><b>0.840</b></td>
+    </tr>
+    <tr>
+      <th>udpipe</th>
+      <td>0.918</td>
+      <td>0.811</td>
+      <td><b>0.957</b></td>
+      <td><b>0.870</b></td>
+      <td>0.776</td>
+    </tr>
+    <tr>
+      <th>spacy</th>
+      <td><b>0.919</b></td>
+      <td><b>0.812</b></td>
+      <td>0.938</td>
+      <td>0.836</td>
+      <td>0.729</td>
+    </tr>
+    <tr>
+      <th>deeppavlov</th>
+      <td><b>0.940</b></td>
+      <td><b>0.841</b></td>
+      <td><b>0.944</b></td>
+      <td><b>0.870</b></td>
+      <td><b>0.857</b></td>
+    </tr>
+    <tr>
+      <th>deeppavlov_bert</th>
+      <td><b>0.951</b></td>
+      <td><b>0.868</b></td>
+      <td><b>0.964</b></td>
+      <td><b>0.892</b></td>
+      <td><b>0.865</b></td>
+    </tr>
+  </tbody>
+</table>
 <!--- morph1 --->
 
 <!--- morph2 --->
+<table border="0" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>init, s</th>
+      <th>disk, mb</th>
+      <th>ram, mb</th>
+      <th>speed, it/s</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>rupostagger</th>
+      <td><b>4.8</b></td>
+      <td><b>3</b></td>
+      <td><b>118</b></td>
+      <td>48.0</td>
+    </tr>
+    <tr>
+      <th>rnnmorph</th>
+      <td>8.7</td>
+      <td><b>10</b></td>
+      <td><b>289</b></td>
+      <td>16.6</td>
+    </tr>
+    <tr>
+      <th>maru</th>
+      <td>15.8</td>
+      <td>44</td>
+      <td>370</td>
+      <td>36.4</td>
+    </tr>
+    <tr>
+      <th>udpipe</th>
+      <td><b>6.9</b></td>
+      <td>45</td>
+      <td><b>242</b></td>
+      <td><b>56.2</b></td>
+    </tr>
+    <tr>
+      <th>spacy</th>
+      <td>10.9</td>
+      <td>89</td>
+      <td>579</td>
+      <td>30.6</td>
+    </tr>
+    <tr>
+      <th>deeppavlov</th>
+      <td><b>4.0</b></td>
+      <td><b>32</b></td>
+      <td>10240</td>
+      <td><b>90.0 (gpu)</b></td>
+    </tr>
+    <tr>
+      <th>deeppavlov_bert</th>
+      <td>20.0</td>
+      <td>1393</td>
+      <td>8704</td>
+      <td><b>85.0 (gpu)</b></td>
+    </tr>
+  </tbody>
+</table>
 <!--- morph2 --->
 
 ## NER
