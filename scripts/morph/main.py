@@ -12,7 +12,7 @@ from naeval.const import (
     NEWS, WIKI, FICTION, SOCIAL, POETRY,
 
     DEEPPAVLOV, DEEPPAVLOV_BERT, UDPIPE,
-    SPACY, RNNMORPH, MARU,
+    SPACY, RNNMORPH, MARU, RUPOSTAGGER,
 
     MB, GB, GPU,
 
@@ -46,6 +46,7 @@ from naeval.morph.models import (
     RNNMorphModel,
     DeeppavlovModel,
     DeeppavlovBERTModel,
+    RuPosTaggerModel,
 )
 from naeval.morph.score import score_markups
 from naeval.morph.report import (
@@ -83,6 +84,7 @@ CORUS_FILES = {
 
 DATASETS = [NEWS, WIKI, FICTION, SOCIAL, POETRY]
 MODELS = {
+    RUPOSTAGGER: RuPosTaggerModel,
     RNNMORPH: RNNMorphModel,
     MARU: MaruModel,
     UDPIPE: UDPipeModel,
