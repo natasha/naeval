@@ -541,6 +541,114 @@ See <a href="https://github.com/natasha/navec#evaluation">Navec evalualtion sect
 </table>
 <!--- morph2 --->
 
+## Syntax parser
+
+<!--- syntax1 --->
+<table border="0" class="dataframe">
+  <thead>
+    <tr>
+      <th></th>
+      <th colspan="2" halign="left">news</th>
+      <th colspan="2" halign="left">wiki</th>
+      <th colspan="2" halign="left">fiction</th>
+      <th colspan="2" halign="left">social</th>
+      <th colspan="2" halign="left">poetry</th>
+    </tr>
+    <tr>
+      <th></th>
+      <th>uas</th>
+      <th>las</th>
+      <th>uas</th>
+      <th>las</th>
+      <th>uas</th>
+      <th>las</th>
+      <th>uas</th>
+      <th>las</th>
+      <th>uas</th>
+      <th>las</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>udpipe</th>
+      <td>0.873</td>
+      <td><b>0.823</b></td>
+      <td>0.622</td>
+      <td>0.531</td>
+      <td><b>0.910</b></td>
+      <td><b>0.876</b></td>
+      <td>0.700</td>
+      <td>0.624</td>
+      <td>0.625</td>
+      <td>0.534</td>
+    </tr>
+    <tr>
+      <th>spacy</th>
+      <td><b>0.876</b></td>
+      <td>0.818</td>
+      <td><b>0.770</b></td>
+      <td><b>0.665</b></td>
+      <td>0.880</td>
+      <td>0.833</td>
+      <td><b>0.757</b></td>
+      <td><b>0.666</b></td>
+      <td><b>0.657</b></td>
+      <td><b>0.544</b></td>
+    </tr>
+    <tr>
+      <th>deeppavlov_bert</th>
+      <td><b>0.962</b></td>
+      <td><b>0.910</b></td>
+      <td><b>0.882</b></td>
+      <td><b>0.786</b></td>
+      <td><b>0.963</b></td>
+      <td><b>0.929</b></td>
+      <td><b>0.844</b></td>
+      <td><b>0.761</b></td>
+      <td><b>0.784</b></td>
+      <td><b>0.691</b></td>
+    </tr>
+  </tbody>
+</table>
+<!--- syntax1 --->
+
+<!--- syntax2 --->
+<table border="0" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>init, s</th>
+      <th>disk, mb</th>
+      <th>ram, mb</th>
+      <th>speed, it/s</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>udpipe</th>
+      <td><b>6.9</b></td>
+      <td><b>45</b></td>
+      <td><b>242</b></td>
+      <td><b>56.2</b></td>
+    </tr>
+    <tr>
+      <th>spacy</th>
+      <td><b>10.9</b></td>
+      <td><b>89</b></td>
+      <td><b>579</b></td>
+      <td><b>31.6</b></td>
+    </tr>
+    <tr>
+      <th>deeppavlov_bert</th>
+      <td><b>34.0</b></td>
+      <td><b>1427</b></td>
+      <td><b>8704</b></td>
+      <td><b>75.0 (gpu)</b></td>
+    </tr>
+  </tbody>
+</table>
+<!--- syntax2 --->
+
 ## NER
 
 See <a href="https://github.com/natasha/slovnet#evaluation">Slovnet evalualtion section</a> for more info.
