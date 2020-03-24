@@ -29,5 +29,5 @@ class Model(ContainerModel):
         return self.parse(data)
 
 
-class ChunkModel(Model, ChunkMixin):
+class ChunkModel(ChunkMixin, Model):
     pass

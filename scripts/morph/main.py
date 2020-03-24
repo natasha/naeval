@@ -14,7 +14,7 @@ from naeval.const import (
     DEEPPAVLOV, DEEPPAVLOV_BERT, UDPIPE,
     SPACY, RNNMORPH, MARU,
 
-    MB, GPU,
+    MB, GB, GPU,
 
     DATASET, JL, GZ
 )
@@ -83,10 +83,10 @@ CORUS_FILES = {
 
 DATASETS = [NEWS, WIKI, FICTION, SOCIAL, POETRY]
 MODELS = {
+    RNNMORPH: RNNMorphModel,
+    MARU: MaruModel,
     UDPIPE: UDPipeModel,
     SPACY: SpacyModel,
-    MARU: MaruModel,
-    RNNMORPH: RNNMorphModel,
     DEEPPAVLOV: DeeppavlovModel,
     DEEPPAVLOV_BERT: DeeppavlovBERTModel,
 }

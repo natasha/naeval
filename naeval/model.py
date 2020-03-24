@@ -50,12 +50,12 @@ class ContainerModel(Record):
         self.host = host
         self.port = port
 
-    def __call__(self, text):
+    def __call__(self, item):
         raise NotImplementedError
 
-    def map(self, texts):
-        for text in texts:
-            yield self(text)
+    def map(self, items):
+        for item in items:
+            yield self(item)
 
     @property
     def ready(self):
@@ -89,8 +89,8 @@ class ContainerModel(Record):
 
 
 class ChunkMixin:
-    def map(self, texts):
+    def map(self, items):
         raise NotImplementedError
 
-    def __call__(self, text):
-        return next(self.map([text]))
+    def __call__(self, item):
+        return next(self.map([item]))

@@ -10,8 +10,8 @@ RUN git checkout master && \
     git pull && \
     python setup.py develop
 
-RUN python -m deeppavlov install morpho_ru_syntagrus_pymorphy
-RUN python -m deeppavlov download morpho_ru_syntagrus_pymorphy
+RUN python -m deeppavlov install morpho_ru_syntagrus_bert
+RUN python -m deeppavlov download morpho_ru_syntagrus_bert
 
 WORKDIR /root
 COPY onstart.sh .

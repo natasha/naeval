@@ -16,5 +16,5 @@ class Model(ContainerModel):
     delay = 2
 
 
-class ChunkModel(Model, ChunkMixin):
+class ChunkModel(ChunkMixin, Model):
     pass

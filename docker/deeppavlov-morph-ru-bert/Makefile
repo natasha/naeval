@@ -1,5 +1,5 @@
 
-IMAGE = natasha/deeppavlov-morph-ru
+IMAGE = natasha/deeppavlov-morph-ru-bert
 
 image:
 	docker build -t $(IMAGE) .
