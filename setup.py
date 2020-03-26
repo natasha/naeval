@@ -8,7 +8,7 @@ with open('README.md') as file:
 
 setup(
     name='naeval',
-    version='0.1.0',
+    version='0.2.0',
 
     description='Comparing quality and performance of NLP systems for Russian language',
     long_description=description,
