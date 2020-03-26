@@ -1,5 +1,5 @@
 
-from ipymarkup.ner import show_ner_line_markup as show_markup_
+from ipymarkup import show_span_line_markup as show_markup_
 from ipymarkup.palette import BLUE, palette
 
 from naeval.record import Record
