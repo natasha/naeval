@@ -1,11 +1,7 @@
 
 IMAGE = natasha/mitie-ner-ru
 
-ru_model.dat:
-	wget http://lang.org.ua/static/downloads/ner_models/ru_model.dat.bz2
-	bzip2 -d ru_model.dat.bz2
-
-image: ru_model.dat
+image:
 	docker build -t $(IMAGE) .
 
 push:

@@ -1,9 +1,10 @@
 FROM python:3.5
 
-WORKDIR /
+RUN wget http://download.cdn.yandex.net/tomita/tomita-linux64.bz2 \
+    && bzip2 -d tomita-linux64.bz2 \
+    && chmod u+x tomita-linux64
 
 COPY algfio algfio
-COPY tomita-linux64 .
 COPY app.py .
 
 ENV CONFIG_DIR algfio

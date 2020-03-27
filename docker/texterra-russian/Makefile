@@ -1,12 +1,7 @@
 
 IMAGE = natasha/texterra-russian
 
-texterra-russian:
-	wget https://at.ispras.ru/owncloud/index.php/s/Jkgrw6iIInwfKFv/download -O texterra-russian.zip
-	unzip texterra-russian.zip
-	rm texterra-russian.zip
-
-image: texterra-russian
+image:
 	docker build -t $(IMAGE) .
 
 push:
