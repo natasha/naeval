@@ -16,7 +16,7 @@ clean:
 		-name '*.pyc' \
 		-o -name __pycache__ \
 		-o -name .DS_Store \
+		-o -name .ipynb_checkpoints \
 		| xargs rm -rf
 	rm -rf dist/ build/ .pytest_cache/ .cache/ \
-		.ipynb_checkpoints/ *.egg-info/ \
-		.coverage
+		 *.egg-info/ .coverage
