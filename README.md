@@ -438,7 +438,7 @@ See <a href="https://github.com/natasha/navec#evaluation">Navec evalualtion sect
       <td>0.808</td>
       <td>0.887</td>
       <td>0.861</td>
-      <td><b>0.840</b></td>
+      <td>0.840</td>
     </tr>
     <tr>
       <th>udpipe</th>
@@ -450,8 +450,8 @@ See <a href="https://github.com/natasha/navec#evaluation">Navec evalualtion sect
     </tr>
     <tr>
       <th>spacy</th>
-      <td><b>0.919</b></td>
-      <td><b>0.812</b></td>
+      <td>0.919</td>
+      <td>0.812</td>
       <td>0.938</td>
       <td>0.836</td>
       <td>0.729</td>
@@ -460,8 +460,8 @@ See <a href="https://github.com/natasha/navec#evaluation">Navec evalualtion sect
       <th>deeppavlov</th>
       <td><b>0.940</b></td>
       <td><b>0.841</b></td>
-      <td><b>0.944</b></td>
-      <td><b>0.870</b></td>
+      <td>0.944</td>
+      <td>0.870</td>
       <td><b>0.857</b></td>
     </tr>
     <tr>
@@ -471,6 +471,14 @@ See <a href="https://github.com/natasha/navec#evaluation">Navec evalualtion sect
       <td><b>0.964</b></td>
       <td><b>0.892</b></td>
       <td><b>0.865</b></td>
+    </tr>
+    <tr>
+      <th>slovnet_bert</th>
+      <td><b>0.982</b></td>
+      <td><b>0.884</b></td>
+      <td><b>0.990</b></td>
+      <td><b>0.890</b></td>
+      <td><b>0.856</b></td>
     </tr>
   </tbody>
 </table>
@@ -572,11 +580,11 @@ See <a href="https://github.com/natasha/navec#evaluation">Navec evalualtion sect
     <tr>
       <th>udpipe</th>
       <td>0.873</td>
-      <td><b>0.823</b></td>
+      <td>0.823</td>
       <td>0.622</td>
       <td>0.531</td>
-      <td><b>0.910</b></td>
-      <td><b>0.876</b></td>
+      <td>0.910</td>
+      <td>0.876</td>
       <td>0.700</td>
       <td>0.624</td>
       <td>0.625</td>
@@ -584,16 +592,16 @@ See <a href="https://github.com/natasha/navec#evaluation">Navec evalualtion sect
     </tr>
     <tr>
       <th>spacy</th>
-      <td><b>0.876</b></td>
+      <td>0.876</td>
       <td>0.818</td>
-      <td><b>0.770</b></td>
-      <td><b>0.665</b></td>
+      <td>0.770</td>
+      <td>0.665</td>
       <td>0.880</td>
       <td>0.833</td>
-      <td><b>0.757</b></td>
-      <td><b>0.666</b></td>
-      <td><b>0.657</b></td>
-      <td><b>0.544</b></td>
+      <td>0.757</td>
+      <td>0.666</td>
+      <td>0.657</td>
+      <td>0.544</td>
     </tr>
     <tr>
       <th>deeppavlov_bert</th>
@@ -607,6 +615,19 @@ See <a href="https://github.com/natasha/navec#evaluation">Navec evalualtion sect
       <td><b>0.761</b></td>
       <td><b>0.784</b></td>
       <td><b>0.691</b></td>
+    </tr>
+    <tr>
+      <th>slovnet_bert</th>
+      <td><b>0.965</b></td>
+      <td><b>0.936</b></td>
+      <td><b>0.891</b></td>
+      <td><b>0.828</b></td>
+      <td><b>0.958</b></td>
+      <td><b>0.940</b></td>
+      <td><b>0.846</b></td>
+      <td><b>0.782</b></td>
+      <td><b>0.776</b></td>
+      <td><b>0.706</b></td>
     </tr>
   </tbody>
 </table>
@@ -636,14 +657,21 @@ See <a href="https://github.com/natasha/navec#evaluation">Navec evalualtion sect
       <td><b>10.9</b></td>
       <td><b>89</b></td>
       <td><b>579</b></td>
-      <td><b>31.6</b></td>
+      <td>31.6</td>
     </tr>
     <tr>
       <th>deeppavlov_bert</th>
-      <td><b>34.0</b></td>
-      <td><b>1427</b></td>
-      <td><b>8704</b></td>
+      <td>34.0</td>
+      <td>1427</td>
+      <td>8704</td>
       <td><b>75.0 (gpu)</b></td>
+    </tr>
+    <tr>
+      <th>slovnet_bert</th>
+      <td><b>5.0</b></td>
+      <td><b>504</b></td>
+      <td><b>1391</b></td>
+      <td><b>80.0 (gpu)</b></td>
     </tr>
   </tbody>
 </table>
@@ -681,7 +709,7 @@ See <a href="https://github.com/natasha/slovnet#evaluation">Slovnet evalualtion 
   <tbody>
     <tr>
       <th>deeppavlov</th>
-      <td><b>0.910</b></td>
+      <td>0.910</td>
       <td><b>0.886</b></td>
       <td><b>0.742</b></td>
       <td><b>0.944</b></td>
@@ -711,15 +739,15 @@ See <a href="https://github.com/natasha/slovnet#evaluation">Slovnet evalualtion 
       <th>pullenti</th>
       <td>0.905</td>
       <td>0.814</td>
-      <td><b>0.686</b></td>
-      <td><b>0.939</b></td>
-      <td><b>0.639</b></td>
+      <td>0.686</td>
+      <td>0.939</td>
+      <td>0.639</td>
       <td><b>0.952</b></td>
-      <td><b>0.862</b></td>
-      <td><b>0.683</b></td>
+      <td>0.862</td>
+      <td>0.683</td>
       <td><b>0.900</b></td>
       <td>0.769</td>
-      <td><b>0.566</b></td>
+      <td>0.566</td>
     </tr>
     <tr>
       <th>texterra</th>
@@ -732,7 +760,7 @@ See <a href="https://github.com/natasha/slovnet#evaluation">Slovnet evalualtion 
       <td>0.777</td>
       <td>0.594</td>
       <td>0.858</td>
-      <td><b>0.783</b></td>
+      <td>0.783</td>
       <td>0.548</td>
     </tr>
     <tr>
@@ -742,10 +770,10 @@ See <a href="https://github.com/natasha/slovnet#evaluation">Slovnet evalualtion 
       <td></td>
       <td>0.921</td>
       <td></td>
-      <td><b>0.945</b></td>
+      <td>0.945</td>
       <td></td>
       <td></td>
-      <td><b>0.881</b></td>
+      <td>0.881</td>
       <td></td>
       <td></td>
     </tr>
@@ -766,7 +794,7 @@ See <a href="https://github.com/natasha/slovnet#evaluation">Slovnet evalualtion 
     <tr>
       <th>mitie</th>
       <td>0.888</td>
-      <td><b>0.861</b></td>
+      <td>0.861</td>
       <td>0.532</td>
       <td>0.849</td>
       <td>0.452</td>
@@ -776,6 +804,20 @@ See <a href="https://github.com/natasha/slovnet#evaluation">Slovnet evalualtion 
       <td>0.736</td>
       <td><b>0.801</b></td>
       <td>0.524</td>
+    </tr>
+    <tr>
+      <th>slovnet_bert</th>
+      <td><b>0.973</b></td>
+      <td><b>0.928</b></td>
+      <td><b>0.831</b></td>
+      <td><b>0.991</b></td>
+      <td><b>0.911</b></td>
+      <td><b>0.996</b></td>
+      <td><b>0.989</b></td>
+      <td><b>0.976</b></td>
+      <td><b>0.960</b></td>
+      <td><b>0.838</b></td>
+      <td><b>0.733</b></td>
     </tr>
   </tbody>
 </table>
@@ -789,7 +831,7 @@ See <a href="https://github.com/natasha/slovnet#evaluation">Slovnet evalualtion 
       <th>init, s</th>
       <th>disk, mb</th>
       <th>ram, mb</th>
-      <th>speed, articles/s</th>
+      <th>speed, it/s</th>
     </tr>
   </thead>
   <tbody>
@@ -841,6 +883,13 @@ See <a href="https://github.com/natasha/slovnet#evaluation">Slovnet evalualtion 
       <td>327</td>
       <td>261</td>
       <td><b>32.8</b></td>
+    </tr>
+    <tr>
+      <th>slovnet_bert</th>
+      <td>5.0</td>
+      <td>473</td>
+      <td>1959</td>
+      <td>17.5 (gpu)</td>
     </tr>
   </tbody>
 </table>
