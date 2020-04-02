@@ -8,6 +8,7 @@ from naeval.const import (
 from naeval.record import Record
 from naeval.tokenizer import tokenize
 from naeval.span import offset_spans
+from naeval.chop import chop
 
 from ..bio import bio_spans
 from ..markup import Markup
@@ -58,21 +59,10 @@ class Section(Record):
         self.spans = spans
 
 
-def group_chunks(items, size):
-    buffer = []
-    for item in items:
-        buffer.append(item)
-        if len(buffer) >= size:
-            yield buffer
-            buffer = []
-    if buffer:
-        yield buffer
-
-
 def split_sections(texts, size):
     for source, text in enumerate(texts):
         tokens = tokenize(text)
-        chunks = group_chunks(tokens, size)
+        chunks = chop(tokens, size)
         for chunk in chunks:
             start, stop = chunk[0].start, chunk[-1].stop
             yield Section(
@@ -161,7 +151,7 @@ def map_deepavlov(texts, host, port,
                   mode=DEEPPAVLOV):
     texts = patch_texts(texts)
     sections = split_sections(texts, section_size)
-    batches = group_chunks(sections, batch_size)  # group sections for speed
+    batches = chop(sections, batch_size)  # group sections for speed
     sections = map_batches(batches, host, port, mode)  # same sections with annotation
     groups = group_sections(sections)  # group by text
     for group in groups:

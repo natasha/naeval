@@ -1,5 +1,6 @@
 
 from naeval.const import DEEPPAVLOV_BERT
+from naeval.chop import chop
 
 from ..markup import Token, Markup
 
@@ -31,17 +32,6 @@ def parse_deeppavlov(data):
         yield markup
 
 
-def group_chunks(items, size):
-    buffer = []
-    for item in items:
-        buffer.append(item)
-        if len(buffer) >= size:
-            yield buffer
-            buffer = []
-    if buffer:
-        yield buffer
-
-
 def call_deeppavlov(batch, host, port):
     # {
     #   "x": [
@@ -65,7 +55,7 @@ def call_deeppavlov(batch, host, port):
 
 def map_deepavlov(items, host, port,
                   batch_size=DEEPPAVLOV_BERT_BATCH):
-    batches = group_chunks(items, batch_size)
+    batches = chop(items, batch_size)
     for batch in batches:
         markups = call_deeppavlov(batch, host, port)
         for markup in markups:
