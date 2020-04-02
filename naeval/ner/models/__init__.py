@@ -5,3 +5,4 @@ from .deeppavlov import DeeppavlovModel, DeeppavlovBERTModel  # noqa
 from .mitie import MitieModel  # noqa
 from .natasha import NatashaModel  # noqa
 from .texterra import TexterraModel  # noqa
+from .slovnet import SlovnetBERTModel  # noqa

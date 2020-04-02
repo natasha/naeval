@@ -60,6 +60,24 @@ def adapt_deeppavlov(markup):
     return adapt(markup, DEEPPAVLOV_TYPES)
 
 
+#######
+#
+#   SLOVNET
+#
+###
+
+
+SLOVNET_TYPES = {
+    'PER': PER,
+    'LOC': LOC,
+    'ORG': ORG
+}
+
+
+def adapt_slovnet(markup):
+    return adapt(markup, SLOVNET_TYPES)
+
+
 #########
 #
 #   PULLENTI

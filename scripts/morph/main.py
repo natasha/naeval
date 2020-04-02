@@ -13,6 +13,7 @@ from naeval.const import (
 
     DEEPPAVLOV, DEEPPAVLOV_BERT, UDPIPE,
     SPACY, RNNMORPH, MARU, RUPOSTAGGER,
+    SLOVNET_BERT,
 
     MB, GB, GPU,
 
@@ -47,6 +48,7 @@ from naeval.morph.models import (
     DeeppavlovModel,
     DeeppavlovBERTModel,
     RuPosTaggerModel,
+    SlovnetBERTModel,
 )
 from naeval.morph.score import score_markups
 from naeval.morph.report import (
@@ -91,6 +93,7 @@ MODELS = {
     SPACY: SpacyModel,
     DEEPPAVLOV: DeeppavlovModel,
     DEEPPAVLOV_BERT: DeeppavlovBERTModel,
+    SLOVNET_BERT: SlovnetBERTModel,
 }
 DATA_DIR = expanduser('~/proj/naeval/data/morph')
 MORPH1 = 'morph1'

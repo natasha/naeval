@@ -12,6 +12,7 @@ from naeval.const import (
     NEWS, WIKI, FICTION, SOCIAL, POETRY,
 
     DEEPPAVLOV_BERT, UDPIPE, SPACY,
+    SLOVNET_BERT,
 
     MB, GB, GPU,
 
@@ -41,6 +42,7 @@ from naeval.syntax.models import (
     UDPipeModel,
     SpacyModel,
     DeeppavlovBERTModel,
+    SlovnetBERTModel,
 )
 from naeval.syntax.score import score_markups
 from naeval.syntax.report import (
@@ -81,6 +83,7 @@ MODELS = {
     UDPIPE: UDPipeModel,
     SPACY: SpacyModel,
     DEEPPAVLOV_BERT: DeeppavlovBERTModel,
+    SLOVNET_BERT: SlovnetBERTModel,
 }
 DATA_DIR = expanduser('~/proj/naeval/data/syntax')
 SYNTAX1 = 'syntax1'
