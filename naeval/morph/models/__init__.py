@@ -5,4 +5,4 @@ from .maru import MaruModel  # noqa
 from .rnnmorph import RNNMorphModel  # noqa
 from .deeppavlov import DeeppavlovModel, DeeppavlovBERTModel  # noqa
 from .rupostagger import RuPosTaggerModel  # noqa
-from .slovnet import SlovnetBERTModel  # noqa
+from .slovnet import SlovnetModel, SlovnetBERTModel  # noqa
