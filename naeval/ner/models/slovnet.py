@@ -1,5 +1,5 @@
 
-from naeval.const import SLOVNET_BERT
+from naeval.const import SLOVNET, SLOVNET_BERT
 from naeval.span import Span
 from naeval.chop import chop
 
@@ -9,6 +9,7 @@ from ..markup import Markup
 from .base import post, ChunkModel
 
 
+SLOVNET_IMAGE = 'natasha/slovnet-ner'
 SLOVNET_BERT_IMAGE = 'natasha/slovnet-ner-bert'
 SLOVNET_CONTAINER_PORT = 8080
 SLOVNET_URL = 'http://{host}:{port}/'
@@ -49,10 +50,15 @@ def map_slovnet(texts, host, port):
         yield from call_slovnet(chunk, host, port)
 
 
-class SlovnetBERTModel(ChunkModel):
-    name = SLOVNET_BERT
-    image = SLOVNET_BERT_IMAGE
+class SlovnetModel(ChunkModel):
+    name = SLOVNET
+    image = SLOVNET_IMAGE
     container_port = SLOVNET_CONTAINER_PORT
 
     def map(self, texts):
         return map_slovnet(texts, self.host, self.port)
+
+
+class SlovnetBERTModel(SlovnetModel):
+    name = SLOVNET_BERT
+    image = SLOVNET_BERT_IMAGE
