@@ -515,7 +515,7 @@ See <a href="https://github.com/natasha/navec#evaluation">Navec evalualtion sect
       <th>rnnmorph</th>
       <td>8.7</td>
       <td><b>10</b></td>
-      <td><b>289</b></td>
+      <td>289</td>
       <td>16.6</td>
     </tr>
     <tr>
@@ -527,10 +527,10 @@ See <a href="https://github.com/natasha/navec#evaluation">Navec evalualtion sect
     </tr>
     <tr>
       <th>udpipe</th>
-      <td><b>6.9</b></td>
+      <td>6.9</td>
       <td>45</td>
       <td><b>242</b></td>
-      <td><b>56.2</b></td>
+      <td>56.2</td>
     </tr>
     <tr>
       <th>spacy</th>
@@ -542,7 +542,7 @@ See <a href="https://github.com/natasha/navec#evaluation">Navec evalualtion sect
     <tr>
       <th>deeppavlov</th>
       <td><b>4.0</b></td>
-      <td><b>32</b></td>
+      <td>32</td>
       <td>10240</td>
       <td><b>90.0 (gpu)</b></td>
     </tr>
@@ -551,7 +551,21 @@ See <a href="https://github.com/natasha/navec#evaluation">Navec evalualtion sect
       <td>20.0</td>
       <td>1393</td>
       <td>8704</td>
-      <td><b>85.0 (gpu)</b></td>
+      <td>85.0 (gpu)</td>
+    </tr>
+    <tr>
+      <th>slovnet</th>
+      <td><b>1.0</b></td>
+      <td><b>27</b></td>
+      <td><b>115</b></td>
+      <td><b>532.0</b></td>
+    </tr>
+    <tr>
+      <th>slovnet_bert</th>
+      <td>5.0</td>
+      <td>475</td>
+      <td>8087</td>
+      <td><b>285.0 (gpu)</b></td>
     </tr>
   </tbody>
 </table>
@@ -868,8 +882,8 @@ See <a href="https://github.com/natasha/slovnet#evaluation">Slovnet evalualtion 
       <th>slovnet</th>
       <td><b>1.0</b></td>
       <td><b>27</b></td>
-      <td>2048</td>
-      <td>18.0</td>
+      <td><b>205</b></td>
+      <td>25.3</td>
     </tr>
     <tr>
       <th>deeppavlov</th>
@@ -889,7 +903,7 @@ See <a href="https://github.com/natasha/slovnet#evaluation">Slovnet evalualtion 
       <th>pullenti</th>
       <td>2.9</td>
       <td><b>16</b></td>
-      <td><b>253</b></td>
+      <td>253</td>
       <td>6.0</td>
     </tr>
     <tr>
