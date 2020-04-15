@@ -101,3 +101,4 @@ DATA_DIR = expanduser('~/proj/naeval/data/morph')
 MORPH1 = 'morph1'
 MORPH2 = 'morph2'
 README = expanduser('~/proj/naeval/README.md')
+SLOVNET_README = expanduser('~/proj/slovnet/README.md')
