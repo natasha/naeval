@@ -1,7 +1,7 @@
 
 from collections import defaultdict
 
-from naeval.const import SLOVNET_BERT
+from naeval.const import SLOVNET, SLOVNET_BERT
 from naeval.chop import chop
 
 from ..markup import Token, Markup
@@ -10,6 +10,7 @@ from .base import post, ChunkModel
 
 
 SLOVNET_CONTAINER_PORT = 8080
+SLOVNET_IMAGE = 'natasha/slovnet-morph'
 SLOVNET_BERT_IMAGE = 'natasha/slovnet-syntax-bert'
 SLOVNET_URL = 'http://{host}:{port}/'
 SLOVNET_CHUNK = 1000
@@ -39,43 +40,21 @@ def call_slovnet(items, host, port):
     return parse_slovnet(data)
 
 
-def order_size(items):
-    sizes = defaultdict(list)
-    for index, words in enumerate(items):
-        sizes[len(words)].append([index, words])
-
-    order = []
-    chunks = []
-    for size in sorted(sizes):
-        chunk = []
-        for index, words in sizes[size]:
-            order.append(index)
-            chunk.append(words)
-        chunks.append(chunk)
-    return order, chunks
-
-
-def reorder(items, order):
-    items_ = [None] * len(order)
-    for index, item in enumerate(items):
-        items_[order[index]] = item
-    return items_
-
-
 def map_slovnet(items, host, port):
-    chunk = chop(items, SLOVNET_CHUNK)
-    for chunk in chunk:
-        order, groups = order_size(chunk)
-        markups = []
-        for group in groups:
-            markups.extend(call_slovnet(group, host, port))
-        yield from reorder(markups, order)
+    chunks = chop(items, SLOVNET_CHUNK)
+    for chunk in chunks:
+        yield from call_slovnet(chunk, host, port)
 
 
-class SlovnetBERTModel(ChunkModel):
-    name = SLOVNET_BERT
-    image = SLOVNET_BERT_IMAGE
+class SlovnetModel(ChunkModel):
+    name = SLOVNET
+    image = SLOVNET_IMAGE
     container_port = SLOVNET_CONTAINER_PORT
 
-    def map(self, items):
-        return map_slovnet(items, self.host, self.port)
+    def map(self, texts):
+        return map_slovnet(texts, self.host, self.port)
+
+
+class SlovnetBERTModel(SlovnetModel):
+    name = SLOVNET_BERT
+    image = SLOVNET_BERT_IMAGE

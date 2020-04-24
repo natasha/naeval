@@ -605,8 +605,8 @@ See <a href="https://github.com/natasha/navec#evaluation">Navec evalualtion sect
       <td>0.823</td>
       <td>0.622</td>
       <td>0.531</td>
-      <td>0.910</td>
-      <td>0.876</td>
+      <td><b>0.910</b></td>
+      <td><b>0.876</b></td>
       <td>0.700</td>
       <td>0.624</td>
       <td>0.625</td>
@@ -620,10 +620,10 @@ See <a href="https://github.com/natasha/navec#evaluation">Navec evalualtion sect
       <td>0.665</td>
       <td>0.880</td>
       <td>0.833</td>
-      <td>0.757</td>
-      <td>0.666</td>
-      <td>0.657</td>
-      <td>0.544</td>
+      <td><b>0.757</b></td>
+      <td><b>0.666</b></td>
+      <td><b>0.657</b></td>
+      <td><b>0.544</b></td>
     </tr>
     <tr>
       <th>deeppavlov_bert</th>
@@ -651,6 +651,19 @@ See <a href="https://github.com/natasha/navec#evaluation">Navec evalualtion sect
       <td><b>0.776</b></td>
       <td><b>0.706</b></td>
     </tr>
+    <tr>
+      <th>slovnet</th>
+      <td><b>0.907</b></td>
+      <td><b>0.880</b></td>
+      <td><b>0.775</b></td>
+      <td><b>0.718</b></td>
+      <td>0.806</td>
+      <td>0.776</td>
+      <td>0.726</td>
+      <td>0.656</td>
+      <td>0.542</td>
+      <td>0.469</td>
+    </tr>
   </tbody>
 </table>
 <!--- syntax1 --->
@@ -672,11 +685,11 @@ See <a href="https://github.com/natasha/navec#evaluation">Navec evalualtion sect
       <td><b>6.9</b></td>
       <td><b>45</b></td>
       <td><b>242</b></td>
-      <td><b>56.2</b></td>
+      <td>56.2</td>
     </tr>
     <tr>
       <th>spacy</th>
-      <td><b>10.9</b></td>
+      <td>10.9</td>
       <td><b>89</b></td>
       <td><b>579</b></td>
       <td>31.6</td>
@@ -691,9 +704,16 @@ See <a href="https://github.com/natasha/navec#evaluation">Navec evalualtion sect
     <tr>
       <th>slovnet_bert</th>
       <td><b>5.0</b></td>
-      <td><b>504</b></td>
-      <td><b>1391</b></td>
-      <td><b>80.0 (gpu)</b></td>
+      <td>504</td>
+      <td>3427</td>
+      <td><b>200.0 (gpu)</b></td>
+    </tr>
+    <tr>
+      <th>slovnet</th>
+      <td><b>1.0</b></td>
+      <td><b>27</b></td>
+      <td><b>377</b></td>
+      <td><b>400.0</b></td>
     </tr>
   </tbody>
 </table>

@@ -30,7 +30,7 @@ def scores_report_table(scores, datasets, models):
     return table
 
 
-def format_scores_column(column, top=2):
+def format_scores_column(column, top=3):
     selection = sorted(column)[-top:]
 
     for value in column:
