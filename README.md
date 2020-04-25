@@ -712,8 +712,8 @@ See <a href="https://github.com/natasha/navec#evaluation">Navec evalualtion sect
       <th>slovnet</th>
       <td><b>1.0</b></td>
       <td><b>27</b></td>
-      <td><b>377</b></td>
-      <td><b>400.0</b></td>
+      <td><b>125</b></td>
+      <td><b>450.0</b></td>
     </tr>
   </tbody>
 </table>
