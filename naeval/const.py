@@ -15,6 +15,7 @@ NE5 = 'ne5'
 GAREEV = 'gareev'
 WIKINER = 'wikiner'
 BSNLP = 'bsnlp'
+PERSONS = 'persons'
 
 CORPORA = 'corpora'
 SYNTAG = 'syntag'
