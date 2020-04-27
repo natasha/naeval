@@ -20,14 +20,6 @@ class Markup(Record):
     def __init__(self, tokens):
         self.tokens = tokens
 
-    @property
-    def words(self):
-        return [_.text for _ in self.tokens]
-
-    @property
-    def tags(self):
-        return [format_tag(_.pos, _.feats) for _ in self.tokens]
-
 
 def format_tag(pos, feats):
     if not feats:
@@ -41,12 +33,12 @@ def format_tag(pos, feats):
 
 
 def format_markup(markup, size=20):
-    words, tags = markup.words, markup.tags
-    if not words:
+    if not markup.tokens:
         return
 
-    for word, tag in zip(words, tags):
-        word = word.rjust(size)
+    for token in markup.tokens:
+        word = token.text.rjust(size)
+        tag = format_tag(token.pos, token.feats)
         yield f'{word} {tag}'
 
 
@@ -58,23 +50,17 @@ def show_markup(markup):
 def format_markup_diff(a, b, size=20):
     from .score import do_score, do_match
 
-    words = a.words
-    if not words:
-        return
-
-    assert words == b.words
-
-    for word, a_token, b_token in zip(words, a.tokens, b.tokens):
-        word = word.rjust(size)
-        a_tag = format_tag(a_token.pos, a_token.feats)
+    for a, b in zip(a.tokens, b.tokens):
+        word = a.text.rjust(size)
+        a_tag = format_tag(a.pos, a.feats)
         yield f'{word}   {a_tag}'
-        if a_token != b_token:
-            word = ' ' * size
+        if a != b:
+            fill = ' ' * size
             sep = '?'
-            if do_score(a_token) and not do_match(a_token, b_token):
+            if do_score(a) and not do_match(a, b):
                 sep = '!'
-            b_tag = format_tag(b_token.pos, b_token.feats)
-            yield f'{word} {sep} {b_tag}'
+            b_tag = format_tag(b.pos, b.feats)
+            yield f'{fill} {sep} {b_tag}'
 
 
 def show_markup_diff(a, b):
