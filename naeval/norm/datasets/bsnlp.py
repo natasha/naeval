@@ -6,9 +6,8 @@ from naeval.span import (
     filter_overlapping_spans,
     select_type_spans
 )
-from naeval.ner.datasets.bsnlp import iter_find
 
-from ..markup import NormSpan, Markup
+from ..markup import Span, Markup
 
 
 TYPES = {
@@ -16,6 +15,17 @@ TYPES = {
     'LOC': LOC,
     'ORG': ORG
 }
+
+
+def iter_find(text, substring):
+    start = text.find(substring)
+    if start < 0:
+        return
+
+    while start >= 0:
+        stop = start + len(substring)
+        yield start, stop
+        start = text.find(substring, stop)
 
 
 def find_spans(text, substrings):
@@ -27,7 +37,7 @@ def find_spans(text, substrings):
 
         for start, stop in iter_find(text, substring.text):
             normal = substring.normal.lower()
-            yield NormSpan(
+            yield Span(
                 start, stop,
                 substring.type,
                 normal

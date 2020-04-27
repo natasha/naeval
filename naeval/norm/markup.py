@@ -1,29 +1,27 @@
 
-from naeval.span import Span
+from naeval.span import Span as Span
 from naeval.ner.markup import (
-    Markup,
+    Markup as Markup_,
     show_markup
 )
 
 
-class NormSpan(Span):
+class Span(Span_):
     __attributes__ = ['start', 'stop', 'type', 'normal']
 
     def __init__(self, start, stop, type, normal):
-        self.start = start
-        self.stop = stop
-        self.type = type
+        super(Span, self).__init__(start, stop, type)
         self.normal = normal
 
     def offset(self, delta):
-        return NormSpan(
+        return Span(
             self.start + delta,
             self.stop + delta,
             self.type, self.normal
         )
 
 
-class Markup(Markup):
+class Markup(Markup_):
     __annotations__ = {
-        'spans': [NormSpan]
+        'spans': [Span]
     }

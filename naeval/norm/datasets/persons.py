@@ -3,13 +3,13 @@ from corus import load_persons as load_persons_
 
 from naeval.const import PER
 
-from ..markup import NormSpan, Markup
+from ..markup import Span, Markup
 
 
 def parse_spans(spans):
     for _, start, stop, value in spans:
         normal = value.lower()
-        yield NormSpan(start, stop, PER, normal)
+        yield Span(start, stop, PER, normal)
 
 
 def parse_persons(record):
