@@ -64,7 +64,10 @@ from naeval.ner.report import (
     format_github_scores_report,
 
     Bench,
-    format_bench_report
+    bench_report_table,
+    format_bench_report,
+
+    format_natasha_report
 )
 
 
@@ -79,6 +82,7 @@ CORUS_FILES = {
 NER1, NER2 = 'ner1', 'ner2'
 README = expanduser('~/proj/naeval/README.md')
 SLOVNET_README = expanduser('~/proj/slovnet/README.md')
+NATASHA_README = expanduser('~/proj/natasha/README.md')
 
 DATASETS = {
     FACTRU: load_factru,

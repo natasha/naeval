@@ -6,7 +6,15 @@ from .markup import Token, Markup
 
 def adapt_tokens(tokens):
     for token in tokens:
-        yield Token(token.text, token.lemma, token.pos, token.feats)
+        if not token.lemma:
+            # rare, social
+            continue
+
+        yield Token(
+            token.text,
+            token.lemma.lower(),  # Буш, Интерфакса, PROPN?
+            token.pos, token.feats
+        )
 
 
 def load_dataset(path):

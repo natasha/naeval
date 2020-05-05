@@ -39,28 +39,6 @@ def select_min(values, count=3):
     return sorted(values)[:count]
 
 
-def slice_attr(records, attr):
-    for record in records:
-        yield getattr(record, attr)
-
-
-def slice_init(records):
-    return slice_attr(records, 'init')
-
-
-def slice_disk(records):
-    return slice_attr(records, 'disk')
-
-
-def slice_ram(records):
-    return slice_attr(records, 'ram')
-
-
-def slice_speed(records):
-    for record in records:
-        yield record.speed, record.device == GPU
-
-
 def highlight(column, selection, format):
     for value in column:
         select = value in selection
@@ -80,30 +58,35 @@ def format_sec(secs):
 
 
 def format_speed(value):
-    its, gpu = value
+    its, device = value
     value = '%0.1f' % its
-    if gpu:
+    if device == GPU:
         value += ' (gpu)'
     return value
 
 
-def format_bench_report(records, models):
-    table = pd.DataFrame()
+def bench_report_table(records, models):
+    table = pd.DataFrame(
+        records,
+        columns=['model', 'init', 'disk', 'ram', 'speed', 'device']
+    )
+    table = table.set_index('model')
+    table.index.name = None
+    return table.reindex(index=models)
 
-    mapping = {_.model: _ for _ in records}
-    records = [mapping[_] for _ in models]
 
+def format_bench_report(table):
+    output = pd.DataFrame()
     columns = [
-        [slice_init, format_sec, select_min, 'init, s'],
-        [slice_disk, format_mb, select_min, 'disk, mb'],
-        [slice_ram, format_mb, select_min, 'ram, mb'],
-        [slice_speed, format_speed, select_max, 'speed, it/s']
+        ['init', format_sec, select_min, 'init, s'],
+        ['disk', format_mb, select_min, 'disk, mb'],
+        ['ram', format_mb, select_min, 'ram, mb'],
+        [['speed', 'device'], format_speed, select_max, 'speed, it/s']
     ]
     for slice, format, select, name in columns:
-        values = list(slice(records))
+        values = table[slice].values.tolist()
         selection = select(values)
-        table[name] = list(highlight(values, selection, format))
+        output[name] = list(highlight(values, selection, format))
 
-    table.index = models
-    table.index.name = None
-    return table_html(table)
+    output.index = table.index
+    return table_html(output)

@@ -53,10 +53,14 @@ from naeval.morph.models import (
 )
 from naeval.morph.score import score_markups
 from naeval.morph.report import (
-    Bench,
     scores_report_table,
     format_scores_report,
-    format_bench_report
+
+    Bench,
+    bench_report_table,
+    format_bench_report,
+
+    format_natasha_report
 )
 
 CORUS_DATA_DIR = expanduser('~/proj/corus-data/gramru')
@@ -102,3 +106,4 @@ MORPH1 = 'morph1'
 MORPH2 = 'morph2'
 README = expanduser('~/proj/naeval/README.md')
 SLOVNET_README = expanduser('~/proj/slovnet/README.md')
+NATASHA_README = expanduser('~/proj/natasha/README.md')

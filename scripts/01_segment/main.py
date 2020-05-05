@@ -76,8 +76,10 @@ from naeval.segment.models import (
 )
 from naeval.segment.score import score_partitions
 from naeval.segment.report import (
+    model_labels,
     report_table,
-    format_report
+    format_report,
+    format_natasha_report
 )
 
 
@@ -95,6 +97,7 @@ CORUS_FILES = {
 DATA_DIR = expanduser('~/proj/naeval/data/segment')
 README = expanduser('~/proj/naeval/README.md')
 RAZDEL_README = expanduser('~/proj/razdel/README.md')
+NATASHA_README = expanduser('~/proj/natasha/README.md')
 
 DATASETS = {
     CORPORA: load_corpora,

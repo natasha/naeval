@@ -4,17 +4,22 @@ import pandas as pd
 from naeval.report import table_html
 
 
+def model_labels(models, type):
+    models = models[type]
+    for name in models:
+        yield name, models[name].label
+
+
 def report_table(scores, times, datasets, models, type):
     data = []
     models = models[type]
     for model in models:
-        label = models[model].label
         for dataset in datasets:
             time = times[type, model, dataset]
             score = scores[type, model, dataset]
             prec = score.prec.total - score.prec.correct
             recall = score.recall.total - score.recall.correct
-            data.append([label, dataset, prec, recall, time])
+            data.append([model, dataset, prec, recall, time])
     return pd.DataFrame(
         data,
         columns=['model', 'dataset', 'prec', 'recall', 'time']
@@ -38,7 +43,7 @@ def format_column(column, name, github, top=3):
         yield string
 
 
-def format_report(table, github=False):
+def format_report(table, labels, github=False):
     models = table.model.unique()
     datasets = table.dataset.unique()
     metrics = ['errors', 'prec', 'recall', 'time']
@@ -65,4 +70,15 @@ def format_report(table, github=False):
 
     table.index.name = None
     table.columns.names = None, None
+    table.index = [labels.get(_, _) for _ in table.index]
+    return table_html(table)
+
+
+def format_natasha_report(table, labels, models):
+    table = table.groupby('model')['errors', 'time'].sum()
+
+    table = table.loc[models]
+    table.index.name = None
+
+    table.index = [labels.get(_, _) for _ in table.index]
     return table_html(table)

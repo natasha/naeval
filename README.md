@@ -246,6 +246,24 @@ See <a href="https://github.com/natasha/navec#evaluation">Navec evalualtion sect
   </thead>
   <tbody>
     <tr>
+      <th>hudlit_12B_500K_300d_100q</th>
+      <td>navec</td>
+      <td><b>1.0</b></td>
+      <td>19.9</td>
+      <td><b>50.6</b></td>
+      <td><b>95.3</b></td>
+      <td><b>500K</b></td>
+    </tr>
+    <tr>
+      <th>news_1B_250K_300d_100q</th>
+      <td>navec</td>
+      <td><b>0.5</b></td>
+      <td>20.3</td>
+      <td><b>25.4</b></td>
+      <td><b>47.7</b></td>
+      <td><b>250K</b></td>
+    </tr>
+    <tr>
       <th>ruscorpora_upos_cbow_300_20_2019</th>
       <td>w2v</td>
       <td>12.1</td>
@@ -290,24 +308,6 @@ See <a href="https://github.com/natasha/navec#evaluation">Navec evalualtion sect
       <td>2754.7</td>
       <td>195K</td>
     </tr>
-    <tr>
-      <th>hudlit_12B_500K_300d_100q</th>
-      <td>navec</td>
-      <td><b>1.0</b></td>
-      <td>19.9</td>
-      <td><b>50.6</b></td>
-      <td><b>95.3</b></td>
-      <td><b>500K</b></td>
-    </tr>
-    <tr>
-      <th>news_1B_250K_300d_100q</th>
-      <td>navec</td>
-      <td><b>0.5</b></td>
-      <td>20.3</td>
-      <td><b>25.4</b></td>
-      <td><b>47.7</b></td>
-      <td><b>250K</b></td>
-    </tr>
   </tbody>
 </table>
 <!--- emb1 --->
@@ -327,6 +327,26 @@ See <a href="https://github.com/natasha/navec#evaluation">Navec evalualtion sect
     </tr>
   </thead>
   <tbody>
+    <tr>
+      <th>hudlit_12B_500K_300d_100q</th>
+      <td>navec</td>
+      <td>0.310</td>
+      <td><b>0.707</b></td>
+      <td><b>0.842</b></td>
+      <td><b>0.931</b></td>
+      <td><b>0.923</b></td>
+      <td><b>0.604</b></td>
+    </tr>
+    <tr>
+      <th>news_1B_250K_300d_100q</th>
+      <td>navec</td>
+      <td>0.230</td>
+      <td>0.590</td>
+      <td>0.784</td>
+      <td><b>0.866</b></td>
+      <td>0.861</td>
+      <td>0.589</td>
+    </tr>
     <tr>
       <th>ruscorpora_upos_cbow_300_20_2019</th>
       <td>w2v</td>
@@ -377,31 +397,13 @@ See <a href="https://github.com/natasha/navec#evaluation">Navec evalualtion sect
       <td>0.793</td>
       <td>0.579</td>
     </tr>
-    <tr>
-      <th>hudlit_12B_500K_300d_100q</th>
-      <td>navec</td>
-      <td>0.310</td>
-      <td><b>0.707</b></td>
-      <td><b>0.842</b></td>
-      <td><b>0.931</b></td>
-      <td><b>0.923</b></td>
-      <td><b>0.604</b></td>
-    </tr>
-    <tr>
-      <th>news_1B_250K_300d_100q</th>
-      <td>navec</td>
-      <td>0.230</td>
-      <td>0.590</td>
-      <td>0.784</td>
-      <td><b>0.866</b></td>
-      <td>0.861</td>
-      <td>0.589</td>
-    </tr>
   </tbody>
 </table>
 <!--- emb2 --->
 
 ## Morphology taggers
+
+See <a href="https://github.com/natasha/slovnet#morphology-1">Slovnet evaluation section</a> for more info.
 
 <!--- morph1 --->
 <table border="0" class="dataframe">

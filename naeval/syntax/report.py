@@ -2,7 +2,8 @@
 import pandas as pd
 
 from naeval.report import table_html
-from naeval.report import Bench, format_bench_report  # noqa
+from naeval.report import Bench, bench_report_table, format_bench_report  # noqa
+from naeval.report import format_sec, format_mb, format_speed
 
 
 def scores_report_table(scores, datasets, models):
@@ -46,4 +47,29 @@ def format_scores_report(table):
         output[column] = list(format_scores_column(table[column]))
     output.index = table.index
     output.columns = pd.MultiIndex.from_tuples(output.columns)
+    return table_html(output)
+
+
+def format_natasha_report(scores, bench, dataset, models):
+    scores = scores.loc[models][dataset]
+    bench = bench.loc[models]
+
+    output = pd.DataFrame()
+    for type in ['uas', 'las']:
+        output[type] = [
+            '%.3f' % _
+            for _ in scores[type]
+        ]
+
+    columns = [
+        ['init', format_sec, 'init, s'],
+        ['disk', format_mb, 'disk, mb'],
+        ['ram', format_mb, 'ram, mb'],
+        [['speed', 'device'], format_speed, 'speed, sents/s']
+    ]
+    for slice, format, name in columns:
+        values = bench[slice].values.tolist()
+        output[name] = [format(_) for _ in values]
+
+    output.index = models
     return table_html(output)

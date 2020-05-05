@@ -53,7 +53,8 @@ from naeval.emb.report import (
     report_table,
     format_report,
     format_github_report1,
-    format_github_report2
+    format_github_report2,
+    format_natasha_report
 )
 
 
@@ -67,12 +68,13 @@ CORUS_FILES = {
     LRWC: 'toloka/LRWC/lrwc-1.1-aggregated.tsv',
 }
 RUSVEC_DATA_DIR = expanduser('~/proj/rusvectores-data')
-NAVEC_DATA_DIR = expanduser('~/proj/navec/data/models/navec/')
+NAVEC_DATA_DIR = expanduser('~/proj/navec/data/')
 DATA_DIR = expanduser('~/proj/naeval/data/emb')
 
 EMB1, EMB2 = 'emb1', 'emb2'
 README = expanduser('~/proj/naeval/README.md')
 NAVEC_README = expanduser('~/proj/navec/README.md')
+NATASHA_README = expanduser('~/proj/natasha/README.md')
 
 DATASETS = {
     SIMLEX: load_simlex,
@@ -91,6 +93,15 @@ SCORES = {
     LRWC: score_prec,
 }
 SCHEMES = [
+    NavecScheme(
+        'hudlit_12B_500K_300d_100q',
+        join_path(NAVEC_DATA_DIR, 'navec_hudlit_v1_12B_500K_300d_100q.tar')
+    ),
+    NavecScheme(
+        'news_1B_250K_300d_100q',
+        join_path(NAVEC_DATA_DIR, 'navec_news_v1_1B_250K_300d_100q.tar')
+    ),
+
     RusvectoresScheme(
         'ruscorpora_upos_cbow_300_20_2019',
         join_path(RUSVEC_DATA_DIR, 'ruscorpora_upos_cbow_300_20_2019/model.bin')
@@ -119,13 +130,4 @@ SCHEMES = [
             'araneum_none_fasttextcbow_300_5_2018.model'
         )
     ),
-
-    NavecScheme(
-        'hudlit_12B_500K_300d_100q',
-        join_path(NAVEC_DATA_DIR, 'navec_hudlit_v1_12B_500K_300d_100q.tar')
-    ),
-    NavecScheme(
-        'news_1B_250K_300d_100q',
-        join_path(NAVEC_DATA_DIR, 'navec_news_v1_1B_250K_300d_100q.tar')
-    )
 ]

@@ -44,8 +44,8 @@ def format_markup_diff(a, b, size=20):
         yield f'{word} {lemma} {tag}'
         if a.lemma != b.lemma:
             fill = ' ' * size
-            lemma = b.lemma.rjust(size)
-            yield f'{fill} {lemma}'
+            lemma = b.lemma.rjust(size - 2)
+            yield f'{fill} | {lemma}'
 
 
 def show_markup_diff(a, b):

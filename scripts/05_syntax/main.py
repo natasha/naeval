@@ -47,10 +47,14 @@ from naeval.syntax.models import (
 )
 from naeval.syntax.score import score_markups
 from naeval.syntax.report import (
-    Bench,
     scores_report_table,
     format_scores_report,
-    format_bench_report
+
+    Bench,
+    bench_report_table,
+    format_bench_report,
+
+    format_natasha_report
 )
 
 CORUS_DATA_DIR = expanduser('~/proj/corus-data/gramru')
@@ -92,3 +96,4 @@ SYNTAX1 = 'syntax1'
 SYNTAX2 = 'syntax2'
 README = expanduser('~/proj/naeval/README.md')
 SLOVNET_README = expanduser('~/proj/slovnet/README.md')
+NATASHA_README = expanduser('~/proj/natasha/README.md')
