@@ -756,11 +756,11 @@ See <a href="https://github.com/natasha/slovnet#evaluation">Slovnet evalualtion 
       <td><b>0.959</b></td>
       <td><b>0.915</b></td>
       <td><b>0.825</b></td>
-      <td><b>0.977</b></td>
+      <td>0.977</td>
       <td><b>0.899</b></td>
-      <td><b>0.984</b></td>
-      <td><b>0.973</b></td>
-      <td><b>0.951</b></td>
+      <td>0.984</td>
+      <td>0.973</td>
+      <td>0.951</td>
       <td><b>0.944</b></td>
       <td><b>0.834</b></td>
       <td><b>0.718</b></td>
@@ -822,6 +822,20 @@ See <a href="https://github.com/natasha/slovnet#evaluation">Slovnet evalualtion 
       <td>0.566</td>
     </tr>
     <tr>
+      <th>spacy</th>
+      <td>0.955</td>
+      <td>0.914</td>
+      <td>0.803</td>
+      <td><b>0.980</b></td>
+      <td>0.894</td>
+      <td><b>0.990</b></td>
+      <td><b>0.973</b></td>
+      <td><b>0.951</b></td>
+      <td>0.938</td>
+      <td>0.828</td>
+      <td>0.703</td>
+    </tr>
+    <tr>
       <th>texterra</th>
       <td>0.900</td>
       <td>0.800</td>
@@ -848,20 +862,6 @@ See <a href="https://github.com/natasha/slovnet#evaluation">Slovnet evalualtion 
       <td>0.881</td>
       <td></td>
       <td></td>
-    </tr>
-    <tr>
-      <th>natasha</th>
-      <td>0.867</td>
-      <td>0.753</td>
-      <td>0.297</td>
-      <td>0.873</td>
-      <td>0.347</td>
-      <td>0.852</td>
-      <td>0.709</td>
-      <td>0.394</td>
-      <td>0.836</td>
-      <td>0.755</td>
-      <td>0.350</td>
     </tr>
     <tr>
       <th>mitie</th>
@@ -923,10 +923,17 @@ See <a href="https://github.com/natasha/slovnet#evaluation">Slovnet evalualtion 
     </tr>
     <tr>
       <th>pullenti</th>
-      <td>2.9</td>
+      <td><b>2.9</b></td>
       <td><b>16</b></td>
-      <td>253</td>
+      <td><b>253</b></td>
       <td>6.0</td>
+    </tr>
+    <tr>
+      <th>spacy</th>
+      <td>8.0</td>
+      <td>89</td>
+      <td>625</td>
+      <td>8.0</td>
     </tr>
     <tr>
       <th>texterra</th>
@@ -938,16 +945,9 @@ See <a href="https://github.com/natasha/slovnet#evaluation">Slovnet evalualtion 
     <tr>
       <th>tomita</th>
       <td><b>2.0</b></td>
-      <td>64</td>
+      <td><b>64</b></td>
       <td><b>63</b></td>
       <td><b>29.8</b></td>
-    </tr>
-    <tr>
-      <th>natasha</th>
-      <td><b>2.0</b></td>
-      <td><b>1</b></td>
-      <td><b>160</b></td>
-      <td>8.8</td>
     </tr>
     <tr>
       <th>mitie</th>

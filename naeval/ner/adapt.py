@@ -78,6 +78,24 @@ def adapt_slovnet(markup):
     return adapt(markup, SLOVNET_TYPES)
 
 
+#######
+#
+#   SPACY
+#
+###
+
+
+SPACY_TYPES = {
+    'PER': PER,
+    'LOC': LOC,
+    'ORG': ORG
+}
+
+
+def adapt_spacy(markup):
+    return adapt(markup, SPACY_TYPES)
+
+
 #########
 #
 #   PULLENTI

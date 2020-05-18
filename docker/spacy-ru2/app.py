@@ -26,7 +26,7 @@ def log(format, *args):
     print(timestamp, message, file=sys.stderr, flush=True)
 
 
-class Tokenizer(object):
+class LinesTokenizer(object):
     # https://spacy.io/usage/linguistic-features#custom-tokenizer-example
     def __init__(self, vocab):
         self.vocab = vocab
@@ -39,17 +39,23 @@ class Tokenizer(object):
 
 def load():
     nlp = spacy.load('ru2')
-    nlp.tokenizer = Tokenizer(nlp.vocab)
+    nlp.lines_tokenizer = LinesTokenizer(nlp.vocab)
+    nlp.default_tokenizer = nlp.tokenizer
     return nlp
 
 
-def process(words, nlp):
-    text = '\t'.join(words)
-    for token in nlp(text):
-        yield token
+def process(input, nlp):
+    if type(input) is list:
+        input = '\t'.join(input)
+        nlp.tokenizer = nlp.lines_tokenizer
+
+    elif type(input) is str:
+        nlp.tokenizer = nlp.default_tokenizer
+
+    return nlp(input)
 
 
-def serialize(tokens):
+def serialize_tokens(tokens):
     for token in tokens:
         yield OrderedDict([
             ('id', token.idx),
@@ -59,6 +65,23 @@ def serialize(tokens):
             ('head', token.head.idx),
             ('dep', token.dep_)
         ])
+
+
+def serialize_ents(ents):
+    for ent in ents:
+        yield OrderedDict([
+            ('start', ent.start_char),
+            ('stop', ent.end_char),
+            ('label', ent.label_),
+            ('text', ent.text),
+        ])
+
+
+def serialize(doc):
+    return OrderedDict([
+        ('ents', list(serialize_ents(doc.ents))),
+        ('tokens', list(serialize_tokens(doc)))
+    ])
 
 
 class HTTPHandler(BaseHTTPRequestHandler):
@@ -98,7 +121,7 @@ class HTTPHandler(BaseHTTPRequestHandler):
         tokens = process(input, NLP)
         log('Processed %d words', len(input))
 
-        output = list(serialize(tokens))
+        output = serialize(tokens)
         response = json.dumps(
             output,
             ensure_ascii=False,

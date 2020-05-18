@@ -13,9 +13,9 @@ from naeval.const import (
     GAREEV, WIKINER, BSNLP,
 
     DEEPPAVLOV, DEEPPAVLOV_BERT,
-    MITIE, NATASHA, PULLENTI,
+    MITIE, PULLENTI,
     TEXTERRA, TOMITA,
-    SLOVNET, SLOVNET_BERT,
+    SLOVNET, SLOVNET_BERT, SPACY,
 
     DATASET, JL, GZ,
 
@@ -46,12 +46,12 @@ from naeval.ner.models import (
     TomitaModel,
     PullentiModel,
     MitieModel,
-    NatashaModel,
     TexterraModel,
     DeeppavlovModel,
     DeeppavlovBERTModel,
     SlovnetModel,
-    SlovnetBERTModel
+    SlovnetBERTModel,
+    SpacyModel
 )
 from naeval.ner.markup import (
     Markup,
@@ -93,9 +93,9 @@ MODELS = {
     DEEPPAVLOV: DeeppavlovModel,
     DEEPPAVLOV_BERT: DeeppavlovBERTModel,
     PULLENTI: PullentiModel,
+    SPACY: SpacyModel,
     TEXTERRA: TexterraModel,
     TOMITA: TomitaModel,
-    NATASHA: NatashaModel,
     MITIE: MitieModel,
 }
 
