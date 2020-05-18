@@ -8,4 +8,4 @@ RUN wget https://github.com/buriy/spacy-ru/archive/v2.2.zip -O src.zip \
     && rm -r src.zip spacy-ru-*
 
 COPY app.py .
-CMD ["python", "app.py"]
+CMD ["python", "app.py", "tagger"]
