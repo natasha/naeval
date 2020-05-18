@@ -1,9 +1,6 @@
 
 from naeval.span import Span as Span_
-from naeval.ner.markup import (
-    Markup as Markup_,
-    show_markup
-)
+from naeval.ner.markup import Markup as Markup_, show_markup  # noqa
 
 
 class Span(Span_):

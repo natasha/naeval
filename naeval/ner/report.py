@@ -3,7 +3,6 @@ import pandas as pd
 
 from naeval.report import table_html
 from naeval.report import Bench, bench_report_table, format_bench_report  # noqa
-from naeval.report import format_sec, format_mb, format_speed
 from naeval.const import (
     PER, LOC, ORG,
     GAREEV,
@@ -88,41 +87,4 @@ def format_github_scores_report(table):
     output.columns = pd.MultiIndex.from_tuples(output.columns)
     output.columns.names = [None, 'f1']
 
-    return table_html(output)
-
-
-def scores_f1(scores):
-    return scores.value
-
-
-def format_f1_scores(values):
-    return '/'.join('%.2f' % _ for _ in values)
-
-
-def format_natasha_report(scores, bench, models):
-    scores = scores.loc[models]
-    bench = bench.loc[models]
-
-    scores.pop((GAREEV, LOC))
-    for column in scores.columns:
-        scores[column] = scores[column].map(scores_f1)
-    scores = scores.stack().mean(axis=1).unstack()  # model x type
-
-    output = pd.DataFrame()
-    output['PER/LOC/ORG f1'] = [
-        format_f1_scores(_)
-        for _ in scores[[PER, LOC, ORG]].values
-    ]
-
-    columns = [
-        ['init', format_sec, 'init, s'],
-        ['disk', format_mb, 'disk, mb'],
-        ['ram', format_mb, 'ram, mb'],
-        [['speed', 'device'], format_speed, 'speed, articles/s']
-    ]
-    for slice, format, name in columns:
-        values = bench[slice].values.tolist()
-        output[name] = [format(_) for _ in values]
-
-    output.index = models
     return table_html(output)

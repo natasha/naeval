@@ -1,6 +1,4 @@
 
-from collections import defaultdict
-
 from naeval.const import SLOVNET, SLOVNET_BERT
 from naeval.chop import chop
 

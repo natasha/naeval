@@ -53,8 +53,6 @@ from naeval.syntax.report import (
     Bench,
     bench_report_table,
     format_bench_report,
-
-    format_natasha_report
 )
 
 CORUS_DATA_DIR = expanduser('~/proj/corus-data/gramru')
@@ -85,15 +83,14 @@ CORUS_FILES = {
 
 DATASETS = [NEWS, WIKI, FICTION, SOCIAL, POETRY]
 MODELS = {
+    SLOVNET: SlovnetModel,
+    SLOVNET_BERT: SlovnetBERTModel,
+    DEEPPAVLOV_BERT: DeeppavlovBERTModel,
     UDPIPE: UDPipeModel,
     SPACY: SpacyModel,
-    DEEPPAVLOV_BERT: DeeppavlovBERTModel,
-    SLOVNET_BERT: SlovnetBERTModel,
-    SLOVNET: SlovnetModel
 }
 DATA_DIR = expanduser('~/proj/naeval/data/syntax')
 SYNTAX1 = 'syntax1'
 SYNTAX2 = 'syntax2'
 README = expanduser('~/proj/naeval/README.md')
 SLOVNET_README = expanduser('~/proj/slovnet/README.md')
-NATASHA_README = expanduser('~/proj/natasha/README.md')

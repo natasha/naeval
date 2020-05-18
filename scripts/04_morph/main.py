@@ -59,8 +59,6 @@ from naeval.morph.report import (
     Bench,
     bench_report_table,
     format_bench_report,
-
-    format_natasha_report
 )
 
 CORUS_DATA_DIR = expanduser('~/proj/corus-data/gramru')
@@ -91,19 +89,18 @@ CORUS_FILES = {
 
 DATASETS = [NEWS, WIKI, FICTION, SOCIAL, POETRY]
 MODELS = {
-    RUPOSTAGGER: RuPosTaggerModel,
-    RNNMORPH: RNNMorphModel,
-    MARU: MaruModel,
-    UDPIPE: UDPipeModel,
-    SPACY: SpacyModel,
-    DEEPPAVLOV: DeeppavlovModel,
-    DEEPPAVLOV_BERT: DeeppavlovBERTModel,
     SLOVNET: SlovnetModel,
     SLOVNET_BERT: SlovnetBERTModel,
+    DEEPPAVLOV: DeeppavlovModel,
+    DEEPPAVLOV_BERT: DeeppavlovBERTModel,
+    UDPIPE: UDPipeModel,
+    SPACY: SpacyModel,
+    RNNMORPH: RNNMorphModel,
+    MARU: MaruModel,
+    RUPOSTAGGER: RuPosTaggerModel,
 }
 DATA_DIR = expanduser('~/proj/naeval/data/morph')
 MORPH1 = 'morph1'
 MORPH2 = 'morph2'
 README = expanduser('~/proj/naeval/README.md')
 SLOVNET_README = expanduser('~/proj/slovnet/README.md')
-NATASHA_README = expanduser('~/proj/natasha/README.md')

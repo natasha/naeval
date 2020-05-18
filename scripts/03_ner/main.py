@@ -66,8 +66,6 @@ from naeval.ner.report import (
     Bench,
     bench_report_table,
     format_bench_report,
-
-    format_natasha_report
 )
 
 
@@ -82,7 +80,6 @@ CORUS_FILES = {
 NER1, NER2 = 'ner1', 'ner2'
 README = expanduser('~/proj/naeval/README.md')
 SLOVNET_README = expanduser('~/proj/slovnet/README.md')
-NATASHA_README = expanduser('~/proj/natasha/README.md')
 
 DATASETS = {
     FACTRU: load_factru,
@@ -91,8 +88,8 @@ DATASETS = {
     BSNLP: load_bsnlp,
 }
 MODELS = {
-    SLOVNET_BERT: SlovnetBERTModel,
     SLOVNET: SlovnetModel,
+    SLOVNET_BERT: SlovnetBERTModel,
     DEEPPAVLOV: DeeppavlovModel,
     DEEPPAVLOV_BERT: DeeppavlovBERTModel,
     PULLENTI: PullentiModel,

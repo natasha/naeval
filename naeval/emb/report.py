@@ -137,28 +137,3 @@ def format_github_report2(table, datasets):
 
     output = output.rename(columns={'simlex965': 'simlex'})
     return table_html(output)
-
-
-def format_natasha_report(table, datasets):
-    output = pd.DataFrame()
-    output['type'] = table['type']
-
-    scores = pd.DataFrame()
-    for dataset in datasets:
-        scores[dataset] = [score for score, cover in table[dataset]]
-
-    scores = scores.mean(axis=1)
-    output['precision'] = ['%.3f' % _ for _ in scores]
-
-    columns = [
-        ['init', format_sec, 'init, s'],
-        ['disk', format_mb, 'disk, mb'],
-        ['ram', format_mb, 'ram, mb'],
-        ['vocab', format_vocab, 'vocab'],
-    ]
-    for column, format, name in columns:
-        values = table[column].values
-        output[name] = [format(_) for _ in values]
-
-    output.index = table.index
-    return table_html(output)

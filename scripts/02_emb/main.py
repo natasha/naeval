@@ -54,7 +54,6 @@ from naeval.emb.report import (
     format_report,
     format_github_report1,
     format_github_report2,
-    format_natasha_report
 )
 
 
@@ -74,7 +73,6 @@ DATA_DIR = expanduser('~/proj/naeval/data/emb')
 EMB1, EMB2 = 'emb1', 'emb2'
 README = expanduser('~/proj/naeval/README.md')
 NAVEC_README = expanduser('~/proj/navec/README.md')
-NATASHA_README = expanduser('~/proj/natasha/README.md')
 
 DATASETS = {
     SIMLEX: load_simlex,

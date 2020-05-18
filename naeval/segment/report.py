@@ -72,13 +72,3 @@ def format_report(table, labels, github=False):
     table.columns.names = None, None
     table.index = [labels.get(_, _) for _ in table.index]
     return table_html(table)
-
-
-def format_natasha_report(table, labels, models):
-    table = table.groupby('model')['errors', 'time'].sum()
-
-    table = table.loc[models]
-    table.index.name = None
-
-    table.index = [labels.get(_, _) for _ in table.index]
-    return table_html(table)
