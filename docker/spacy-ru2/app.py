@@ -37,8 +37,8 @@ class LinesTokenizer(object):
         return Doc(self.vocab, words=words, spaces=spaces)
 
 
-def load():
-    nlp = spacy.load('ru2')
+def load(enabled=['tagger', 'parser', 'ner'], available=['tagger', 'parser', 'ner']):
+    nlp = spacy.load('ru2', disable=[p for p in available if p not in enabled])
     nlp.lines_tokenizer = LinesTokenizer(nlp.vocab)
     nlp.default_tokenizer = nlp.tokenizer
     return nlp
@@ -139,7 +139,7 @@ def main():
     try:
         log('Loading model')
         global NLP
-        NLP = load()
+        NLP = load(enabled=sys.argv[1:])
     except Exception as error:
         log('Can not load model: "%s"', error)
         return
