@@ -39,7 +39,7 @@ def docker_find(client, name):
             return record
 
 
-def docker_run(client, image, name, container_port, port):
+def docker_run(client, image, name, container_port, port, env=None):
     record = docker_find(client, name)
     if record:
         return record
@@ -48,6 +48,7 @@ def docker_run(client, image, name, container_port, port):
         image,
         name=name,
         ports={'%d/tcp' % container_port: port},
+        environment=env,
         detach=True
     )
     return adapt_container(record)

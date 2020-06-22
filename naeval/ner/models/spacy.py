@@ -53,6 +53,9 @@ class SpacyModel(Model):
     name = SPACY
     image = SPACY_IMAGE
     container_port = SPACY_CONTAINER_PORT
+    env = {
+        'PIPELINES': 'ner'
+    }
 
     def __call__(self, text):
         return call_spacy(text, self.host, self.port)

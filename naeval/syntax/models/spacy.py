@@ -19,7 +19,7 @@ def parse_spacy(data):
 
     markup = Markup([])
     ids = {}
-    for index, item in enumerate(data, 1):
+    for index, item in enumerate(data['tokens'], 1):
         id, text, head_id, rel = item['id'], item['word'], item['head'], item['dep']
         ids[id] = str(index)
         markup.tokens.append(Token(id, text, head_id, rel))
@@ -39,5 +39,8 @@ class SpacyModel(Model):
     name = SPACY
     image = SPACY_IMAGE
     container_port = SPACY_CONTAINER_PORT
+    env = {
+        'PIPELINES': 'parser'
+    }
 
     parse = staticmethod(parse_spacy)

@@ -16,6 +16,8 @@ from spacy.tokens import Doc
 
 HOST = os.getenv('HOST', '0.0.0.0')
 PORT = int(os.getenv('PORT', 8080))
+PIPELINES = os.getenv('PIPELINES', 'tagger parser ner').split()
+AVAILABLE = ['tagger', 'parser', 'ner']
 
 NLP = None
 
@@ -37,8 +39,8 @@ class LinesTokenizer(object):
         return Doc(self.vocab, words=words, spaces=spaces)
 
 
-def load():
-    nlp = spacy.load('ru2')
+def load(disable):
+    nlp = spacy.load('ru2', disable=disable)
     nlp.lines_tokenizer = LinesTokenizer(nlp.vocab)
     nlp.default_tokenizer = nlp.tokenizer
     return nlp
@@ -137,9 +139,14 @@ class HTTPHandler(BaseHTTPRequestHandler):
 
 def main():
     try:
-        log('Loading model')
+        disable = [
+            _
+            for _ in AVAILABLE
+            if _ not in PIPELINES
+        ]
+        log('Loading model, disable: %r', disable)
         global NLP
-        NLP = load()
+        NLP = load(disable)
     except Exception as error:
         log('Can not load model: "%s"', error)
         return

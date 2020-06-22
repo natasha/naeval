@@ -41,6 +41,7 @@ class ContainerModel(Record):
     name = None
     image = None
     container_port = None
+    env = None
 
     payload = None
     retries = 1
@@ -78,10 +79,11 @@ class ContainerModel(Record):
     def start(self, client):
         docker_run(
             client,
-            self.image,
-            self.name,
-            self.container_port,
-            self.port
+            image=self.image,
+            name=self.name,
+            container_port=self.container_port,
+            port=self.port,
+            env=self.env
         )
 
     def stop(self, client):

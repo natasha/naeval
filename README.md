@@ -543,10 +543,10 @@ See <a href="https://github.com/natasha/slovnet#morphology-1">Slovnet evaluation
     </tr>
     <tr>
       <th>spacy</th>
-      <td>10.9</td>
+      <td>8.0</td>
       <td>89</td>
       <td>579</td>
-      <td>30.6</td>
+      <td>50.0</td>
     </tr>
     <tr>
       <th>rnnmorph</th>
@@ -712,10 +712,10 @@ See <a href="https://github.com/natasha/slovnet#morphology-1">Slovnet evaluation
     </tr>
     <tr>
       <th>spacy</th>
-      <td>10.9</td>
+      <td>9.0</td>
       <td><b>89</b></td>
       <td><b>579</b></td>
-      <td>31.6</td>
+      <td>41.0</td>
     </tr>
   </tbody>
 </table>

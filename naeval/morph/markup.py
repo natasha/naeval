@@ -20,6 +20,10 @@ class Markup(Record):
     def __init__(self, tokens):
         self.tokens = tokens
 
+    @property
+    def words(self):
+        return [_.text for _ in self.tokens]
+
 
 def format_tag(pos, feats):
     if not feats:

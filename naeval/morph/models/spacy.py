@@ -16,7 +16,7 @@ def parse_spacy(data):
     # {'word': 'мыла', 'lemma': 'мыть', 'tag': 'VERB__Aspect=Imp|Gender=Fem
 
     markup = Markup([])
-    for item in data:
+    for item in data['tokens']:
         tag = item['tag']
         pos, feats = tag.split('__', 1)
         feats = dict(parse_conll_feats(feats))
@@ -29,5 +29,8 @@ class SpacyModel(Model):
     name = SPACY
     image = SPACY_IMAGE
     container_port = SPACY_CONTAINER_PORT
+    env = {
+        'PIPELINES': 'tagger'
+    }
 
     parse = staticmethod(parse_spacy)
