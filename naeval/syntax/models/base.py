@@ -8,9 +8,6 @@ from naeval.model import get  # noqa
 
 
 class Model(ContainerModel):
-    name = None
-    image = None
-    container_port = None
     url = 'http://{host}:{port}/'
 
     payload = ['Министр', 'общественного', 'порядка']
