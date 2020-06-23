@@ -796,7 +796,7 @@ See <a href="https://github.com/natasha/slovnet#evaluation">Slovnet evalualtion 
       <td>0.984</td>
       <td>0.973</td>
       <td>0.951</td>
-      <td><b>0.944</b></td>
+      <td>0.944</td>
       <td>0.834</td>
       <td>0.718</td>
     </tr>
@@ -811,7 +811,7 @@ See <a href="https://github.com/natasha/slovnet#evaluation">Slovnet evalualtion 
       <td><b>0.989</b></td>
       <td><b>0.976</b></td>
       <td><b>0.960</b></td>
-      <td><b>0.838</b></td>
+      <td>0.838</td>
       <td><b>0.733</b></td>
     </tr>
     <tr>
@@ -841,6 +841,20 @@ See <a href="https://github.com/natasha/slovnet#evaluation">Slovnet evalualtion 
       <td><b>0.954</b></td>
       <td><b>0.840</b></td>
       <td><b>0.741</b></td>
+    </tr>
+    <tr>
+      <th>deeppavlov_slavic</th>
+      <td>0.956</td>
+      <td>0.884</td>
+      <td>0.714</td>
+      <td>0.976</td>
+      <td>0.776</td>
+      <td>0.984</td>
+      <td>0.817</td>
+      <td>0.761</td>
+      <td><b>0.965</b></td>
+      <td><b>0.925</b></td>
+      <td><b>0.831</b></td>
     </tr>
     <tr>
       <th>pullenti</th>
@@ -882,7 +896,7 @@ See <a href="https://github.com/natasha/slovnet#evaluation">Slovnet evalualtion 
       <td>0.734</td>
       <td>0.938</td>
       <td><b>0.838</b></td>
-      <td><b>0.724</b></td>
+      <td>0.724</td>
     </tr>
     <tr>
       <th>texterra</th>
@@ -969,6 +983,13 @@ See <a href="https://github.com/natasha/slovnet#evaluation">Slovnet evalualtion 
       <td>2048</td>
       <td>6144</td>
       <td>13.1 (gpu)</td>
+    </tr>
+    <tr>
+      <th>deeppavlov_slavic</th>
+      <td>35.0</td>
+      <td>2048</td>
+      <td>4096</td>
+      <td>8.0 (gpu)</td>
     </tr>
     <tr>
       <th>pullenti</th>

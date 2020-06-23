@@ -37,6 +37,7 @@ POETRY = 'poetry'
 
 DEEPPAVLOV = 'deeppavlov'
 DEEPPAVLOV_BERT = 'deeppavlov_bert'
+DEEPPAVLOV_SLAVIC = 'deeppavlov_slavic'
 SLOVNET = 'slovnet'
 SLOVNET_BERT = 'slovnet_bert'
 MITIE = 'mitie'

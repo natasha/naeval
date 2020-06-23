@@ -3,7 +3,8 @@ from itertools import groupby
 
 from naeval.const import (
     DEEPPAVLOV,
-    DEEPPAVLOV_BERT
+    DEEPPAVLOV_BERT,
+    DEEPPAVLOV_SLAVIC
 )
 from naeval.record import Record
 from naeval.tokenizer import tokenize
@@ -29,6 +30,9 @@ DEEPPAVLOV_URL = 'http://{host}:{port}/ner'
 
 DEEPPAVLOV_BERT_IMAGE = 'natasha/deeppavlov-ner-ru-bert'
 DEEPPAVLOV_BERT_CONTAINER_PORT = 5000
+
+DEEPPAVLOV_SLAVIC_IMAGE = 'natasha/deeppavlov-ner-slavic-bert'
+DEEPPAVLOV_SLAVIC_CONTAINER_PORT = 5000
 
 # ~9Gb
 DEEPPAVLOV_BERT_SECTION = 256
@@ -186,3 +190,8 @@ class DeeppavlovBERTModel(DeeppavlovModel):
             DEEPPAVLOV_BERT_SECTION, DEEPPAVLOV_BERT_BATCH,
             mode=DEEPPAVLOV_BERT
         )
+
+
+class DeeppavlovSlavicModel(DeeppavlovBERTModel):
+    name = DEEPPAVLOV_SLAVIC
+    image = DEEPPAVLOV_SLAVIC_IMAGE
