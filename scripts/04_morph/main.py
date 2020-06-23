@@ -14,6 +14,7 @@ from naeval.const import (
     DEEPPAVLOV, DEEPPAVLOV_BERT, UDPIPE,
     SPACY, RNNMORPH, MARU, RUPOSTAGGER,
     SLOVNET, SLOVNET_BERT,
+    STANZA,
 
     MB, GB, GPU,
 
@@ -49,7 +50,8 @@ from naeval.morph.models import (
     DeeppavlovBERTModel,
     RuPosTaggerModel,
     SlovnetBERTModel,
-    SlovnetModel
+    SlovnetModel,
+    StanzaModel
 )
 from naeval.morph.score import score_markups
 from naeval.morph.report import (
@@ -95,6 +97,7 @@ MODELS = {
     DEEPPAVLOV_BERT: DeeppavlovBERTModel,
     UDPIPE: UDPipeModel,
     SPACY: SpacyModel,
+    STANZA: StanzaModel,
     RNNMORPH: RNNMorphModel,
     MARU: MaruModel,
     RUPOSTAGGER: RuPosTaggerModel,

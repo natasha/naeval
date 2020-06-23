@@ -44,56 +44,27 @@ def adapt(markup, types):
 
 #######
 #
-#   DEEPPAVLOV
+#   SIMPLE
 #
 ###
 
 
-DEEPPAVLOV_TYPES = {
+TYPES = {
     'PER': PER,
     'LOC': LOC,
     'ORG': ORG
 }
 
 
-def adapt_deeppavlov(markup):
-    return adapt(markup, DEEPPAVLOV_TYPES)
+def adapt_simple(markup):
+    return adapt(markup, TYPES)
 
 
-#######
-#
-#   SLOVNET
-#
-###
-
-
-SLOVNET_TYPES = {
-    'PER': PER,
-    'LOC': LOC,
-    'ORG': ORG
-}
-
-
-def adapt_slovnet(markup):
-    return adapt(markup, SLOVNET_TYPES)
-
-
-#######
-#
-#   SPACY
-#
-###
-
-
-SPACY_TYPES = {
-    'PER': PER,
-    'LOC': LOC,
-    'ORG': ORG
-}
-
-
-def adapt_spacy(markup):
-    return adapt(markup, SPACY_TYPES)
+adapt_deeppavlov = adapt_simple
+adapt_spacy = adapt_simple
+adapt_slovnet = adapt_simple
+adapt_stanza = adapt_simple
+adapt_bsnlp = adapt_simple
 
 
 #########
@@ -316,24 +287,6 @@ def adapt_factru(markup):
 
     spans = list(adapt_spans(spans, markup.text, FACTRU_TYPES))
     return Markup(markup.text, spans)
-
-
-#######
-#
-#   BSNLP
-#
-###
-
-
-BSNLP_TYPES = {
-    'PER': PER,
-    'LOC': LOC,
-    'ORG': ORG
-}
-
-
-def adapt_bsnlp(markup):
-    return adapt(markup, BSNLP_TYPES)
 
 
 ##########

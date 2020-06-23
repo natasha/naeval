@@ -455,7 +455,7 @@ See <a href="https://github.com/natasha/slovnet#morphology-1">Slovnet evaluation
       <td>0.918</td>
       <td>0.811</td>
       <td><b>0.957</b></td>
-      <td><b>0.870</b></td>
+      <td>0.870</td>
       <td>0.776</td>
     </tr>
     <tr>
@@ -465,6 +465,14 @@ See <a href="https://github.com/natasha/slovnet#morphology-1">Slovnet evaluation
       <td>0.938</td>
       <td>0.836</td>
       <td>0.729</td>
+    </tr>
+    <tr>
+      <th>stanza</th>
+      <td>0.934</td>
+      <td>0.840</td>
+      <td>0.940</td>
+      <td><b>0.873</b></td>
+      <td>0.825</td>
     </tr>
     <tr>
       <th>rnnmorph</th>
@@ -525,7 +533,7 @@ See <a href="https://github.com/natasha/slovnet#morphology-1">Slovnet evaluation
       <td><b>4.0</b></td>
       <td>32</td>
       <td>10240</td>
-      <td><b>90.0 (gpu)</b></td>
+      <td>90.0 (gpu)</td>
     </tr>
     <tr>
       <th>deeppavlov_bert</th>
@@ -549,6 +557,13 @@ See <a href="https://github.com/natasha/slovnet#morphology-1">Slovnet evaluation
       <td>50.0</td>
     </tr>
     <tr>
+      <th>stanza</th>
+      <td><b>2.0</b></td>
+      <td>591</td>
+      <td>393</td>
+      <td><b>92.0</b></td>
+    </tr>
+    <tr>
       <th>rnnmorph</th>
       <td>8.7</td>
       <td><b>10</b></td>
@@ -564,7 +579,7 @@ See <a href="https://github.com/natasha/slovnet#morphology-1">Slovnet evaluation
     </tr>
     <tr>
       <th>rupostagger</th>
-      <td><b>4.8</b></td>
+      <td>4.8</td>
       <td><b>3</b></td>
       <td><b>118</b></td>
       <td>48.0</td>
@@ -603,10 +618,10 @@ See <a href="https://github.com/natasha/slovnet#morphology-1">Slovnet evaluation
   <tbody>
     <tr>
       <th>slovnet</th>
-      <td><b>0.907</b></td>
-      <td><b>0.880</b></td>
-      <td><b>0.775</b></td>
-      <td><b>0.718</b></td>
+      <td>0.907</td>
+      <td>0.880</td>
+      <td>0.775</td>
+      <td>0.718</td>
       <td>0.806</td>
       <td>0.776</td>
       <td>0.726</td>
@@ -646,8 +661,8 @@ See <a href="https://github.com/natasha/slovnet#morphology-1">Slovnet evaluation
       <td>0.823</td>
       <td>0.622</td>
       <td>0.531</td>
-      <td><b>0.910</b></td>
-      <td><b>0.876</b></td>
+      <td>0.910</td>
+      <td>0.876</td>
       <td>0.700</td>
       <td>0.624</td>
       <td>0.625</td>
@@ -661,10 +676,23 @@ See <a href="https://github.com/natasha/slovnet#morphology-1">Slovnet evaluation
       <td>0.665</td>
       <td>0.880</td>
       <td>0.833</td>
-      <td><b>0.757</b></td>
-      <td><b>0.666</b></td>
-      <td><b>0.657</b></td>
-      <td><b>0.544</b></td>
+      <td>0.757</td>
+      <td>0.666</td>
+      <td>0.657</td>
+      <td>0.544</td>
+    </tr>
+    <tr>
+      <th>stanza</th>
+      <td><b>0.940</b></td>
+      <td><b>0.886</b></td>
+      <td><b>0.827</b></td>
+      <td><b>0.723</b></td>
+      <td><b>0.936</b></td>
+      <td><b>0.895</b></td>
+      <td><b>0.802</b></td>
+      <td><b>0.714</b></td>
+      <td><b>0.713</b></td>
+      <td><b>0.613</b></td>
     </tr>
   </tbody>
 </table>
@@ -705,7 +733,7 @@ See <a href="https://github.com/natasha/slovnet#morphology-1">Slovnet evaluation
     </tr>
     <tr>
       <th>udpipe</th>
-      <td><b>6.9</b></td>
+      <td>6.9</td>
       <td><b>45</b></td>
       <td><b>242</b></td>
       <td>56.2</td>
@@ -716,6 +744,13 @@ See <a href="https://github.com/natasha/slovnet#morphology-1">Slovnet evaluation
       <td><b>89</b></td>
       <td><b>579</b></td>
       <td>41.0</td>
+    </tr>
+    <tr>
+      <th>stanza</th>
+      <td><b>3.0</b></td>
+      <td>591</td>
+      <td>890</td>
+      <td>12.0</td>
     </tr>
   </tbody>
 </table>
@@ -762,8 +797,8 @@ See <a href="https://github.com/natasha/slovnet#evaluation">Slovnet evalualtion 
       <td>0.973</td>
       <td>0.951</td>
       <td><b>0.944</b></td>
-      <td><b>0.834</b></td>
-      <td><b>0.718</b></td>
+      <td>0.834</td>
+      <td>0.718</td>
     </tr>
     <tr>
       <th>slovnet_bert</th>
@@ -834,6 +869,20 @@ See <a href="https://github.com/natasha/slovnet#evaluation">Slovnet evalualtion 
       <td>0.938</td>
       <td>0.828</td>
       <td>0.703</td>
+    </tr>
+    <tr>
+      <th>stanza</th>
+      <td>0.943</td>
+      <td>0.865</td>
+      <td>0.687</td>
+      <td>0.953</td>
+      <td>0.827</td>
+      <td>0.923</td>
+      <td>0.753</td>
+      <td>0.734</td>
+      <td>0.938</td>
+      <td><b>0.838</b></td>
+      <td><b>0.724</b></td>
     </tr>
     <tr>
       <th>texterra</th>
@@ -934,6 +983,13 @@ See <a href="https://github.com/natasha/slovnet#evaluation">Slovnet evalualtion 
       <td>89</td>
       <td>625</td>
       <td>8.0</td>
+    </tr>
+    <tr>
+      <th>stanza</th>
+      <td>3.0</td>
+      <td>591</td>
+      <td>11264</td>
+      <td>3.0 (gpu)</td>
     </tr>
     <tr>
       <th>texterra</th>
