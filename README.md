@@ -4,7 +4,7 @@ Naeval — comparing quality and performance of NLP systems for Russian language
 
 ## Tokenization
 
-See <a href="https://github.com/natasha/razdel#quality-performance">Razdel evalualtion section</a> for more info.
+See <a href="https://github.com/natasha/razdel#evaluation">Razdel evalualtion section</a> for more info.
 
 <!--- token --->
 <table border="0" class="dataframe">
