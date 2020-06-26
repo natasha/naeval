@@ -19,14 +19,15 @@ def report_table(scores, times, datasets, models, type):
             score = scores[type, model, dataset]
             prec = score.prec.total - score.prec.correct
             recall = score.recall.total - score.recall.correct
-            data.append([model, dataset, prec, recall, time])
+            total = score.recall.total + 1  # num of splits + 1 in etalon
+            data.append([model, dataset, prec, recall, time, total])
     return pd.DataFrame(
         data,
-        columns=['model', 'dataset', 'prec', 'recall', 'time']
+        columns=['model', 'dataset', 'prec', 'recall', 'time', 'total']
     )
 
 
-def format_column(column, name, github, top=3):
+def format_column(column, name, top=3):
     best = (
         column[1:]   # skip baseline
         if len(column) > 1
@@ -38,22 +39,19 @@ def format_column(column, name, github, top=3):
             if name == 'time'
             else '{:.0f}'
         ).format(value)
-        if github and value in best.values:
+        if value in best.values:
             string = '<b>%s</b>' % string
         yield string
 
 
-def format_report(table, labels, github=False):
+def format_report(table, labels, scale=1000):
     models = table.model.unique()
     datasets = table.dataset.unique()
-    metrics = ['errors', 'prec', 'recall', 'time']
+    metrics = ['errors', 'time']
 
-    table['errors'] = table.prec + table.recall
+    table['errors'] = (table.prec + table.recall) / table.total * scale
     table = table.pivot('model', 'dataset', metrics)
     table = table.swaplevel(axis=1)
-    if github:
-        metrics = ['errors', 'time']
-
     table = table.reindex(
         index=models,
         columns=[
@@ -66,7 +64,7 @@ def format_report(table, labels, github=False):
     for dataset in datasets:
         for metric in metrics:
             column = table[dataset, metric]
-            table[dataset, metric] = list(format_column(column, metric, github))
+            table[dataset, metric] = list(format_column(column, metric))
 
     table.index.name = None
     table.columns.names = None, None

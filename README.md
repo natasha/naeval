@@ -31,101 +31,101 @@ See <a href="https://github.com/natasha/razdel#evaluation">Razdel evalualtion se
   <tbody>
     <tr>
       <th>re.findall(\w+|\d+|\p+)</th>
-      <td>4161</td>
+      <td>24</td>
       <td>0.5</td>
-      <td>2660</td>
+      <td>16</td>
       <td>0.5</td>
-      <td>2277</td>
+      <td>19</td>
       <td>0.4</td>
-      <td>7606</td>
+      <td>60</td>
       <td>0.4</td>
     </tr>
     <tr>
       <th>spacy</th>
-      <td>4388</td>
+      <td>26</td>
       <td>6.2</td>
-      <td>2103</td>
+      <td>13</td>
       <td>5.8</td>
-      <td><b>1740</b></td>
+      <td><b>14</b></td>
       <td>4.1</td>
-      <td>4057</td>
+      <td>32</td>
       <td>3.9</td>
     </tr>
     <tr>
       <th>nltk.word_tokenize</th>
-      <td>14245</td>
+      <td>60</td>
       <td>3.4</td>
-      <td>60893</td>
+      <td>256</td>
       <td>3.3</td>
-      <td>13496</td>
+      <td>75</td>
       <td>2.7</td>
-      <td>41485</td>
+      <td>199</td>
       <td>2.9</td>
     </tr>
     <tr>
       <th>mystem</th>
-      <td>4514</td>
+      <td>23</td>
       <td>5.0</td>
-      <td>3153</td>
+      <td>15</td>
       <td>4.7</td>
-      <td>2497</td>
+      <td>19</td>
       <td>3.7</td>
-      <td><b>2028</b></td>
+      <td><b>14</b></td>
       <td>3.9</td>
     </tr>
     <tr>
       <th>mosestokenizer</th>
-      <td><b>1886</b></td>
+      <td><b>11</b></td>
       <td><b>2.1</b></td>
-      <td><b>1330</b></td>
+      <td><b>8</b></td>
       <td><b>1.9</b></td>
-      <td>1796</td>
+      <td>15</td>
       <td><b>1.6</b></td>
-      <td><b>2123</b></td>
+      <td><b>16</b></td>
       <td><b>1.7</b></td>
     </tr>
     <tr>
       <th>segtok.word_tokenize</th>
-      <td>2772</td>
+      <td>16</td>
       <td><b>2.3</b></td>
-      <td><b>1288</b></td>
+      <td><b>8</b></td>
       <td><b>2.3</b></td>
-      <td>1759</td>
+      <td>14</td>
       <td><b>1.8</b></td>
-      <td><b>1229</b></td>
+      <td><b>9</b></td>
       <td><b>1.8</b></td>
     </tr>
     <tr>
       <th>aatimofeev/spacy_russian_tokenizer</th>
-      <td>2930</td>
+      <td>17</td>
       <td>48.7</td>
-      <td><b>719</b></td>
+      <td><b>4</b></td>
       <td>51.1</td>
-      <td><b>678</b></td>
+      <td><b>5</b></td>
       <td>39.5</td>
-      <td>2681</td>
+      <td>20</td>
       <td>52.2</td>
     </tr>
     <tr>
       <th>koziev/rutokenizer</th>
-      <td><b>2627</b></td>
+      <td><b>15</b></td>
       <td><b>1.1</b></td>
-      <td>1386</td>
+      <td>8</td>
       <td><b>1.0</b></td>
-      <td>2893</td>
+      <td>23</td>
       <td><b>0.8</b></td>
-      <td>9411</td>
+      <td>68</td>
       <td><b>0.9</b></td>
     </tr>
     <tr>
       <th>razdel.tokenize</th>
-      <td><b>1510</b></td>
+      <td><b>9</b></td>
       <td>2.9</td>
-      <td>1483</td>
+      <td>9</td>
       <td>2.8</td>
-      <td><b>322</b></td>
+      <td><b>3</b></td>
       <td>2.0</td>
-      <td>2124</td>
+      <td>16</td>
       <td>2.2</td>
     </tr>
   </tbody>
@@ -159,68 +159,68 @@ See <a href="https://github.com/natasha/razdel#evaluation">Razdel evalualtion se
   <tbody>
     <tr>
       <th>re.split([.?!…])</th>
-      <td>20456</td>
+      <td>114</td>
       <td>0.9</td>
-      <td>6576</td>
+      <td>53</td>
       <td>0.6</td>
-      <td>10084</td>
+      <td>63</td>
       <td>0.7</td>
-      <td>23356</td>
+      <td>130</td>
       <td>1.0</td>
     </tr>
     <tr>
       <th>segtok.split_single</th>
-      <td>19008</td>
+      <td>106</td>
       <td>17.8</td>
-      <td>4422</td>
+      <td><b>36</b></td>
       <td>13.4</td>
-      <td>159738</td>
+      <td>1001</td>
       <td><b>1.1</b></td>
-      <td>164218</td>
+      <td>912</td>
       <td><b>2.8</b></td>
     </tr>
     <tr>
       <th>mosestokenizer</th>
-      <td>41666</td>
+      <td>238</td>
       <td><b>8.9</b></td>
-      <td>22082</td>
+      <td>182</td>
       <td><b>5.7</b></td>
-      <td>12663</td>
+      <td>80</td>
       <td>6.4</td>
-      <td>50560</td>
+      <td>287</td>
       <td><b>7.4</b></td>
     </tr>
     <tr>
       <th>nltk.sent_tokenize</th>
-      <td><b>16420</b></td>
+      <td><b>92</b></td>
       <td><b>10.1</b></td>
-      <td><b>4350</b></td>
+      <td><b>36</b></td>
       <td><b>5.3</b></td>
-      <td><b>7074</b></td>
+      <td><b>44</b></td>
       <td><b>5.6</b></td>
-      <td><b>32534</b></td>
+      <td><b>183</b></td>
       <td>8.9</td>
     </tr>
     <tr>
       <th>deeppavlov/rusenttokenize</th>
-      <td><b>10192</b></td>
+      <td><b>57</b></td>
       <td>10.9</td>
-      <td><b>1210</b></td>
+      <td><b>10</b></td>
       <td>7.9</td>
-      <td><b>8910</b></td>
+      <td><b>56</b></td>
       <td>6.8</td>
-      <td><b>21410</b></td>
+      <td><b>119</b></td>
       <td><b>7.0</b></td>
     </tr>
     <tr>
       <th>razdel.sentenize</th>
-      <td><b>9274</b></td>
+      <td><b>52</b></td>
       <td><b>6.1</b></td>
-      <td><b>824</b></td>
+      <td><b>7</b></td>
       <td><b>3.9</b></td>
-      <td><b>11414</b></td>
+      <td><b>72</b></td>
       <td><b>4.5</b></td>
-      <td><b>10594</b></td>
+      <td><b>59</b></td>
       <td>7.5</td>
     </tr>
   </tbody>

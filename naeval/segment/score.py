@@ -5,8 +5,8 @@ from naeval.score import F1
 def score_partitions(preds, targets):
     score = F1()
     for pred, target in zip(preds, targets):
-        pred = set(pred.bounds)
-        target = set(target.bounds)
+        pred = set(pred.splits)
+        target = set(target.splits)
         intersection = len(pred & target)
         score.prec.total += len(pred)
         score.prec.correct += intersection

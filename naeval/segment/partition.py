@@ -32,14 +32,16 @@ class Partition(Record):
             start = stop
 
     @property
-    def bounds(self):
+    def splits(self):
+        previous = None
         for substring in self.substrings:
-            yield substring.start
-            yield substring.stop
+            if previous:
+                yield previous, substring.start
+            previous = substring.stop
 
     @classmethod
     def from_chunks(cls, chunks):
-        chunks = list(alternate_chunks(chunks))
+        chunks = list(fill_chunks(chunks))
         return cls(chunks)
 
     @classmethod
@@ -59,7 +61,7 @@ def substring_chunks(substrings, fill=FILL):
         previous = substring.stop
 
 
-def alternate_chunks(chunks, fill=FILL):
+def fill_chunks(chunks, fill=FILL):
     for index, chunk in enumerate(chunks):
         if index > 0:
             yield fill
