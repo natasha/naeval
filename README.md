@@ -16,9 +16,9 @@ Naeval — comparing quality and performance of NLP systems for Russian language
 <td>
 DeepPavlov NER
 <a name="deeppavlov_ner">
-<a href="#deeppavlov_ner">`#`</a>
+<a href="#deeppavlov_ner"><code>#</code></a>
 </td>
-<td>`ner`</td>
+<td><code>ner</code></td>
 <td>
 BiLSTM-CRF NER trained on Collection5.
 <a href="https://github.com/deepmipt/ner">Original repo</a>,
@@ -31,9 +31,11 @@ BiLSTM-CRF NER trained on Collection5.
 <td>
 DeepPavlov BERT NER
 <a name="deeppavlov_bert_ner">
-<a href="#deeppavlov_bert_ner">`#`</a>
+<a href="#deeppavlov_bert_ner"><code>#</code></a>
 </td>
-<td>`ner`</td>
+<td>
+<code>ner</code>
+</td>
 <td>
 Current SOTA for Russian language.
 <a href="http://docs.deeppavlov.ai/en/master/features/models/bert.html#bert-for-named-entity-recognition-sequence-tagging">Docs page</a>,
@@ -45,9 +47,11 @@ Current SOTA for Russian language.
 <td>
 <a href="https://github.com/deepmipt/Slavic-BERT-NER">DeepPavlov Slavic BERT NER</a>
 <a name="deeppavlov_slavic_bert_ner">
-<a href="#deeppavlov_slavic_bert_ner">`#`</a>
+<a href="#deeppavlov_slavic_bert_ner"><code>#</code></a>
 </td>
-<td>`ner`</td>
+<td>
+<code>ner</code>
+</td>
 <td>
 DeepPavlov solution for BSNLP-2019. <a href="https://www.aclweb.org/anthology/W19-3712/">Paper</a>.
 </td>
@@ -57,9 +61,12 @@ DeepPavlov solution for BSNLP-2019. <a href="https://www.aclweb.org/anthology/W1
 <td>
 <a href="http://pullenti.ru/">PullEnti</a>
 <a name="pullenti">
-<a href="#pullenti">`#`</a>
+<a href="#pullenti"><code>#</code></a>
 </td>
-<td>`ner` `morph`</td>
+<td>
+<code>ner</code>
+<code>morph</code>
+</td>
 <td>
 First place on factRuEval-2016, super sophisticated ruled based system.
 </td>
@@ -69,9 +76,13 @@ First place on factRuEval-2016, super sophisticated ruled based system.
 <td>
 <a href="https://stanfordnlp.github.io/stanza/">Stanza</a>
 <a name="stanza">
-<a href="#stanza">`#`</a>
+<a href="#stanza"><code>#</code></a>
 </td>
-<td>`ner` `morph` `syntax`</td>
+<td>
+<code>ner</code>
+<code>morph</code>
+<code>syntax</code>
+</td>
 Tool by Stanford NLP released in 2020. <a href="https://arxiv.org/pdf/2003.07082.pdf">Paper</a>.
 </td>
 </tr>
@@ -80,9 +91,13 @@ Tool by Stanford NLP released in 2020. <a href="https://arxiv.org/pdf/2003.07082
 <td>
 <a href="https://spacy.io/">SpaCy</a>
 <a name="spacy">
-<a href="#spacy">`#`</a>
+<a href="#spacy"><code>#</code></a>
 </td>
-<td>`ner` `morph` `syntax`</td>
+<td>
+<code>ner</code>
+<code>morph</code>
+<code>syntax</code>
+</td>
 <td>
 Uses <a href="https://github.com/buriy/spacy-ru">Russian models</a> trained by @buriy.
 </td>
@@ -92,9 +107,15 @@ Uses <a href="https://github.com/buriy/spacy-ru">Russian models</a> trained by @
 <td>
 Texterra
 <a name="texterra">
-<a href="#texterra">`#`</a>
+<a href="#texterra"><code>#</code></a>
 </td>
-<td>`morph` `syntax` `ner` `token` `sent`</td>
+<td>
+<code>morph</code>
+<code>syntax</code>
+<code>ner</code>
+<code>token</code>
+<code>sent</code>
+</td>
 <td>
 Multifunctional NLP solution by <a href="https://www.ispras.ru/">ISP RAS</a>.
 </td>
@@ -103,9 +124,9 @@ Multifunctional NLP solution by <a href="https://www.ispras.ru/">ISP RAS</a>.
 <!-- <tr> -->
 <!-- <td> -->
 <!-- <a name=""> -->
-<!-- <a href="#">`#`</a> -->
+<!-- <a href="#"><code>#</code></a> -->
 <!-- </td> -->
-<!-- <td>``</td> -->
+<!-- <td><code></code></td> -->
 <!-- <td> -->
 <!-- </td> -->
 <!-- </tr> -->
