@@ -21,9 +21,9 @@ DeepPavlov NER
 <td><code>ner</code></td>
 <td>
 BiLSTM-CRF NER trained on Collection5.
-<a href="https://github.com/deepmipt/ner">Original repo</a>,
-<a href="http://docs.deeppavlov.ai/en/master/features/models/ner.html">docs page</a>,
-<a href="https://arxiv.org/pdf/1709.09686.pdf">paper</a>
+<a href="https://github.com/deepmipt/ner">Original epo</a>,
+<a href="http://docs.deeppavlov.ai/en/master/features/models/ner.html">docs</a>,
+<a href="https://arxiv.org/pdf/1709.09686.pdf">paper</a>.
 </td>
 </tr>
 
@@ -38,8 +38,8 @@ DeepPavlov BERT NER
 </td>
 <td>
 Current SOTA for Russian language.
-<a href="http://docs.deeppavlov.ai/en/master/features/models/bert.html#bert-for-named-entity-recognition-sequence-tagging">Docs page</a>,
-<a href="https://www.youtube.com/watch?v=eKTA8i8s-zs">video presentation</a>.
+<a href="http://docs.deeppavlov.ai/en/master/features/models/bert.html#bert-for-named-entity-recognition-sequence-tagging">Docs</a>,
+<a href="https://www.youtube.com/watch?v=eKTA8i8s-zs">video</a>.
 </td>
 </tr>
 
@@ -83,6 +83,7 @@ First place on factRuEval-2016, super sophisticated ruled based system.
 <code>morph</code>
 <code>syntax</code>
 </td>
+<td>
 Tool by Stanford NLP released in 2020. <a href="https://arxiv.org/pdf/2003.07082.pdf">Paper</a>.
 </td>
 </tr>
@@ -105,7 +106,7 @@ Uses <a href="https://github.com/buriy/spacy-ru">Russian models</a> trained by @
 
 <tr>
 <td>
-Texterra
+<a href="https://texterra.ispras.ru">Texterra</a>
 <a name="texterra">
 <a href="#texterra"><code>#</code></a>
 </td>
@@ -121,12 +122,205 @@ Multifunctional NLP solution by <a href="https://www.ispras.ru/">ISP RAS</a>.
 </td>
 </tr>
 
+<tr>
+<td>
+<a href="https://github.com/yandex/tomita-parser/">Tomita</a>
+<a name="tomita">
+<a href="#tomita"><code>#</code></a>
+</td>
+<td>
+<code>ner</code>
+</td>
+GLR-parser by Yandex, only implementation for person names is publicly available.
+<td>
+</td>
+</tr>
+
+<tr>
+<td>
+<a href="https://github.com/mit-nlp/MITIE">MITIE</a>
+<a name="mitie">
+<a href="#mitie"><code>#</code></a>
+</td>
+<td>
+<code>ner</code>
+</td>
+<td>
+Engine developed at MIT + <a href="http://lang.org.ua/en/models/">third party model for Russian language</a>
+</td>
+</tr>
+
+<tr>
+<td>
+<a href="https://github.com/natasha/slovnet#ner">Slovnet NER</a>
+<a name="slovnet_ner">
+<a href="#slovnet_ner"><code>#</code></a>
+</td>
+<td>
+<code>ner</code>
+</td>
+<td>
+</td>
+</tr>
+
+<tr>
+<td>
+Slovnet BERT NER
+<a name="slovnet_bert_ner">
+<a href="#slovnet_bert_ner"><code>#</code></a>
+</td>
+<td>
+<code>ner</code>
+</td>
+<td>
+</td>
+</tr>
+
+<tr>
+<td>
+DeepPavlov Morph
+<a name="deeppavlov_morph">
+<a href="#deeppavlov_morph"><code>#</code></a>
+</td>
+<td>
+<code>morph</code>
+</td>
+<td>
+<a href="http://docs.deeppavlov.ai/en/master/features/models/morphotagger.html">Docs</a>.
+</td>
+</tr>
+
+<tr>
+<td>
+DeepPavlov BERT Morph
+<a name="deeppavlov_bert_morph">
+<a href="#deeppavlov_bert_morph"><code>#</code></a>
+</td>
+<td>
+<code>morph</code>
+</td>
+<td>
+<a href="http://docs.deeppavlov.ai/en/master/features/models/bert.html#bert-for-morphological-tagging">Docs</a>.
+</td>
+</tr>
+
+<tr>
+<td>
+<a href="https://github.com/Koziev/rupostagger">RuPosTagger</a>
+<a name="rupostagger">
+<a href="#rupostagger"><code>#</code></a>
+</td>
+<td>
+<code>morph</code>
+</td>
+<td>
+CRF tagger, part of <a href="http://www.solarix.ru/">Solarix project</a>.
+</td>
+</tr>
+
+<tr>
+<td>
+RNNMorph
+<a name="rnnmorph">
+<a href="#rnnmorph"><code>#</code></a>
+</td>
+<td>
+<code>morph</code>
+</td>
+<td>
+First place solution on morphoRuEval-2017. <a href="https://habr.com/ru/post/339954/">Porst on Habr</a>.
+</td>
+</tr>
+
+<tr>
+<td>
+<a href="http://ufal.mff.cuni.cz/udpipe">UDPipe</a>
+<a name="udpipe">
+<a href="#udpipe"><code>#</code></a>
+</td>
+<td>
+<code>morph</code>
+<code>syntax</code>
+</td>
+<td>
+Model trained on SynTagRus.
+</td>
+</tr>
+
+<tr>
+<td>
+DeepPavlov BERT Syntax
+<a name="deeppavlov_bert_syntax">
+<a href="#deeppavlov_bert_syntax"><code>#</code></a>
+</td>
+<td>
+<code>syntax</code>
+</td>
+<td>
+BERT + biaffine head. <a href="http://docs.deeppavlov.ai/en/master/features/models/syntaxparser.html">Docs</a>.
+</td>
+</tr>
+
+<tr>
+<td>
+<a href="https://github.com/natasha/slovnet#morph">Slovnet Morph</a>
+<a name="slovnet_morph">
+<a href="#slovnet_morph"><code>#</code></a>
+</td>
+<td>
+<code>morph</code>
+</td>
+<td>
+</td>
+</tr>
+
+<tr>
+<td>
+Slovnet BERT Morph
+<a name="slovnet_bert_morph">
+<a href="#slovnet_bert_morph"><code>#</code></a>
+</td>
+<td>
+<code>morph</code>
+</td>
+<td>
+</td>
+</tr>
+
+<tr>
+<td>
+<a href="https://github.com/natasha/slovnet#syntax">Slovnet Syntax</a>
+<a name="slovnet_syntax">
+<a href="#slovnet_syntax"><code>#</code></a>
+</td>
+<td>
+<code>syntax</code>
+</td>
+<td>
+</td>
+</tr>
+
+<tr>
+<td>
+Slovnet BERT Syntax
+<a name="slovnet_bert_syntax">
+<a href="#slovnet_bert_syntax"><code>#</code></a>
+</td>
+<td>
+<code>syntax</code>
+</td>
+<td>
+</td>
+</tr>
+
 <!-- <tr> -->
 <!-- <td> -->
 <!-- <a name=""> -->
 <!-- <a href="#"><code>#</code></a> -->
 <!-- </td> -->
-<!-- <td><code></code></td> -->
+<!-- <td> -->
+<!-- <code></code> -->
+<!-- </td> -->
 <!-- <td> -->
 <!-- </td> -->
 <!-- </tr> -->
