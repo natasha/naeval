@@ -21,7 +21,7 @@ DeepPavlov NER
 <td><code>ner</code></td>
 <td>
 BiLSTM-CRF NER trained on Collection5.
-<a href="https://github.com/deepmipt/ner">Original epo</a>,
+<a href="https://github.com/deepmipt/ner">Original repo</a>,
 <a href="http://docs.deeppavlov.ai/en/master/features/models/ner.html">docs</a>,
 <a href="https://arxiv.org/pdf/1709.09686.pdf">paper</a>
 </td>
