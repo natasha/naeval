@@ -23,7 +23,7 @@ DeepPavlov NER
 BiLSTM-CRF NER trained on Collection5.
 <a href="https://github.com/deepmipt/ner">Original epo</a>,
 <a href="http://docs.deeppavlov.ai/en/master/features/models/ner.html">docs</a>,
-<a href="https://arxiv.org/pdf/1709.09686.pdf">paper</a>.
+<a href="https://arxiv.org/pdf/1709.09686.pdf">paper</a>
 </td>
 </tr>
 
@@ -39,7 +39,7 @@ DeepPavlov BERT NER
 <td>
 Current SOTA for Russian language.
 <a href="http://docs.deeppavlov.ai/en/master/features/models/bert.html#bert-for-named-entity-recognition-sequence-tagging">Docs</a>,
-<a href="https://www.youtube.com/watch?v=eKTA8i8s-zs">video</a>.
+<a href="https://www.youtube.com/watch?v=eKTA8i8s-zs">video</a>
 </td>
 </tr>
 
@@ -53,7 +53,7 @@ Current SOTA for Russian language.
 <code>ner</code>
 </td>
 <td>
-DeepPavlov solution for BSNLP-2019. <a href="https://www.aclweb.org/anthology/W19-3712/">Paper</a>.
+DeepPavlov solution for BSNLP-2019. <a href="https://www.aclweb.org/anthology/W19-3712/">Paper</a>
 </td>
 </tr>
 
@@ -67,7 +67,7 @@ DeepPavlov Morph
 <code>morph</code>
 </td>
 <td>
-<a href="http://docs.deeppavlov.ai/en/master/features/models/morphotagger.html">Docs</a>.
+<a href="http://docs.deeppavlov.ai/en/master/features/models/morphotagger.html">Docs</a>
 </td>
 </tr>
 
@@ -81,7 +81,7 @@ DeepPavlov BERT Morph
 <code>morph</code>
 </td>
 <td>
-<a href="http://docs.deeppavlov.ai/en/master/features/models/bert.html#bert-for-morphological-tagging">Docs</a>.
+<a href="http://docs.deeppavlov.ai/en/master/features/models/bert.html#bert-for-morphological-tagging">Docs</a>
 </td>
 </tr>
 
@@ -95,7 +95,7 @@ DeepPavlov BERT Syntax
 <code>syntax</code>
 </td>
 <td>
-BERT + biaffine head. <a href="http://docs.deeppavlov.ai/en/master/features/models/syntaxparser.html">Docs</a>.
+BERT + biaffine head. <a href="http://docs.deeppavlov.ai/en/master/features/models/syntaxparser.html">Docs</a>
 </td>
 </tr>
 
@@ -188,7 +188,7 @@ Slovnet BERT Syntax
 <code>morph</code>
 </td>
 <td>
-First place on factRuEval-2016, super sophisticated ruled based system.
+First place on factRuEval-2016, super sophisticated ruled based system
 </td>
 </tr>
 
@@ -204,7 +204,7 @@ First place on factRuEval-2016, super sophisticated ruled based system.
 <code>syntax</code>
 </td>
 <td>
-Tool by Stanford NLP released in 2020. <a href="https://arxiv.org/pdf/2003.07082.pdf">Paper</a>.
+Tool by Stanford NLP released in 2020. <a href="https://arxiv.org/pdf/2003.07082.pdf">Paper</a>
 </td>
 </tr>
 
@@ -220,7 +220,7 @@ Tool by Stanford NLP released in 2020. <a href="https://arxiv.org/pdf/2003.07082
 <code>syntax</code>
 </td>
 <td>
-Uses <a href="https://github.com/buriy/spacy-ru">Russian models</a> trained by @buriy.
+Uses <a href="https://github.com/buriy/spacy-ru">Russian models</a> trained by @buriy
 </td>
 </tr>
 
@@ -238,7 +238,7 @@ Uses <a href="https://github.com/buriy/spacy-ru">Russian models</a> trained by @
 <code>sent</code>
 </td>
 <td>
-Multifunctional NLP solution by <a href="https://www.ispras.ru/">ISP RAS</a>.
+Multifunctional NLP solution by <a href="https://www.ispras.ru/">ISP RAS</a>
 </td>
 </tr>
 
@@ -251,7 +251,7 @@ Multifunctional NLP solution by <a href="https://www.ispras.ru/">ISP RAS</a>.
 <td>
 <code>ner</code>
 </td>
-GLR-parser by Yandex, only implementation for person names is publicly available.
+GLR-parser by Yandex, only implementation for person names is publicly available
 <td>
 </td>
 </tr>
@@ -280,13 +280,13 @@ Engine developed at MIT + <a href="http://lang.org.ua/en/models/">third party mo
 <code>morph</code>
 </td>
 <td>
-CRF tagger, part of <a href="http://www.solarix.ru/">Solarix project</a>.
+CRF tagger, part of <a href="http://www.solarix.ru/">Solarix project</a>
 </td>
 </tr>
 
 <tr>
 <td>
-RNNMorph
+<a href="https://github.com/IlyaGusev/rnnmorph">RNNMorph</a>
 <a name="rnnmorph">
 <a href="#rnnmorph"><code>#</code></a>
 </td>
@@ -294,7 +294,7 @@ RNNMorph
 <code>morph</code>
 </td>
 <td>
-First place solution on morphoRuEval-2017. <a href="https://habr.com/ru/post/339954/">Porst on Habr</a>.
+First place solution on morphoRuEval-2017. <a href="https://habr.com/ru/post/339954/">Post on Habr</a>
 </td>
 </tr>
 
@@ -309,7 +309,7 @@ First place solution on morphoRuEval-2017. <a href="https://habr.com/ru/post/339
 <code>syntax</code>
 </td>
 <td>
-Model trained on SynTagRus.
+Model trained on SynTagRus
 </td>
 </tr>
 
