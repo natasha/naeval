@@ -59,6 +59,126 @@ DeepPavlov solution for BSNLP-2019. <a href="https://www.aclweb.org/anthology/W1
 
 <tr>
 <td>
+DeepPavlov Morph
+<a name="deeppavlov_morph">
+<a href="#deeppavlov_morph"><code>#</code></a>
+</td>
+<td>
+<code>morph</code>
+</td>
+<td>
+<a href="http://docs.deeppavlov.ai/en/master/features/models/morphotagger.html">Docs</a>.
+</td>
+</tr>
+
+<tr>
+<td>
+DeepPavlov BERT Morph
+<a name="deeppavlov_bert_morph">
+<a href="#deeppavlov_bert_morph"><code>#</code></a>
+</td>
+<td>
+<code>morph</code>
+</td>
+<td>
+<a href="http://docs.deeppavlov.ai/en/master/features/models/bert.html#bert-for-morphological-tagging">Docs</a>.
+</td>
+</tr>
+
+<tr>
+<td>
+DeepPavlov BERT Syntax
+<a name="deeppavlov_bert_syntax">
+<a href="#deeppavlov_bert_syntax"><code>#</code></a>
+</td>
+<td>
+<code>syntax</code>
+</td>
+<td>
+BERT + biaffine head. <a href="http://docs.deeppavlov.ai/en/master/features/models/syntaxparser.html">Docs</a>.
+</td>
+</tr>
+
+<tr>
+<td>
+<a href="https://github.com/natasha/slovnet#ner">Slovnet NER</a>
+<a name="slovnet_ner">
+<a href="#slovnet_ner"><code>#</code></a>
+</td>
+<td>
+<code>ner</code>
+</td>
+<td>
+</td>
+</tr>
+
+<tr>
+<td>
+Slovnet BERT NER
+<a name="slovnet_bert_ner">
+<a href="#slovnet_bert_ner"><code>#</code></a>
+</td>
+<td>
+<code>ner</code>
+</td>
+<td>
+</td>
+</tr>
+
+<tr>
+<td>
+<a href="https://github.com/natasha/slovnet#morph">Slovnet Morph</a>
+<a name="slovnet_morph">
+<a href="#slovnet_morph"><code>#</code></a>
+</td>
+<td>
+<code>morph</code>
+</td>
+<td>
+</td>
+</tr>
+
+<tr>
+<td>
+Slovnet BERT Morph
+<a name="slovnet_bert_morph">
+<a href="#slovnet_bert_morph"><code>#</code></a>
+</td>
+<td>
+<code>morph</code>
+</td>
+<td>
+</td>
+</tr>
+
+<tr>
+<td>
+<a href="https://github.com/natasha/slovnet#syntax">Slovnet Syntax</a>
+<a name="slovnet_syntax">
+<a href="#slovnet_syntax"><code>#</code></a>
+</td>
+<td>
+<code>syntax</code>
+</td>
+<td>
+</td>
+</tr>
+
+<tr>
+<td>
+Slovnet BERT Syntax
+<a name="slovnet_bert_syntax">
+<a href="#slovnet_bert_syntax"><code>#</code></a>
+</td>
+<td>
+<code>syntax</code>
+</td>
+<td>
+</td>
+</tr>
+
+<tr>
+<td>
 <a href="http://pullenti.ru/">PullEnti</a>
 <a name="pullenti">
 <a href="#pullenti"><code>#</code></a>
@@ -152,60 +272,6 @@ Engine developed at MIT + <a href="http://lang.org.ua/en/models/">third party mo
 
 <tr>
 <td>
-<a href="https://github.com/natasha/slovnet#ner">Slovnet NER</a>
-<a name="slovnet_ner">
-<a href="#slovnet_ner"><code>#</code></a>
-</td>
-<td>
-<code>ner</code>
-</td>
-<td>
-</td>
-</tr>
-
-<tr>
-<td>
-Slovnet BERT NER
-<a name="slovnet_bert_ner">
-<a href="#slovnet_bert_ner"><code>#</code></a>
-</td>
-<td>
-<code>ner</code>
-</td>
-<td>
-</td>
-</tr>
-
-<tr>
-<td>
-DeepPavlov Morph
-<a name="deeppavlov_morph">
-<a href="#deeppavlov_morph"><code>#</code></a>
-</td>
-<td>
-<code>morph</code>
-</td>
-<td>
-<a href="http://docs.deeppavlov.ai/en/master/features/models/morphotagger.html">Docs</a>.
-</td>
-</tr>
-
-<tr>
-<td>
-DeepPavlov BERT Morph
-<a name="deeppavlov_bert_morph">
-<a href="#deeppavlov_bert_morph"><code>#</code></a>
-</td>
-<td>
-<code>morph</code>
-</td>
-<td>
-<a href="http://docs.deeppavlov.ai/en/master/features/models/bert.html#bert-for-morphological-tagging">Docs</a>.
-</td>
-</tr>
-
-<tr>
-<td>
 <a href="https://github.com/Koziev/rupostagger">RuPosTagger</a>
 <a name="rupostagger">
 <a href="#rupostagger"><code>#</code></a>
@@ -244,72 +310,6 @@ First place solution on morphoRuEval-2017. <a href="https://habr.com/ru/post/339
 </td>
 <td>
 Model trained on SynTagRus.
-</td>
-</tr>
-
-<tr>
-<td>
-DeepPavlov BERT Syntax
-<a name="deeppavlov_bert_syntax">
-<a href="#deeppavlov_bert_syntax"><code>#</code></a>
-</td>
-<td>
-<code>syntax</code>
-</td>
-<td>
-BERT + biaffine head. <a href="http://docs.deeppavlov.ai/en/master/features/models/syntaxparser.html">Docs</a>.
-</td>
-</tr>
-
-<tr>
-<td>
-<a href="https://github.com/natasha/slovnet#morph">Slovnet Morph</a>
-<a name="slovnet_morph">
-<a href="#slovnet_morph"><code>#</code></a>
-</td>
-<td>
-<code>morph</code>
-</td>
-<td>
-</td>
-</tr>
-
-<tr>
-<td>
-Slovnet BERT Morph
-<a name="slovnet_bert_morph">
-<a href="#slovnet_bert_morph"><code>#</code></a>
-</td>
-<td>
-<code>morph</code>
-</td>
-<td>
-</td>
-</tr>
-
-<tr>
-<td>
-<a href="https://github.com/natasha/slovnet#syntax">Slovnet Syntax</a>
-<a name="slovnet_syntax">
-<a href="#slovnet_syntax"><code>#</code></a>
-</td>
-<td>
-<code>syntax</code>
-</td>
-<td>
-</td>
-</tr>
-
-<tr>
-<td>
-Slovnet BERT Syntax
-<a name="slovnet_bert_syntax">
-<a href="#slovnet_bert_syntax"><code>#</code></a>
-</td>
-<td>
-<code>syntax</code>
-</td>
-<td>
 </td>
 </tr>
 
