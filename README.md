@@ -251,6 +251,7 @@ Multifunctional NLP solution by <a href="https://www.ispras.ru/">ISP RAS</a>
 <td>
 <code>ner</code>
 </td>
+<td>
 GLR-parser by Yandex, only implementation for person names is publicly available
 <td>
 </td>
