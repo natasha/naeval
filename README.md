@@ -300,6 +300,19 @@ First place solution on morphoRuEval-2017. <a href="https://habr.com/ru/post/339
 
 <tr>
 <td>
+<a href="https://github.com/chomechome/maru">Maru</a>
+<a name="maru">
+<a href="#maru"><code>#</code></a>
+</td>
+<td>
+<code>morph</code>
+</td>
+<td>
+</td>
+</tr>
+
+<tr>
+<td>
 <a href="http://ufal.mff.cuni.cz/udpipe">UDPipe</a>
 <a name="udpipe">
 <a href="#udpipe"><code>#</code></a>
