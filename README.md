@@ -1,6 +1,117 @@
 <img src="https://github.com/natasha/natasha-logos/blob/master/naeval.svg">
 
-Naeval — comparing quality and performance of NLP systems for Russian language. Naeval is used to evaluate <a href="https://github.com/natasha">project Natasha</a> components: <a href="https://github.com/natasha/razdel">Razdel</a>, <a href="https://github.com/natasha/navec">Navec</a>, <a href="https://github.com/natasha/slovnet">Slovnet</a>:
+Naeval — comparing quality and performance of NLP systems for Russian language. Naeval is used to evaluate <a href="https://github.com/natasha">project Natasha</a> components: <a href="https://github.com/natasha/razdel">Razdel</a>, <a href="https://github.com/natasha/navec">Navec</a>, <a href="https://github.com/natasha/slovnet">Slovnet</a>.
+
+## Models
+
+<table>
+
+<tr>
+<th>Model</th>
+<th>Tags</th>
+<th>Description</th>
+</tr>
+
+<tr>
+<td>
+DeepPavlov NER
+<a name="deeppavlov_ner">
+<a href="#deeppavlov_ner">`#`</a>
+</td>
+<td>`ner`</td>
+<td>
+BiLSTM-CRF NER trained on Collection5.
+<a href="https://github.com/deepmipt/ner">Original repo</a>,
+<a href="http://docs.deeppavlov.ai/en/master/features/models/ner.html">docs page</a>,
+<a href="https://arxiv.org/pdf/1709.09686.pdf">paper</a>
+</td>
+</tr>
+
+<tr>
+<td>
+DeepPavlov BERT NER
+<a name="deeppavlov_bert_ner">
+<a href="#deeppavlov_bert_ner">`#`</a>
+</td>
+<td>`ner`</td>
+<td>
+Current SOTA for Russian language.
+<a href="http://docs.deeppavlov.ai/en/master/features/models/bert.html#bert-for-named-entity-recognition-sequence-tagging">Docs page</a>,
+<a href="https://www.youtube.com/watch?v=eKTA8i8s-zs">video presentation</a>.
+</td>
+</tr>
+
+<tr>
+<td>
+<a href="https://github.com/deepmipt/Slavic-BERT-NER">DeepPavlov Slavic BERT NER</a>
+<a name="deeppavlov_slavic_bert_ner">
+<a href="#deeppavlov_slavic_bert_ner">`#`</a>
+</td>
+<td>`ner`</td>
+<td>
+DeepPavlov solution for BSNLP-2019. <a href="https://www.aclweb.org/anthology/W19-3712/">Paper</a>.
+</td>
+</tr>
+
+<tr>
+<td>
+<a href="http://pullenti.ru/">PullEnti</a>
+<a name="pullenti">
+<a href="#pullenti">`#`</a>
+</td>
+<td>`ner` `morph`</td>
+<td>
+First place on factRuEval-2016, super sophisticated ruled based system.
+</td>
+</tr>
+
+<tr>
+<td>
+<a href="https://stanfordnlp.github.io/stanza/">Stanza</a>
+<a name="stanza">
+<a href="#stanza">`#`</a>
+</td>
+<td>`ner` `morph` `syntax`</td>
+Tool by Stanford NLP released in 2020. <a href="https://arxiv.org/pdf/2003.07082.pdf">Paper</a>.
+</td>
+</tr>
+
+<tr>
+<td>
+<a href="https://spacy.io/">SpaCy</a>
+<a name="spacy">
+<a href="#spacy">`#`</a>
+</td>
+<td>`ner` `morph` `syntax`</td>
+<td>
+Uses <a href="https://github.com/buriy/spacy-ru">Russian models</a> trained by @buriy.
+</td>
+</tr>
+
+<tr>
+<td>
+Texterra
+<a name="texterra">
+<a href="#texterra">`#`</a>
+</td>
+<td>`morph` `syntax` `ner` `token` `sent`</td>
+<td>
+Multifunctional NLP solution by <a href="https://www.ispras.ru/">ISP RAS</a>.
+</td>
+</tr>
+
+<!-- <tr> -->
+<!-- <td> -->
+<!-- <a name=""> -->
+<!-- <a href="#">`#`</a> -->
+<!-- </td> -->
+<!-- <td>``</td> -->
+<!-- <td> -->
+<!-- </td> -->
+<!-- </tr> -->
+
+
+</table>
 
 ## Tokenization
 
