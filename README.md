@@ -339,7 +339,7 @@ Model trained on SynTagRus
 <code>sent</code>
 </td>
 <td>
-Multifunctional library, has model to segment Russian text. <a href="https://www.nltk.org/api/nltk.tokenize.html#module-nltk.tokenize">Docs</a>
+Multifunctional library, provides model for Russian text segmentation. <a href="https://www.nltk.org/api/nltk.tokenize.html#module-nltk.tokenize">Docs</a>
 </td>
 </tr>
 
@@ -351,8 +351,10 @@ Multifunctional library, has model to segment Russian text. <a href="https://www
 </td>
 <td>
 <code>token</code>
+<code>morph</code>
 </td>
 <td>
+Wrapper for Yandex morphological analyzers
 </td>
 </tr>
 
@@ -392,7 +394,7 @@ Wrapper for Perl Moses utils
 <a href="#rutokenizer"><code>#</code></a>
 </td>
 <td>
-<code></code>
+<code>token</code>
 </td>
 <td>
 </td>
