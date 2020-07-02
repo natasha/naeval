@@ -416,6 +416,21 @@ Wrapper for Perl Moses utils
 
 <tr>
 <td>
+<a href="https://github.com/aatimofeev/spacy_russian_tokenizer">Spacy Russian Tokenizer</a>
+<a name="spacy_russian_tokenizer">
+<a href="#spacy_russian_tokenizer"><code>#</code></a>
+</td>
+<td>
+<code>token</code>
+<code>sent</code>
+</td>
+<td>
+Spacy segmentation pipeline for Russian texts by @aatimofeev
+</td>
+</tr>
+
+<tr>
+<td>
 <a href="https://github.com/deepmipt/ru_sentence_tokenizer">RuSentTokenizer</a>
 <a name="rusenttokenizer">
 <a href="#rusenttokenizer"><code>#</code></a>
