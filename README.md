@@ -215,6 +215,8 @@ Tool by Stanford NLP released in 2020. <a href="https://arxiv.org/pdf/2003.07082
 <a href="#spacy"><code>#</code></a>
 </td>
 <td>
+<code>token</code>
+<code>sent</code>
 <code>ner</code>
 <code>morph</code>
 <code>syntax</code>
@@ -323,6 +325,104 @@ First place solution on morphoRuEval-2017. <a href="https://habr.com/ru/post/339
 </td>
 <td>
 Model trained on SynTagRus
+</td>
+</tr>
+
+<tr>
+<td>
+<a href="https://www.nltk.org/">NLTK</a>
+<a name="nltk">
+<a href="#nltk"><code>#</code></a>
+</td>
+<td>
+<code>token</code>
+<code>sent</code>
+</td>
+<td>
+Multifunctional library, has model to segment Russian text. <a href="https://www.nltk.org/api/nltk.tokenize.html#module-nltk.tokenize">Docs</a>
+</td>
+</tr>
+
+<tr>
+<td>
+<a href="https://github.com/nlpub/pymystem3">MyStem</a>
+<a name="mystem">
+<a href="#mystem"><code>#</code></a>
+</td>
+<td>
+<code>token</code>
+</td>
+<td>
+</td>
+</tr>
+
+<tr>
+<td>
+<a href="https://github.com/luismsgomes/mosestokenizer">Moses</a>
+<a name="moses">
+<a href="#moses"><code>#</code></a>
+</td>
+<td>
+<code>token</code>
+<code>sent</code>
+</td>
+<td>
+Wrapper for Perl Moses utils
+</td>
+</tr>
+
+<tr>
+<td>
+<a href="https://github.com/fnl/segtok">SegTok</a>
+<a name="segtok">
+<a href="#segtok"><code>#</code></a>
+</td>
+<td>
+<code>token</code>
+<code>sent</code>
+</td>
+<td>
+</td>
+</tr>
+
+<tr>
+<td>
+<a href="https://github.com/Koziev/rutokenizer">RuTokenizer</a>
+<a name="rutokenizer">
+<a href="#rutokenizer"><code>#</code></a>
+</td>
+<td>
+<code></code>
+</td>
+<td>
+</td>
+</tr>
+
+<tr>
+<td>
+<a href="https://github.com/natasha/razdel">Razdel</a>
+<a name="razdel">
+<a href="#razdel"><code>#</code></a>
+</td>
+<td>
+<code>token</code>
+<code>sent</code>
+</td>
+<td>
+</td>
+</tr>
+
+<tr>
+<td>
+<a href="https://github.com/deepmipt/ru_sentence_tokenizer">RuSentTokenizer</a>
+<a name="rusenttokenizer">
+<a href="#rusenttokenizer"><code>#</code></a>
+</td>
+<td>
+<code>sent</code>
+</td>
+<td>
+DeepPavlov sentence segmentation
 </td>
 </tr>
 
