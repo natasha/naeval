@@ -704,8 +704,8 @@ See <a href="https://github.com/natasha/navec#evaluation">Navec evalualtion sect
     <tr>
       <th>hudlit_12B_500K_300d_100q</th>
       <td>navec</td>
-      <td><b>1.0</b></td>
-      <td>19.9</td>
+      <td><b>1.1</b></td>
+      <td>21.6</td>
       <td><b>50.6</b></td>
       <td><b>95.3</b></td>
       <td><b>500K</b></td>
@@ -713,8 +713,8 @@ See <a href="https://github.com/natasha/navec#evaluation">Navec evalualtion sect
     <tr>
       <th>news_1B_250K_300d_100q</th>
       <td>navec</td>
-      <td><b>0.5</b></td>
-      <td>20.3</td>
+      <td><b>0.8</b></td>
+      <td>20.7</td>
       <td><b>25.4</b></td>
       <td><b>47.7</b></td>
       <td><b>250K</b></td>
@@ -722,8 +722,8 @@ See <a href="https://github.com/natasha/navec#evaluation">Navec evalualtion sect
     <tr>
       <th>ruscorpora_upos_cbow_300_20_2019</th>
       <td>w2v</td>
-      <td>12.1</td>
-      <td><b>1.6</b></td>
+      <td><b>3.3</b></td>
+      <td><b>1.4</b></td>
       <td><b>220.6</b></td>
       <td><b>236.1</b></td>
       <td>189K</td>
@@ -731,8 +731,8 @@ See <a href="https://github.com/natasha/navec#evaluation">Navec evalualtion sect
     <tr>
       <th>ruwikiruscorpora_upos_skipgram_300_2_2019</th>
       <td>w2v</td>
-      <td>15.7</td>
-      <td><b>1.7</b></td>
+      <td>5.0</td>
+      <td><b>1.5</b></td>
       <td>290.0</td>
       <td>309.4</td>
       <td>248K</td>
@@ -740,8 +740,8 @@ See <a href="https://github.com/natasha/navec#evaluation">Navec evalualtion sect
     <tr>
       <th>tayga_upos_skipgram_300_2_2019</th>
       <td>w2v</td>
-      <td>15.7</td>
-      <td><b>1.2</b></td>
+      <td>5.2</td>
+      <td><b>1.4</b></td>
       <td>290.7</td>
       <td>310.9</td>
       <td><b>249K</b></td>
@@ -749,8 +749,8 @@ See <a href="https://github.com/natasha/navec#evaluation">Navec evalualtion sect
     <tr>
       <th>tayga_none_fasttextcbow_300_10_2019</th>
       <td>fasttext</td>
-      <td>11.3</td>
-      <td>14.3</td>
+      <td>8.0</td>
+      <td>13.4</td>
       <td>2741.9</td>
       <td>2746.9</td>
       <td>192K</td>
@@ -758,8 +758,8 @@ See <a href="https://github.com/natasha/navec#evaluation">Navec evalualtion sect
     <tr>
       <th>araneum_none_fasttextcbow_300_5_2018</th>
       <td>fasttext</td>
-      <td><b>7.8</b></td>
-      <td>15.4</td>
+      <td>16.4</td>
+      <td>10.6</td>
       <td>2752.1</td>
       <td>2754.7</td>
       <td>195K</td>
