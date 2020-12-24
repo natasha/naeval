@@ -10,7 +10,7 @@ from ..markup import Markup
 from .base import post, Model
 
 
-SPACY_IMAGE = 'natasha/spacy-ru2'
+SPACY_IMAGE = 'natasha/spacy-ru'
 SPACY_CONTAINER_PORT = 8080
 
 SPACY_URL = 'http://{host}:{port}/'

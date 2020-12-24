@@ -8,7 +8,7 @@ from .base import Model
 
 
 SPACY_CONTAINER_PORT = 8080
-SPACY_IMAGE = 'natasha/spacy-ru2'
+SPACY_IMAGE = 'natasha/spacy-ru'
 
 
 def parse_spacy(data):

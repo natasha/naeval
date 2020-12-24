@@ -40,7 +40,7 @@ class LinesTokenizer(object):
 
 
 def load(disable):
-    nlp = spacy.load('ru2', disable=disable)
+    nlp = spacy.load('ru_core_news_md', disable=disable)
     nlp.lines_tokenizer = LinesTokenizer(nlp.vocab)
     nlp.default_tokenizer = nlp.tokenizer
     return nlp

@@ -1,5 +1,5 @@
 
-IMAGE = natasha/spacy-ru2
+IMAGE = natasha/spacy-ru
 
 image:
 	docker build -t $(IMAGE) .
