@@ -2,6 +2,13 @@
 
 Naeval — comparing quality and performance of NLP systems for Russian language. Naeval is used to evaluate <a href="https://github.com/natasha">project Natasha</a> components: <a href="https://github.com/natasha/razdel">Razdel</a>, <a href="https://github.com/natasha/navec">Navec</a>, <a href="https://github.com/natasha/slovnet">Slovnet</a>.
 
+## Documentation
+
+Materials are in Russian:
+
+* <a href="https://natasha.github.io/naeval">Naeval page on natasha.github.io</a> 
+* <a href="https://youtu.be/-7XT_U6hVvk?t=2443">Naeval section of Datafest 2020 talk</a>
+
 ## Models
 
 <table>
