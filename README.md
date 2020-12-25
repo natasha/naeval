@@ -925,9 +925,9 @@ See <a href="https://github.com/natasha/slovnet#morphology-1">Slovnet evaluation
       <th>spacy</th>
       <td><b>0.964</b></td>
       <td><b>0.849</b></td>
-      <td>0.940</td>
-      <td>0.858</td>
-      <td>0.785</td>
+      <td>0.942</td>
+      <td>0.857</td>
+      <td>0.784</td>
     </tr>
     <tr>
       <th>stanza</th>
@@ -1133,16 +1133,16 @@ See <a href="https://github.com/natasha/slovnet#morphology-1">Slovnet evaluation
     </tr>
     <tr>
       <th>spacy</th>
-      <td><b>0.942</b></td>
-      <td><b>0.915</b></td>
-      <td><b>0.846</b></td>
-      <td><b>0.779</b></td>
-      <td>0.900</td>
-      <td>0.873</td>
-      <td>0.802</td>
-      <td><b>0.733</b></td>
-      <td>0.706</td>
-      <td><b>0.618</b></td>
+      <td><b>0.943</b></td>
+      <td><b>0.916</b></td>
+      <td><b>0.851</b></td>
+      <td><b>0.783</b></td>
+      <td>0.901</td>
+      <td>0.874</td>
+      <td><b>0.804</b></td>
+      <td><b>0.737</b></td>
+      <td>0.704</td>
+      <td><b>0.616</b></td>
     </tr>
     <tr>
       <th>stanza</th>
@@ -1152,7 +1152,7 @@ See <a href="https://github.com/natasha/slovnet#morphology-1">Slovnet evaluation
       <td>0.716</td>
       <td><b>0.936</b></td>
       <td><b>0.895</b></td>
-      <td><b>0.802</b></td>
+      <td>0.802</td>
       <td>0.714</td>
       <td><b>0.713</b></td>
       <td>0.613</td>
@@ -1335,17 +1335,17 @@ See <a href="https://github.com/natasha/slovnet#evaluation">Slovnet evalualtion 
     </tr>
     <tr>
       <th>spacy</th>
-      <td>0.916</td>
-      <td>0.869</td>
-      <td>0.775</td>
-      <td>0.971</td>
-      <td>0.878</td>
+      <td>0.901</td>
+      <td>0.886</td>
+      <td>0.765</td>
       <td>0.970</td>
-      <td>0.933</td>
+      <td>0.883</td>
+      <td>0.967</td>
+      <td>0.928</td>
       <td>0.918</td>
-      <td>0.926</td>
-      <td>0.816</td>
-      <td>0.697</td>
+      <td>0.919</td>
+      <td>0.823</td>
+      <td>0.693</td>
     </tr>
     <tr>
       <th>stanza</th>
