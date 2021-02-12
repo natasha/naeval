@@ -2,6 +2,14 @@
 
 Naeval — comparing quality and performance of NLP systems for Russian language. Naeval is used to evaluate <a href="https://github.com/natasha">project Natasha</a> components: <a href="https://github.com/natasha/razdel">Razdel</a>, <a href="https://github.com/natasha/navec">Navec</a>, <a href="https://github.com/natasha/slovnet">Slovnet</a>.
 
+## Install
+
+Naeval supports Python 3.5+
+
+```bash
+$ pip install naeval
+```
+
 ## Documentation
 
 Materials are in Russian:
