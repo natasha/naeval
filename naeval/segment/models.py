@@ -141,7 +141,7 @@ def razdel_sentenize(text):
 TOKEN = re.compile(r'([^\W\d]+|\d+|[^\w\s])')
 
 
-@labeled('re.findall(\w+|\d+|\p+)')
+@labeled(r're.findall(\w+|\d+|\p+)')
 def re_tokenize(text):
     chunks = TOKEN.findall(text)
     return find_substrings(chunks, text)

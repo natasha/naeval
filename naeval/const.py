@@ -78,8 +78,8 @@ ORG = 'ORG'
 LOC = 'LOC'
 
 B = 'B'
-I = 'I'
-O = 'O'
+I = 'I'  # noqa E741
+O = 'O'  # noqa
 
 CPU = 'cpu'
 GPU = 'gpu'
