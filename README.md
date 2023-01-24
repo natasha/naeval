@@ -1,10 +1,12 @@
 <img src="https://github.com/natasha/natasha-logos/blob/master/naeval.svg">
 
+![CI](https://github.com/natasha/naeval/actions/workflows/test.yml/badge.svg)
+
 Naeval — comparing quality and performance of NLP systems for Russian language. Naeval is used to evaluate <a href="https://github.com/natasha">project Natasha</a> components: <a href="https://github.com/natasha/razdel">Razdel</a>, <a href="https://github.com/natasha/navec">Navec</a>, <a href="https://github.com/natasha/slovnet">Slovnet</a>.
 
 ## Install
 
-Naeval supports Python 3.5+
+Naeval supports Python 3.7+
 
 ```bash
 $ pip install naeval
@@ -1510,6 +1512,26 @@ See <a href="https://github.com/natasha/slovnet#evaluation">Slovnet evalualtion 
 
 ## Support
 
-- Chat — https://telegram.me/natural_language_processing
+- Chat — https://t.me/natural_language_processing
 - Issues — https://github.com/natasha/nerus/issues
 - Commercial support — https://lab.alexkuk.ru
+
+## Development
+
+Dev env
+
+```bash
+python -m venv ~/.venvs/natasha-naeval
+source ~/.venvs/natasha-naeval/bin/activate
+
+pip install -r requirements.txt
+pip install -e .
+
+python -m ipykernel install --user --name natasha-naeval
+```
+
+Lint
+
+```bash
+make lint
+```
