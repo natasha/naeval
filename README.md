@@ -1524,7 +1524,7 @@ Dev env
 python -m venv ~/.venvs/natasha-naeval
 source ~/.venvs/natasha-naeval/bin/activate
 
-pip install -r requirements.txt
+pip install -r requirements/dev.txt
 pip install -e .
 
 python -m ipykernel install --user --name natasha-naeval
